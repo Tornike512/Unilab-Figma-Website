@@ -1,8 +1,8 @@
-# Project Name
+# Unilab Figma Website
 
 ## Overview
 
-This project is a web application built using React, TypeScript, Axios, React Router, and React Context. It serves as a foundation for creating dynamic and responsive user interfaces.
+This project is a web application built using React, React Router, React Context, Sass and Figma. It serves as a foundation for creating dynamic and responsive user interfaces.
 
 ## Technologies Used
 
