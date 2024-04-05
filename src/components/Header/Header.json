@@ -1,0 +1,9 @@
+{
+  "navigation": [
+    { "title": "Home", "id": "1" },
+    { "title": "About us", "id": "2" },
+    { "title": "Blogs", "id": "3" },
+    { "title": "Our services", "id": "4" },
+    { "title": "Our offers", "id": "5" }
+  ]
+}
