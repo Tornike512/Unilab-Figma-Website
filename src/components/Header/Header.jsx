@@ -19,7 +19,7 @@ export function Header() {
             );
           })}
         </ul>
-        <img src={userLogo} alt="User Logo" />
+        <img className="user-logo" src={userLogo} alt="User Logo" />
       </nav>
     </header>
   );

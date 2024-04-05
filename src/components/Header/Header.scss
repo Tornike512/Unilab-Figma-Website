@@ -1,0 +1,48 @@
+@import "/src/sass/Colors.scss";
+@import "/src/sass/Mixins.scss";
+@import "/src/sass/Variables.scss";
+
+.header {
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 170px 20px 170px;
+  background-color: black;
+
+  .website-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: $secondary-text-color;
+    cursor: pointer;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .navigation-list {
+      display: flex;
+
+      .navigation-item {
+        margin-right: 40px;
+        list-style-type: none;
+        font-size: $font-size-20px;
+        color: $secondary-text-color;
+        cursor: pointer;
+      }
+
+      .navigation-item:hover {
+        color: $tertiary-text-color;
+        transition: color 0.2s ease;
+      }
+    }
+
+    .user-logo {
+      width: 23px;
+      cursor: pointer;
+    }
+  }
+}
