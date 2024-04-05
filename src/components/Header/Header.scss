@@ -29,7 +29,7 @@
       .navigation-item {
         margin-right: 40px;
         list-style-type: none;
-        font-size: $font-size-20px;
+        font-size: $font-size-25px;
         color: $secondary-text-color;
         cursor: pointer;
       }
@@ -40,8 +40,8 @@
       }
     }
 
-    .user-logo {
-      width: 23px;
+    .user-logo-white {
+      width: 32px;
       cursor: pointer;
     }
   }
