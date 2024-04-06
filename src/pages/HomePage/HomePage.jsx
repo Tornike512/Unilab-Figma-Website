@@ -1,9 +1,23 @@
+import homePageImage from "/src/assets/homepage.png";
+import airPlanePhoto from "/src/assets/airplane-image.png";
+import hotelPhoto from "/src/assets/hotel-image.png";
+import shipPhoto from "/src/assets/ship-image.png";
+import boatPhoto from "/src/assets/boat-image.png";
+import travelVideo from "/src/assets/travel-video.mp4";
+import barcelonaPhoto from "/src/assets/barcelona-image.png";
+import romePhoto from "/src/assets/rome-image.png";
+import parisPhoto from "/src/assets/paris-image.png";
+import luxorPhoto from "/src/assets/luxor-image.png";
+import tibetianPhoto from "/src/assets/tibetian-image.png";
+import volcanoPhoto from "/src/assets/volcano-image.png";
+import winterPhoto from "/src/assets/winter-image.png";
+
 import "./HomePage.scss";
 
 export function HomePage() {
   return (
     <section className="home-page">
-      <img src="" alt="Home Page Image" />
+      <img src={homePageImage} alt="Home Page Image" />
       <div className="home-page-main-text">
         <span>Visit Mountains In</span>
         <h1 className="home-page-country">ITALY</h1>
@@ -20,7 +34,7 @@ export function HomePage() {
         <details>see all</details>
         <div className="service-images-grid">
           <div className="service-item">
-            <img src="" alt="Airplane Photo" />
+            <img src={airPlanePhoto} alt="Airplane Photo" />
             <title>Book Flight</title>
             <p>
               book memorable journey with our flight booking services! we're
@@ -28,7 +42,7 @@ export function HomePage() {
             </p>
           </div>
           <div className="service-item">
-            <img src="" alt="Hotel Photo" />
+            <img src={hotelPhoto} alt="Hotel Photo" />
             <title>Book Hotels</title>
             <p>
               book memorable journey with our flight booking services! we're
@@ -36,7 +50,7 @@ export function HomePage() {
             </p>
           </div>
           <div className="service-item">
-            <img src="" alt="Ship Photo" />
+            <img src={shipPhoto} alt="Ship Photo" />
             <title>Book Cruises</title>
             <p>
               book memorable journey with our flight booking services! we're
@@ -44,7 +58,7 @@ export function HomePage() {
             </p>
           </div>
           <div className="service-item">
-            <img src="" alt="Boat Photo" />
+            <img src={boatPhoto} alt="Boat Photo" />
             <title>Book family Vacation</title>
             <p>
               book memorable journey with our flight booking services! we're
@@ -55,7 +69,7 @@ export function HomePage() {
       </article>
       <article className="video-section">
         <h2>Watch Our Memorable Trips</h2>
-        <video src=""></video>
+        <video src={travelVideo}></video>
       </article>
       <article className="tour-offer-slider">
         <h2>Popular Tour Offers</h2>
@@ -65,25 +79,25 @@ export function HomePage() {
         </span>
         <div className="slider-grid">
           <div className="slider-item">
-            <img src="" alt="City Image" />
+            <img src={barcelonaPhoto} alt="City Image" />
             <h4>Barcelona, Spain</h4>
             <span className="tour-info">2 adults, 7 days</span>
             <span className="tour-price">2400$</span>
           </div>
           <div className="slider-item">
-            <img src="" alt="City Image" />
+            <img src={romePhoto} alt="City Image" />
             <h4>Rome, Italy</h4>
             <span className="tour-info">2 adults, 3 days</span>
             <span className="tour-price">1800$</span>
           </div>
           <div className="slider-item">
-            <img src="" alt="City Image" />
+            <img src={parisPhoto} alt="City Image" />
             <h4>Paris, France</h4>
             <span className="tour-info">2 adults, 4 days</span>
             <span className="tour-price">2100$</span>
           </div>
           <div className="slider-item">
-            <img src="" alt="City Image" />
+            <img src={luxorPhoto} alt="City Image" />
             <h4>Luxor City, Egypt</h4>
             <span className="tour-info">2 adults, 3 days</span>
             <span className="tour-price">800$</span>
@@ -94,29 +108,29 @@ export function HomePage() {
         <h2>Blogs</h2>
         <div className="blog-grid">
           <div className="blog-item">
-            <img src="" alt="Blog Tour Image" />
+            <img src={tibetianPhoto} alt="Blog Tour Image" />
             <p>Interesting Tibetan Traditions</p>
           </div>
           <div className="blog-item">
-            <img src="" alt="Blog Tour Image" />
+            <img src={volcanoPhoto} alt="Blog Tour Image" />
             <p>Are There Volcanos In Hawaii?</p>
           </div>
           <div className="blog-item">
-            <img src="" alt="Blog Tour Image" />
+            <img src={winterPhoto} alt="Blog Tour Image" />
             <p>Winter in Iceland</p>
           </div>
         </div>
         <div className="blog-grid">
           <div className="blog-item">
-            <img src="" alt="Blog Tour Image" />
+            <img src={tibetianPhoto} alt="Blog Tour Image" />
             <p>Interesting Tibetan Traditions</p>
           </div>
           <div className="blog-item">
-            <img src="" alt="Blog Tour Image" />
+            <img src={volcanoPhoto} alt="Blog Tour Image" />
             <p>Are There Volcanos In Hawaii?</p>
           </div>
           <div className="blog-item">
-            <img src="" alt="Blog Tour Image" />
+            <img src={winterPhoto} alt="Blog Tour Image" />
             <p>Winter in Iceland</p>
           </div>
         </div>
