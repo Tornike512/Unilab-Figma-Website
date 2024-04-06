@@ -1,3 +1,61 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+
+.footer {
+  padding: 40px 170px 10px 170px;
+  background-color: #eae9e9;
+  color: #424244;
+
+  .footer-wrapper {
+    display: flex;
+
+    .socials {
+      width: 282px;
+      height: 297px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      h2 {
+        font-size: $font-size-48px;
+        line-height: 65px;
+      }
+
+      p {
+        font-size: $font-size-24px;
+        line-height: 28px;
+      }
+
+      span {
+        font-size: $font-size-32px;
+        line-height: 38px;
+      }
+
+      .socials-image {
+        img {
+          margin-right: 20px;
+        }
+
+        img:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .links {
+    }
+
+    .contact {
+      .email {
+      }
+      .phone-number {
+      }
+      .subscribe {
+      }
+    }
+  }
+
+  .copyright {
+  }
+}

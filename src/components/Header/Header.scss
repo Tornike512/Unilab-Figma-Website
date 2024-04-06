@@ -3,10 +3,10 @@
 @import "/src/sass/Variables.scss";
 
 .header {
-  height: 65px;
+  height: 105px;
   display: flex;
   justify-content: space-between;
-  padding: 20px 170px 20px 170px;
+  padding: 20px 100px;
   background-color: black;
 
   .website-name {
@@ -41,7 +41,7 @@
     }
 
     .user-logo-white {
-      width: 27px;
+      width: 26px;
       cursor: pointer;
     }
   }
