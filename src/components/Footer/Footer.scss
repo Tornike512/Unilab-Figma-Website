@@ -9,6 +9,7 @@
 
   .footer-wrapper {
     display: flex;
+    justify-content: space-between;
 
     .socials {
       width: 282px;
@@ -19,17 +20,14 @@
 
       h2 {
         font-size: $font-size-48px;
-        line-height: 65px;
       }
 
       p {
         font-size: $font-size-24px;
-        line-height: 28px;
       }
 
       span {
         font-size: $font-size-32px;
-        line-height: 38px;
       }
 
       .socials-image {
@@ -53,12 +51,10 @@
 
       span {
         font-size: $font-size-32px;
-        line-height: 38px;
       }
 
       a {
         font-size: $font-size-28px;
-        line-height: 28px;
         text-decoration: none;
         color: $primary-text-color;
         cursor: pointer;
@@ -66,19 +62,53 @@
 
       a:hover {
         color: $tertiary-text-color;
+        transition: $primary-transition;
       }
     }
 
     .contact {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      h3 {
+        font-size: $font-size-32px;
+      }
       .email {
+        font-size: $font-size-24px;
       }
       .phone-number {
+        font-size: $font-size-24px;
       }
       .subscribe {
+        font-size: $font-size-32px;
+      }
+
+      form {
+        position: relative;
+        input {
+          padding: 13px 29px;
+          background-color: transparent;
+          border: 1px solid #424244;
+          border-radius: $border-radius-10px;
+        }
+
+        img {
+          width: 27px;
+          height: 27px;
+          position: absolute;
+          top: 7px;
+          right: 38px;
+          cursor: pointer;
+        }
       }
     }
   }
 
   .copyright {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: $font-size-24px;
   }
 }

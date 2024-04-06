@@ -3,6 +3,7 @@ import "./Footer.scss";
 import instagramLogo from "/src/assets/instagram-logo.png";
 import facebookLogo from "/src/assets/facebook-logo.png";
 import linkedinLogo from "/src/assets/linkedin-logo.png";
+import paperPlaneIcon from "/src/assets/paper-plane-icon.png";
 
 export function Footer() {
   return (
@@ -34,8 +35,8 @@ export function Footer() {
           <form action="">
             <input type="email" placeholder="Email" />
             <img
-              src=""
-              alt="Send Arrow Logo
+              src={paperPlaneIcon}
+              alt="Paper Plane Icon
           "
             />
           </form>

@@ -36,7 +36,7 @@
 
       .navigation-item:hover {
         color: $tertiary-text-color;
-        transition: color 0.2s ease;
+        transition: $primary-transition;
       }
     }
 
