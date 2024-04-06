@@ -17,7 +17,9 @@ import "./HomePage.scss";
 export function HomePage() {
   return (
     <section className="home-page">
-      <img src={homePageImage} alt="Home Page Image" />
+      <div className="home-page-main-image">
+        <img src={homePageImage} alt="Home Page Image" />
+      </div>
       <div className="home-page-main-text">
         <span>Visit Mountains In</span>
         <h1 className="home-page-country">ITALY</h1>

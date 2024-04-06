@@ -1,3 +1,51 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $primary-text-color;
+
+  .home-page-main-image {
+    height: 885px;
+
+    img {
+      max-width: 1924px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -66%);
+      z-index: -1;
+    }
+  }
+
+  .home-page-main-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -66%);
+    color: $secondary-text-color;
+    text-align: center;
+
+    span {
+      font-size: 40px;
+    }
+
+    .home-page-country {
+      margin: 10px 0;
+      font-size: 64px;
+      letter-spacing: 10px;
+    }
+
+    .see-offer-button {
+      @include primary-button-mixin;
+    }
+
+    .see-offer-button:hover {
+      background-color: $primary-button-hover-color;
+    }
+  }
+}

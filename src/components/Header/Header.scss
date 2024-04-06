@@ -3,46 +3,53 @@
 @import "/src/sass/Variables.scss";
 
 .header {
-  height: 105px;
+  max-width: 1924px;
   display: flex;
-  justify-content: space-between;
-  padding: 20px 100px;
-  background-color: black;
+  justify-content: center;
+  margin: 0 auto;
 
-  .website-name {
+  .header-wrapper {
+    width: 1924px;
+    height: 105px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    color: $secondary-text-color;
-    cursor: pointer;
-  }
+    justify-content: space-between;
+    padding: 20px 100px;
 
-  .navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .navigation-list {
+    .website-name {
       display: flex;
-
-      .navigation-item {
-        margin-right: 40px;
-        list-style-type: none;
-        font-size: $font-size-25px;
-        color: $secondary-text-color;
-        cursor: pointer;
-      }
-
-      .navigation-item:hover {
-        color: $tertiary-text-color;
-        transition: $primary-transition;
-      }
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: $secondary-text-color;
+      cursor: pointer;
     }
 
-    .user-logo-white {
-      width: 26px;
-      cursor: pointer;
+    .navigation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .navigation-list {
+        display: flex;
+
+        .navigation-item {
+          margin-right: 40px;
+          list-style-type: none;
+          font-size: $font-size-25px;
+          color: $secondary-text-color;
+          cursor: pointer;
+        }
+
+        .navigation-item:hover {
+          color: $tertiary-text-color;
+          transition: $primary-transition;
+        }
+      }
+
+      .user-logo-white {
+        width: 26px;
+        cursor: pointer;
+      }
     }
   }
 }

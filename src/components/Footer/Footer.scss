@@ -3,6 +3,8 @@
 @import "/src/sass/Variables.scss";
 
 .footer {
+  max-width: 1924px;
+  margin: 0 auto;
   padding: 40px 170px 10px 170px;
   background-color: #eae9e9;
   color: #424244;
@@ -86,6 +88,7 @@
 
       form {
         position: relative;
+
         input {
           padding: 13px 29px;
           background-color: transparent;
