@@ -3,9 +3,11 @@ import { Header } from "../components/Header";
 
 export function PublicLayout() {
   return (
-    <div>
+    <>
       <Header />
-      <Outlet />
-    </div>
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 }
