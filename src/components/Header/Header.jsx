@@ -11,7 +11,6 @@ export function Header() {
       <nav className="navigation">
         <ul className="navigation-list">
           {headerNavigation.navigation.map((nav) => {
-            console.log(nav);
             return (
               <li className="navigation-item" key={nav.id}>
                 {nav.title}

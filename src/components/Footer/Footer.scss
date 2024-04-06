@@ -34,7 +34,10 @@
 
       .socials-image {
         img {
+          width: 50px;
+          height: 50px;
           margin-right: 20px;
+          cursor: pointer;
         }
 
         img:last-child {
@@ -44,6 +47,26 @@
     }
 
     .links {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      span {
+        font-size: $font-size-32px;
+        line-height: 38px;
+      }
+
+      a {
+        font-size: $font-size-28px;
+        line-height: 28px;
+        text-decoration: none;
+        color: $primary-text-color;
+        cursor: pointer;
+      }
+
+      a:hover {
+        color: $tertiary-text-color;
+      }
     }
 
     .contact {
