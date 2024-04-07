@@ -1,3 +1,128 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+
+.register {
+  display: flex;
+  justify-content: center;
+  padding: 31px 0;
+
+  .register-container {
+    width: 540px;
+    padding: 50px 70px;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: $border-radius-10px;
+
+    .first-name-input,
+    .last-name-input,
+    .email-input,
+    .password-input,
+    .confirm-password-input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      label {
+        padding: 0 20px 10px;
+        font-size: $font-size-16px;
+        color: #424244;
+        opacity: 0.7;
+      }
+
+      input {
+        padding: 10px 10px 10px 20px;
+        border: 1px solid #ff6700;
+        border-radius: $border-radius-10px;
+        font-size: $font-size-20px;
+      }
+    }
+
+    .upload-image {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: #e6ebff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .upload-image:hover {
+      background-color: #d4d8eb;
+    }
+    .register-button {
+      @include primary-button-mixin;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: $border-radius-10px;
+      font-size: $font-size-20px;
+    }
+
+    .continue-with-text {
+      width: 170px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #424244;
+      background: white;
+      z-index: 2;
+      position: relative;
+      left: 29%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .upper-divider {
+      width: 400px;
+      height: 1px;
+      position: absolute;
+      bottom: 219px;
+      left: 68px;
+      opacity: 0.7;
+      z-index: 0;
+      background-color: #424244;
+    }
+
+    .register-socials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      column-gap: 40px;
+      margin-bottom: 20px;
+
+      .register-socials-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #424244;
+        cursor: pointer;
+      }
+    }
+
+    .terms-of-service {
+      width: 100%;
+      padding-top: 20px;
+      border-top: 1px solid #424244;
+      text-align: center;
+      font-size: $font-size-16px;
+      color: #424244;
+      opacity: 0.7;
+
+      a {
+        color: $tertiary-text-color;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

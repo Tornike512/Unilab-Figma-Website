@@ -1,3 +1,9 @@
+import cameraLogo from "/src/assets/camera-logo.png";
+import coloredFacebook from "/src/assets/colored-facebook.png";
+import coloredApple from "/src/assets/colored-apple.png";
+import coloredGmail from "/src/assets/colored-gmail.png";
+import coloredGoogle from "/src/assets/colored-google.png";
+
 import "./RegisterPage.scss";
 
 export function RegisterPage() {
@@ -26,30 +32,30 @@ export function RegisterPage() {
             <input type="password" placeholder="Re-enter your password" />
           </div>
           <button className="upload-image">
-            <img src="" alt="Camera Image" />
+            <img src={cameraLogo} alt="Camera Image" />
           </button>
           <button className="register-button">Continue</button>
         </form>
         <span className="continue-with-text">Or continue with</span>
+        <div className="upper-divider"></div>
         <div className="register-socials-grid">
           <div className="register-socials-item">
-            <img src="" alt="Colored Facebook Logo" />
+            <img src={coloredFacebook} alt="Colored Facebook Logo" />
           </div>
           <div className="register-socials-item">
-            <img src="" alt="Colored Apple Logo" />
+            <img src={coloredApple} alt="Colored Apple Logo" />
           </div>
           <div className="register-socials-item">
-            <img src="" alt="Colored Google Logo" />
+            <img src={coloredGoogle} alt="Colored Google Logo" />
           </div>
           <div className="register-socials-item">
-            <img src="" alt="Colored Gmail Logo" />
+            <img src={coloredGmail} alt="Colored Gmail Logo" />
           </div>
-          <p className="terms-of-service">
-            By signing in or creating an account, you agree with our <br />
-            <a href="#">Terms & conditions</a> and
-            <a href="#">Privacy policy</a>
-          </p>
         </div>
+        <p className="terms-of-service">
+          By signing in or creating an account, you agree with our <br />
+          <a href="#">Terms & conditions</a> and <a href="#">Privacy policy</a>
+        </p>
       </div>
     </section>
   );
