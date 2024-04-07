@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import homePageImage from "/src/assets/homepage.png";
 import airPlanePhoto from "/src/assets/airplane-image.png";
 import hotelPhoto from "/src/assets/hotel-image.png";
@@ -11,10 +13,14 @@ import luxorPhoto from "/src/assets/luxor-image.png";
 import tibetianPhoto from "/src/assets/tibetian-image.png";
 import volcanoPhoto from "/src/assets/volcano-image.png";
 import winterPhoto from "/src/assets/winter-image.png";
+import startVideoButton from "/src/assets/start-video-button.png";
 
 import "./HomePage.scss";
 
 export function HomePage() {
+  const [startVideo, setStartVideo] = useState(false);
+  console.log(startVideo);
+
   return (
     <section className="home-page">
       <div className="home-page-main-image">
@@ -71,9 +77,30 @@ export function HomePage() {
           </div>
         </div>
       </article>
-      <article className="video-section">
+      <article className="travel-video">
         <h2>Watch Our Memorable Trips</h2>
-        <video src={travelVideo}></video>
+        <div className="video-settings">
+          <video
+            onClick={() => {
+              if (startVideo) {
+                setStartVideo(false);
+              } else {
+                setStartVideo(true);
+              }
+            }}
+            controls
+            src={travelVideo}
+          >
+            <source src={travelVideo} />
+          </video>
+          {startVideo && (
+            <img
+              className="start-video-button"
+              src={startVideoButton}
+              alt="Start Video Button"
+            />
+          )}
+        </div>
       </article>
       <article className="tour-offer-slider">
         <h2>Popular Tour Offers</h2>

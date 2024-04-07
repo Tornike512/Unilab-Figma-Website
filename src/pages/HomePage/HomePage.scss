@@ -106,4 +106,29 @@
       }
     }
   }
+
+  .travel-video {
+    max-width: 1580px;
+
+    h2 {
+      margin-bottom: 40px;
+      font-size: $font-size-40px;
+    }
+
+    .video-settings {
+      position: relative;
+
+      video {
+        width: 1580px;
+        border-radius: $border-radius-20px;
+      }
+
+      .start-video-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }
