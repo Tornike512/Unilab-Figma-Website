@@ -14,12 +14,21 @@ import tibetianPhoto from "/src/assets/tibetian-image.png";
 import volcanoPhoto from "/src/assets/volcano-image.png";
 import winterPhoto from "/src/assets/winter-image.png";
 import startVideoButton from "/src/assets/start-video-button.png";
+import sliderLeftButton from "/src/assets/slider-left-button.png";
+import sliderRightButton from "/src/assets/slider-right-button.png";
 
 import "./HomePage.scss";
 
 export function HomePage() {
   const [startVideo, setStartVideo] = useState(false);
-  console.log(startVideo);
+
+  const handleVideoStart = () => {
+    if (startVideo) {
+      setStartVideo(false);
+    } else {
+      setStartVideo(true);
+    }
+  };
 
   return (
     <section className="home-page">
@@ -80,20 +89,10 @@ export function HomePage() {
       <article className="travel-video">
         <h2>Watch Our Memorable Trips</h2>
         <div className="video-settings">
-          <video
-            onClick={() => {
-              if (startVideo) {
-                setStartVideo(false);
-              } else {
-                setStartVideo(true);
-              }
-            }}
-            controls
-            src={travelVideo}
-          >
+          <video onClick={handleVideoStart} controls src={travelVideo}>
             <source src={travelVideo} />
           </video>
-          {startVideo && (
+          {!startVideo && (
             <img
               className="start-video-button"
               src={startVideoButton}
@@ -105,32 +104,36 @@ export function HomePage() {
       <article className="tour-offer-slider">
         <h2>Popular Tour Offers</h2>
         <span className="slider-buttons">
-          <button className="slide-left-button"></button>
-          <button className="slide-right-button"></button>
+          <button className="slide-left-button">
+            <img src={sliderLeftButton} alt="Slider Left Button" />
+          </button>
+          <button className="slide-right-button">
+            <img src={sliderRightButton} alt="Slide Right Button" />
+          </button>
         </span>
         <div className="slider-grid">
           <div className="slider-item">
             <img src={barcelonaPhoto} alt="City Image" />
             <h4>Barcelona, Spain</h4>
-            <span className="tour-info">2 adults, 7 days</span>
+            <p className="tour-info">2 adults, 7 days</p>
             <span className="tour-price">2400$</span>
           </div>
           <div className="slider-item">
             <img src={romePhoto} alt="City Image" />
             <h4>Rome, Italy</h4>
-            <span className="tour-info">2 adults, 3 days</span>
+            <p className="tour-info">2 adults, 3 days</p>
             <span className="tour-price">1800$</span>
           </div>
           <div className="slider-item">
             <img src={parisPhoto} alt="City Image" />
             <h4>Paris, France</h4>
-            <span className="tour-info">2 adults, 4 days</span>
+            <p className="tour-info">2 adults, 4 days</p>
             <span className="tour-price">2100$</span>
           </div>
           <div className="slider-item">
             <img src={luxorPhoto} alt="City Image" />
             <h4>Luxor City, Egypt</h4>
-            <span className="tour-info">2 adults, 3 days</span>
+            <p className="tour-info">2 adults, 3 days</p>
             <span className="tour-price">800$</span>
           </div>
         </div>
