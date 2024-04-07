@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route element={<PublicLayout />}>
-            <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<PublicLayout />}>
+            <Route path="/:id" element={<HomePage />} />
             <Route path="/signin" element={<SignInPage />} />
           </Route>
         </Routes>
