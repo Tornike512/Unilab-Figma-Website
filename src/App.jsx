@@ -14,6 +14,7 @@ function App() {
           <Route path="/" element={<PublicLayout />}>
             <Route path="/:id" element={<HomePage />} />
             <Route path="/signin" element={<SignInPage />} />
+            <Route path="/register" element={<RegisterPage />} />
           </Route>
         </Routes>
       </Suspense>

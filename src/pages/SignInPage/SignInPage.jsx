@@ -9,15 +9,17 @@ export function SignInPage() {
   return (
     <section className="sign-in-page">
       <div className="sign-in-container">
-        <div className="email-input">
-          <label>Email</label>
-          <input type="email" placeholder="Enter your email address" />
-        </div>
-        <div className="password-input">
-          <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
-        </div>
-        <button className="sign-in-button">Countinue</button>
+        <form>
+          <div className="email-input">
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email address" />
+          </div>
+          <div className="password-input">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" />
+          </div>
+          <button className="sign-in-button">Countinue</button>
+        </form>
         <div className="divider-text">Or continue with</div>
         <div className="upper-divider"></div>
         <div className="sign-in-socials-grid">
