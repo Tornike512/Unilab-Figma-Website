@@ -10,13 +10,12 @@
   color: $primary-text-color;
 
   .home-page-main-image {
-    height: 885px;
+    height: 800px;
 
     img {
       max-width: 1924px;
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 6%;
       transform: translate(-50%, -66%);
       z-index: -1;
     }
@@ -46,6 +45,62 @@
 
     .see-offer-button:hover {
       background-color: $primary-button-hover-color;
+    }
+  }
+
+  .services {
+    max-width: 1580px;
+    margin-bottom: 92px;
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: $font-size-40px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      font-size: $font-size-20px;
+    }
+
+    .see-all-services {
+      margin-bottom: 10px;
+      font-size: $font-size-20px;
+      color: $tertiary-text-color;
+      cursor: pointer;
+
+      span {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      span:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .service-images-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      .service-item {
+        height: 370px;
+
+        img {
+          width: 380px;
+          height: 248px;
+          margin-bottom: 10px;
+          border-radius: $border-radius-20px;
+        }
+
+        h3 {
+          margin-bottom: 10px;
+          font-size: $font-size-32px;
+        }
+
+        p {
+          font-size: $font-size-18px;
+        }
+      }
     }
   }
 }

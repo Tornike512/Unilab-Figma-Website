@@ -6,7 +6,7 @@ export function PublicLayout() {
   return (
     <>
       <Header />
-      <main>
+      <main style={{ position: "relative" }}>
         <Outlet />
       </main>
       <Footer />

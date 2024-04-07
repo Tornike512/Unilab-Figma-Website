@@ -33,11 +33,13 @@ export function HomePage() {
           destination selection, flight and accommodation bookings, and
           customized itineraries to individual preferences.
         </p>
-        <details>see all</details>
+        <span className="see-all-services">
+          <span>see all</span>
+        </span>
         <div className="service-images-grid">
           <div className="service-item">
             <img src={airPlanePhoto} alt="Airplane Photo" />
-            <title>Book Flight</title>
+            <h3>Book Flight</h3>
             <p>
               book memorable journey with our flight booking services! we're
               thrilled to present you flight options to suit your travel needs.
@@ -45,7 +47,7 @@ export function HomePage() {
           </div>
           <div className="service-item">
             <img src={hotelPhoto} alt="Hotel Photo" />
-            <title>Book Hotels</title>
+            <h3>Book Hotels</h3>
             <p>
               book memorable journey with our flight booking services! we're
               thrilled to present you flight options to suit your travel needs.
@@ -53,7 +55,7 @@ export function HomePage() {
           </div>
           <div className="service-item">
             <img src={shipPhoto} alt="Ship Photo" />
-            <title>Book Cruises</title>
+            <h3>Book Cruises</h3>
             <p>
               book memorable journey with our flight booking services! we're
               thrilled to present you flight options to suit your travel needs.
@@ -61,7 +63,7 @@ export function HomePage() {
           </div>
           <div className="service-item">
             <img src={boatPhoto} alt="Boat Photo" />
-            <title>Book family Vacation</title>
+            <h3>Book family Vacation</h3>
             <p>
               book memorable journey with our flight booking services! we're
               thrilled to present you flight options to suit your travel needs.
