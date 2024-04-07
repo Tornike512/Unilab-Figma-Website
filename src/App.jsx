@@ -4,6 +4,7 @@ import { PublicLayout } from "./layouts/PublicLayout";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const SignInPage = lazy(() => import("./pages/SignInPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
 
 function App() {
   return (
