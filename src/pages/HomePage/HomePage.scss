@@ -241,4 +241,50 @@
       }
     }
   }
+
+  .book-a-trip {
+    width: 1920px;
+    max-width: 1920px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+    background-color: #e0e0e0;
+
+    .book-a-trip-wrapper {
+      width: 1520px;
+      margin-bottom: 40px;
+
+      h2 {
+        margin: 50px 0 40px;
+        font-size: $font-size-40px;
+      }
+
+      .select-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 80px;
+        row-gap: 40px;
+        margin-bottom: 40px;
+
+        select {
+          padding: 30px 50px;
+          font-size: $font-size-28px;
+          border-radius: $border-radius-20px;
+          border: none;
+        }
+      }
+
+      .book-now-button {
+        @include primary-button-mixin;
+        width: 100%;
+        font-size: $font-size-32px;
+      }
+
+      .book-now-button:hover {
+        background-color: $primary-button-hover-color;
+      }
+    }
+  }
 }

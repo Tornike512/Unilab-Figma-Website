@@ -170,22 +170,24 @@ export function HomePage() {
         </div>
       </article>
       <article className="book-a-trip">
-        <h2>Ready To Book A Trip?</h2>
-        <div className="select-grid">
-          <select name="location">
-            <option value=""></option>
-          </select>
-          <select name="tour-offer">
-            <option value=""></option>
-          </select>
-          <select name="choose-date">
-            <option value=""></option>
-          </select>
-          <select name="persons">
-            <option value=""></option>
-          </select>
+        <div className="book-a-trip-wrapper">
+          <h2>Ready To Book A Trip?</h2>
+          <div className="select-grid">
+            <select name="location">
+              <option value="">Your starting location</option>
+            </select>
+            <select name="tour-offer">
+              <option value="">Choose a tour offer</option>
+            </select>
+            <select name="choose-date">
+              <option value="">Choose date</option>
+            </select>
+            <select name="persons">
+              <option value="">Persons</option>
+            </select>
+          </div>
+          <button className="book-now-button">Book Now</button>
         </div>
-        <button className="book-now-button">Book Now</button>
       </article>
     </section>
   );
