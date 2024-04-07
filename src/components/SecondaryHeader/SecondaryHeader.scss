@@ -1,0 +1,26 @@
+@import "/src/sass/Colors.scss";
+@import "/src/sass/Mixins.scss";
+@import "/src/sass/Variables.scss";
+
+.secondary-header {
+  width: 100%;
+  background-color: #eae9e9;
+
+  .secondary-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 170px;
+
+    h1 {
+      font-size: $font-size-48px;
+      cursor: pointer;
+    }
+
+    img {
+      width: 30px;
+      height: 40px;
+      cursor: pointer;
+    }
+  }
+}
