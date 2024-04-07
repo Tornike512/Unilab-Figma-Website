@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 import { PublicLayout } from "./layouts/PublicLayout";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
-const AuthorizationPage = lazy(() => import("./pages/AuthorizationPage"));
+const SignInPage = lazy(() => import("./pages/SignInPage"));
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route element={<PublicLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/authorization" element={<AuthorizationPage />} />
+            <Route path="/signin" element={<SignInPage />} />
           </Route>
         </Routes>
       </Suspense>
