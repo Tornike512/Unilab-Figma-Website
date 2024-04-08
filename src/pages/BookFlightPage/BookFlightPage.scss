@@ -158,5 +158,33 @@
     .search-button:hover {
       background-color: $primary-button-hover-color;
     }
+
+    .flights {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      column-gap: 20px;
+
+      .filter-flights {
+        .filter-by-rating {
+          padding: 20px 30px;
+          background-color: #ffffff;
+          border-radius: $border-radius-20px;
+          font-size: $font-size-28px;
+          margin-bottom: 40px;
+
+          li {
+            width: 120px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff6700;
+          }
+
+          li:last-child {
+            padding-bottom: 0;
+            border-bottom: none;
+          }
+        }
+      }
+    }
   }
 }
