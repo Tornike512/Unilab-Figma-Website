@@ -3,8 +3,182 @@
     {
       "id": "1",
       "landing": 0,
-      "price": 500,
-      "duration": "8 hours"
+      "price": 1050,
+      "duration": 20
+    },
+    {
+      "id": "2",
+      "landing": 1,
+      "price": 2800,
+      "duration": 18
+    },
+    {
+      "id": "3",
+      "landing": 2,
+      "price": 1800,
+      "duration": 12
+    },
+    {
+      "id": "4",
+      "landing": 1,
+      "price": 950,
+      "duration": 14
+    },
+    {
+      "id": "5",
+      "landing": 0,
+      "price": 3000,
+      "duration": 28
+    },
+    {
+      "id": "6",
+      "landing": 2,
+      "price": 1700,
+      "duration": 9
+    },
+    {
+      "id": "7",
+      "landing": 1,
+      "price": 1500,
+      "duration": 25
+    },
+    {
+      "id": "8",
+      "landing": 0,
+      "price": 2000,
+      "duration": 11
+    },
+    {
+      "id": "9",
+      "landing": 2,
+      "price": 2200,
+      "duration": 16
+    },
+    {
+      "id": "10",
+      "landing": 1,
+      "price": 850,
+      "duration": 30
+    },
+    {
+      "id": "11",
+      "landing": 0,
+      "price": 1300,
+      "duration": 22
+    },
+    {
+      "id": "12",
+      "landing": 2,
+      "price": 2700,
+      "duration": 13
+    },
+    {
+      "id": "13",
+      "landing": 1,
+      "price": 2000,
+      "duration": 17
+    },
+    {
+      "id": "14",
+      "landing": 0,
+      "price": 750,
+      "duration": 10
+    },
+    {
+      "id": "15",
+      "landing": 2,
+      "price": 2400,
+      "duration": 19
+    },
+    {
+      "id": "16",
+      "landing": 1,
+      "price": 1600,
+      "duration": 8
+    },
+    {
+      "id": "17",
+      "landing": 0,
+      "price": 1100,
+      "duration": 26
+    },
+    {
+      "id": "18",
+      "landing": 2,
+      "price": 2900,
+      "duration": 15
+    },
+    {
+      "id": "19",
+      "landing": 1,
+      "price": 700,
+      "duration": 23
+    },
+    {
+      "id": "20",
+      "landing": 0,
+      "price": 1750,
+      "duration": 21
+    },
+    {
+      "id": "21",
+      "landing": 2,
+      "price": 2600,
+      "duration": 27
+    },
+    {
+      "id": "22",
+      "landing": 1,
+      "price": 1200,
+      "duration": 29
+    },
+    {
+      "id": "23",
+      "landing": 0,
+      "price": 1000,
+      "duration": 24
+    },
+    {
+      "id": "24",
+      "landing": 2,
+      "price": 1800,
+      "duration": 7
+    },
+    {
+      "id": "25",
+      "landing": 1,
+      "price": 1300,
+      "duration": 16
+    },
+    {
+      "id": "26",
+      "landing": 0,
+      "price": 2200,
+      "duration": 13
+    },
+    {
+      "id": "27",
+      "landing": 2,
+      "price": 3000,
+      "duration": 18
+    },
+    {
+      "id": "28",
+      "landing": 1,
+      "price": 1950,
+      "duration": 20
+    },
+    {
+      "id": "29",
+      "landing": 0,
+      "price": 900,
+      "duration": 12
+    },
+    {
+      "id": "30",
+      "landing": 2,
+      "price": 2400,
+      "duration": 15
     }
   ]
 }
