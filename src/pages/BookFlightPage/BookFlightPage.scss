@@ -405,6 +405,18 @@
             }
           }
         }
+
+        .more-results-button {
+          @include primary-button-mixin;
+          width: 100%;
+          padding: 22px 50px;
+          font-size: $font-size-32px;
+          font-weight: bold;
+        }
+
+        .more-results-button:hover {
+          background-color: $primary-button-hover-color;
+        }
       }
     }
   }

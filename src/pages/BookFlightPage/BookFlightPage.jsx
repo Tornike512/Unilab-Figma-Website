@@ -8,6 +8,7 @@ import caseIcon from "/src/assets/case-icon.png";
 import georgianAirlinesLogo from "/src/assets/georgian-airlines-logo.png";
 import oneLanding from "/src/assets/one-landing.png";
 import twoLanding from "/src/assets/two-landing.png";
+import noLanding from "/src/assets/no-landing.png";
 
 import "./BookFlightPage.scss";
 
@@ -188,6 +189,7 @@ export function BookFlightPage() {
                 <button className="view-deal-button">View Deal</button>
               </div>
             </div>
+            <button className="more-results-button">Show more results</button>
           </div>
         </div>
       </div>
