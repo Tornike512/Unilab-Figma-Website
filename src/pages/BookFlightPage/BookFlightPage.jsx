@@ -1,7 +1,13 @@
 import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
 import closeIcon from "/src/assets/close-icon.png";
-import calendarIcon from "/src/assets/calendar-icon.png";
+import dropUp from "/src/assets/drop-up-icon.png";
+import bagIcon from "/src/assets/bag-icon.png";
+import cardIcon from "/src/assets/card-icon.png";
+import caseIcon from "/src/assets/case-icon.png";
+import georgianAirlinesLogo from "/src/assets/georgian-airlines-logo.png";
+import oneLanding from "/src/assets/one-landing.png";
+import twoLanding from "/src/assets/two-landing.png";
 
 import "./BookFlightPage.scss";
 
@@ -70,7 +76,7 @@ export function BookFlightPage() {
             <div className="detailed-filter">
               <ul className="stops-filter">
                 <li>Stops</li>
-                <img src="" alt="Dropup ICON" />
+                <img src={dropUp} alt="Dropup ICON" />
               </ul>
               <ul className="direct">
                 <input type="checkbox" />
@@ -86,7 +92,7 @@ export function BookFlightPage() {
               </ul>
               <ul className="filter-by-times">
                 <li>Times</li>
-                <img src="" alt="Dropup icon" />
+                <img src={dropUp} alt="Dropup icon" />
               </ul>
               <ul className="take-off-start">
                 <li>Take off - Tbilisi</li>
@@ -106,16 +112,16 @@ export function BookFlightPage() {
               </ul>
               <ul className="airlines">
                 <li>Airlines</li>
-                <img src="" alt="dropdown Icon" />
+                <img src={dropDownIcon} alt="dropdown Icon" />
               </ul>
               <ul className="airports">
                 <li>Airports</li>
-                <img src="" alt="dropdown Icon" />
+                <img src={dropDownIcon} alt="dropdown Icon" />
               </ul>
               <div className="duration">
                 <ul className="duration-dropup">
                   <li>Duration</li>
-                  <img src="" alt="dropup Icon" />
+                  <img src={dropUp} alt="dropup Icon" />
                 </ul>
                 <ul className="duration-range">
                   <li>7 Hours</li>
@@ -126,7 +132,7 @@ export function BookFlightPage() {
               <div className="price">
                 <ul className="duration-dropup">
                   <li>Price</li>
-                  <img src="" alt="dropup Icon" />
+                  <img src={dropUp} alt="dropup Icon" />
                 </ul>
                 <ul className="duration-range">
                   <li>700$</li>
@@ -135,18 +141,22 @@ export function BookFlightPage() {
                 <input type="range" />
               </div>
               <div className="price-calculator">
+                <ul className="price-calculator-wrapper">
+                  <li>Price calculator</li>
+                  <img src={dropUp} alt="Dropup Icon" />
+                </ul>
                 <ul className="payment-method">
-                  <img src="" alt="Card Logo" />
+                  <img src={cardIcon} alt="Card Logo" />
                   <li>Payment method</li>
                 </ul>
                 <input type="text" placeholder="Choose payment method" />
                 <ul className="select-bags">
-                  <img src="" alt="Bag Icon" />
+                  <img src={bagIcon} alt="Bag Icon" />
                   <li>Carry-on bag</li>
                 </ul>
                 <input type="text" placeholder="Select bags (0)" />
                 <ul className="checked-bag">
-                  <img src="" alt="Case Icon" />
+                  <img src={caseIcon} alt="Case Icon" />
                   <li>Checked bag</li>
                 </ul>
                 <input type="text" placeholder="Select bags (0)" />
@@ -156,7 +166,7 @@ export function BookFlightPage() {
           <div className="flight-container">
             <div className="flight-details">
               <ul className="airlines-company">
-                <img src="" alt="Airlines Company Logo" />
+                <img src={georgianAirlinesLogo} alt="Airlines Company Logo" />
                 <li>Georgian Airlines</li>
               </ul>
               <div className="flight-take-off">
@@ -168,9 +178,8 @@ export function BookFlightPage() {
                   <li>12:00</li>
                   <li>19:00</li>
                 </ul>
-                <img src="" alt="Landing Image" />
+                <img src={oneLanding} alt="Landing Image" />
               </div>
-              <p>7 Hours</p>
               <div className="flight-deal">
                 <ul className="flight-price">
                   <li>Price</li>

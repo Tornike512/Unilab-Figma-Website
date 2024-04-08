@@ -184,6 +184,227 @@
             border-bottom: none;
           }
         }
+        .detailed-filter {
+          padding: 20px 30px;
+          background-color: #ffffff;
+          border-radius: $border-radius-20px;
+          font-size: #424244;
+
+          .stops-filter,
+          .filter-by-times {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 22px;
+            font-size: $font-size-28px;
+            cursor: pointer;
+          }
+
+          .direct,
+          .one-stop,
+          .two-stops {
+            display: flex;
+            margin-bottom: 20px;
+            font-size: $font-size-24px;
+
+            input {
+              width: 30px;
+              margin-right: 20px;
+              border-radius: 5px;
+            }
+          }
+
+          .two-stops {
+            margin-bottom: 40px;
+          }
+
+          .take-off-start,
+          .take-off-finish,
+          .duration,
+          .price {
+            .duration-dropup {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 20px;
+              cursor: pointer;
+            }
+
+            .duration-range {
+              display: flex;
+              justify-content: space-between;
+              margin-bottom: 10px;
+              font-size: $font-size-20px;
+              color: #424244;
+              opacity: 0.6;
+            }
+
+            li {
+              margin-bottom: 10px;
+              font-size: $font-size-24px;
+            }
+
+            .take-off-time {
+              display: flex;
+              justify-content: space-between;
+
+              li {
+                margin-bottom: 10px;
+                font-size: $font-size-20px;
+                color: #424244;
+                opacity: 0.6;
+              }
+            }
+
+            input[type="range"] {
+              width: 100%;
+              height: 3px;
+              margin-bottom: 40px;
+              background: #ff6700;
+              appearance: none;
+            }
+
+            input[type="range"]::-webkit-slider-thumb {
+              width: 30px;
+              height: 30px;
+              background-color: #ffffff;
+              border-radius: 50%;
+              border: 1px solid #ff6700;
+              -webkit-appearance: none;
+            }
+          }
+
+          .airlines,
+          .airports {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            font-size: $font-size-28px;
+            cursor: pointer;
+
+            img {
+              width: 27px;
+              height: 15px;
+            }
+          }
+
+          .price-calculator {
+            .price-calculator-wrapper {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 22px;
+              font-size: $font-size-28px;
+              cursor: pointer;
+            }
+
+            .payment-method,
+            .select-bags,
+            .checked-bag {
+              display: flex;
+              font-size: $font-size-20px;
+              margin-bottom: 10px;
+
+              img {
+                margin-right: 10px;
+              }
+            }
+
+            input {
+              padding: 10px 20px;
+              margin-bottom: 20px;
+              font-size: $font-size-20px;
+            }
+          }
+        }
+      }
+
+      .flight-container {
+        .flight-details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 40px 131px;
+          margin-bottom: 20px;
+          background-color: #ffffff;
+          border-radius: $border-radius-20px;
+
+          .airlines-company {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            img {
+              margin-bottom: 10px;
+            }
+
+            li {
+              font-size: $font-size-20px;
+            }
+          }
+
+          .flight-take-off {
+            width: 400px;
+            max-width: 477px;
+            position: relative;
+
+            .take-off-landing {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+              font-size: $font-size-24px;
+            }
+
+            .take-off-time {
+              display: flex;
+              justify-content: space-between;
+              font-size: $font-size-24px;
+            }
+
+            img {
+              width: 233px;
+              position: absolute;
+              top: 54px;
+              left: 22%;
+            }
+          }
+
+          .flight-deal {
+            width: 173px;
+            max-width: 173px;
+
+            .flight-price {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding-bottom: 20px;
+              margin-bottom: 20px;
+              font-size: $font-size-24px;
+              border-bottom: 1px solid RGBA(66, 66, 68, 0.6);
+
+              li:last-child {
+                font-weight: bold;
+              }
+            }
+
+            .view-deal-button {
+              width: 100%;
+              @include primary-button-mixin;
+              padding: 10px 30px;
+              background-color: #ff8c3e;
+              border-radius: $border-radius-10px;
+              font-size: $font-size-20px;
+              color: #424244;
+              font-weight: bold;
+            }
+
+            .view-deal-button:hover {
+              background-color: #eb7e34;
+            }
+          }
+        }
       }
     }
   }
