@@ -9,10 +9,21 @@ import georgianAirlinesLogo from "/src/assets/georgian-airlines-logo.png";
 import oneLanding from "/src/assets/one-landing.png";
 import twoLanding from "/src/assets/two-landing.png";
 import noLanding from "/src/assets/no-landing.png";
+import flights from "./flight.json";
 
 import "./BookFlightPage.scss";
 
 export function BookFlightPage() {
+  const handleLanding = (landing) => {
+    if (landing === 0) {
+      return noLanding;
+    } else if (landing === 1) {
+      return oneLanding;
+    } else if (landing === 2) {
+      return twoLanding;
+    }
+  };
+
   return (
     <section className="book-flight-page">
       <div className="book-flight">
@@ -41,20 +52,20 @@ export function BookFlightPage() {
         </div>
         <form className="filter-by-location-grid">
           <ul className="filter-by-start">
-            <li className="start-city">
+            <span className="start-city">
               <li>from</li>
               <p>Tbilisi</p>
               <img src={closeIcon} alt="Close Button" />
-            </li>
+            </span>
             <li className="add-city">
               <img src={plusIcon} alt="Plus Icon" />
             </li>
           </ul>
           <ul className="filter-by-finish">
-            <li className="finish-city">
+            <span className="finish-city">
               <li>to</li>
               <p>Paris</p>
-            </li>
+            </span>
             <li className="add-finish-city">
               <img src={dropDownIcon} alt="Dropdown Icon" />
             </li>
@@ -165,31 +176,41 @@ export function BookFlightPage() {
             </div>
           </aside>
           <div className="flight-container">
-            <div className="flight-details">
-              <ul className="airlines-company">
-                <img src={georgianAirlinesLogo} alt="Airlines Company Logo" />
-                <li>Georgian Airlines</li>
-              </ul>
-              <div className="flight-take-off">
-                <ul className="take-off-landing">
-                  <li>Take off</li>
-                  <li>Landing</li>
-                </ul>
-                <ul className="take-off-time">
-                  <li>12:00</li>
-                  <li>19:00</li>
-                </ul>
-                <img src={oneLanding} alt="Landing Image" />
-              </div>
-              <p className="flight-duration">7 hours</p>
-              <div className="flight-deal">
-                <ul className="flight-price">
-                  <li>Price</li>
-                  <li>600$</li>
-                </ul>
-                <button className="view-deal-button">View Deal</button>
-              </div>
-            </div>
+            {flights.flight.map((flight) => {
+              return (
+                <div key={flight.id} className="flight-details">
+                  <ul className="airlines-company">
+                    <img
+                      src={georgianAirlinesLogo}
+                      alt="Airlines Company Logo"
+                    />
+                    <li>Georgian Airlines</li>
+                  </ul>
+                  <div className="flight-take-off">
+                    <ul className="take-off-landing">
+                      <li>Take off</li>
+                      <li>Landing</li>
+                    </ul>
+                    <ul className="take-off-time">
+                      <li>12:00</li>
+                      <li>19:00</li>
+                    </ul>
+                    <img
+                      src={handleLanding(flight.landing)}
+                      alt="Landing Image"
+                    />
+                  </div>
+                  <p className="flight-duration">{flight.duration} hours</p>
+                  <div className="flight-deal">
+                    <ul className="flight-price">
+                      <li>Price</li>
+                      <li>{`${flight.price}$`}</li>
+                    </ul>
+                    <button className="view-deal-button">View Deal</button>
+                  </div>
+                </div>
+              );
+            })}
             <button className="more-results-button">Show more results</button>
           </div>
         </div>
