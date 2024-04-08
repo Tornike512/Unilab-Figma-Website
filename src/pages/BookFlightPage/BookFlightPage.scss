@@ -371,6 +371,18 @@
             }
           }
 
+          .flight-duration {
+            width: 120px;
+            height: 100px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-size: $font-size-24px;
+            color: #424244;
+            opacity: 0.6;
+          }
+
           .flight-deal {
             width: 173px;
             max-width: 173px;

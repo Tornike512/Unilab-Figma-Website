@@ -1,0 +1,10 @@
+{
+  "flight": [
+    {
+      "id": "1",
+      "landing": 0,
+      "price": 500,
+      "duration": "8 hours"
+    }
+  ]
+}

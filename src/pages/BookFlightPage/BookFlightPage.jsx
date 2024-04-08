@@ -181,6 +181,7 @@ export function BookFlightPage() {
                 </ul>
                 <img src={oneLanding} alt="Landing Image" />
               </div>
+              <p className="flight-duration">7 hours</p>
               <div className="flight-deal">
                 <ul className="flight-price">
                   <li>Price</li>
