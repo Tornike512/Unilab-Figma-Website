@@ -1,154 +1,184 @@
+import dropDownIcon from "/src/assets/dropdown-icon.png";
+import plusIcon from "/src/assets/plus-icon.png";
+import closeIcon from "/src/assets/close-icon.png";
+import calendarIcon from "/src/assets/calendar-icon.png";
+
 import "./BookFlightPage.scss";
 
 export function BookFlightPage() {
   return (
-    <section className="book-flight">
-      <div className="book-flight-container">
-        <div className="filter-buttons-grid">
-          <button className="filter-button">Flights</button>
-          <button className="filter-button">Stays</button>
-          <button className="filter-button">Car rentals</button>
-          <button className="filter-button">Cruises</button>
-          <button className="filter-button">Attractions</button>
+    <section className="book-flight-page">
+      <div className="book-flight">
+        <div className="book-flight-container">
+          <ul className="main-filter">
+            <button>Flights</button>
+            <li>Stays</li>
+            <li>Car rentals</li>
+            <li>Cruises</li>
+            <li>Attractions</li>
+          </ul>
         </div>
-      </div>
-      <div className="additional-filter-grid">
-        <div className="additional-filter-item">
-          <span>One-way</span>
-          <img src="" alt="Dropdown Icon" />
+        <div className="additional-filter-grid">
+          <ul className="additional-filter-item">
+            <li>One-way</li>
+            <img src={dropDownIcon} alt="Dropdown Icon" />
+          </ul>
+          <ul className="additional-filter-item">
+            <li>1 Adult</li>
+            <img src={dropDownIcon} alt="Dropdown Icon" />
+          </ul>
+          <ul className="additional-filter-item">
+            <li>Economy</li>
+            <img src={dropDownIcon} alt="Dropdown Icon" />
+          </ul>
         </div>
-        <div className="additional-filter-item">
-          <span>1 Adult</span>
-          <img src="" alt="Dropdown Icon" />
-        </div>
-        <div className="additional-filter-item">
-          <span>Economy</span>
-          <img src="" alt="Dropdown Icon" />
-        </div>
-      </div>
-      <div className="filter-by-location-grid">
-        <button className="filter-by-start"></button>
-        <button className="filter-by-finish"></button>
-        <button className="filter-by-calendar"></button>
-        <button className="search-button"></button>
-      </div>
-      <div className="flights">
-        <aside className="filter-flights">
-          <div className="filter-by-rating">
-            <h3>Cheapest</h3>
-            <h3>Quickest</h3>
-            <h3>Best</h3>
-          </div>
-          <div className="detailed-filter">
-            <span className="stops-filter">
-              <h4>Stops</h4>
-              <img src="" alt="Dropup ICON" />
-            </span>
-            <div className="direct">
-              <input type="checkbox" />
-              <span>Direct</span>
-            </div>
-            <div className="one-stop">
-              <input type="checkbox" />
-              <span>One stop</span>
-            </div>
-            <div className="two-stops">
-              <input type="checkbox" />
-              <span>Two stops</span>
-            </div>
-            <div className="filter-by-times">
-              <span>Times</span>
-              <img src="" alt="Dropup icon" />
-            </div>
-            <div className="take-off-start">
-              <span>Take off - Tbilisi</span>
-              <div className="take-off-time">
-                <span>12:00</span>
-                <span>24:00</span>
+        <form className="filter-by-location-grid">
+          <ul className="filter-by-start">
+            <li className="start-city">
+              <li>from</li>
+              <p>Tbilisi</p>
+              <img src={closeIcon} alt="Close Button" />
+            </li>
+            <li className="add-city">
+              <img src={plusIcon} alt="Plus Icon" />
+            </li>
+          </ul>
+          <ul className="filter-by-finish">
+            <li className="finish-city">
+              <li>to</li>
+              <p>Paris</p>
+            </li>
+            <li className="add-finish-city">
+              <img src={dropDownIcon} alt="Dropdown Icon" />
+            </li>
+          </ul>
+          <ul className="filter-by-calendar">
+            <li className="calendar-wrapper">
+              <img src={calendarIcon} alt="Calendar Icon" />
+              <input type="date" />
+            </li>
+            <img src={plusIcon} alt="Plus Icon" />
+          </ul>
+          <button className="search-button">Search</button>
+        </form>
+        <div className="flights">
+          <aside className="filter-flights">
+            <ul className="filter-by-rating">
+              <li>Cheapest</li>
+              <li>Quickest</li>
+              <li>Best</li>
+            </ul>
+            <div className="detailed-filter">
+              <ul className="stops-filter">
+                <li>Stops</li>
+                <img src="" alt="Dropup ICON" />
+              </ul>
+              <ul className="direct">
+                <input type="checkbox" />
+                <li>Direct</li>
+              </ul>
+              <ul className="one-stop">
+                <input type="checkbox" />
+                <li>One stop</li>
+              </ul>
+              <ul className="two-stops">
+                <input type="checkbox" />
+                <li>Two stops</li>
+              </ul>
+              <ul className="filter-by-times">
+                <li>Times</li>
+                <img src="" alt="Dropup icon" />
+              </ul>
+              <ul className="take-off-start">
+                <li>Take off - Tbilisi</li>
+                <div className="take-off-time">
+                  <li>12:00</li>
+                  <li>24:00</li>
+                </div>
+                <input type="range" />
+              </ul>
+              <ul className="take-off-finish">
+                <li>Take off - Paris</li>
+                <div className="take-off-time">
+                  <li>12:00</li>
+                  <li>24:00</li>
+                </div>
+                <input type="range" />
+              </ul>
+              <ul className="airlines">
+                <li>Airlines</li>
+                <img src="" alt="dropdown Icon" />
+              </ul>
+              <ul className="airports">
+                <li>Airports</li>
+                <img src="" alt="dropdown Icon" />
+              </ul>
+              <div className="duration">
+                <ul className="duration-dropup">
+                  <li>Duration</li>
+                  <img src="" alt="dropup Icon" />
+                </ul>
+                <ul className="duration-range">
+                  <li>7 Hours</li>
+                  <li>30 Hours</li>
+                </ul>
+                <input type="range" />
               </div>
-              <input type="range" />
-            </div>
-            <div className="take-off-finish">
-              <span>Take off - Paris</span>
-              <div className="take-off-time">
-                <span>12:00</span>
-                <span>24:00</span>
+              <div className="price">
+                <ul className="duration-dropup">
+                  <li>Price</li>
+                  <img src="" alt="dropup Icon" />
+                </ul>
+                <ul className="duration-range">
+                  <li>700$</li>
+                  <li>3000$</li>
+                </ul>
+                <input type="range" />
               </div>
-              <input type="range" />
-            </div>
-            <div className="airlines">
-              <span>Airlines</span>
-              <img src="" alt="dropdown Icon" />
-            </div>
-            <div className="airports">
-              <span>Airports</span>
-              <img src="" alt="dropdown Icon" />
-            </div>
-            <div className="duration">
-              <div className="duration-dropup">
-                <span>Duration</span>
-                <img src="" alt="dropup Icon" />
+              <div className="price-calculator">
+                <ul className="payment-method">
+                  <img src="" alt="Card Logo" />
+                  <li>Payment method</li>
+                </ul>
+                <input type="text" placeholder="Choose payment method" />
+                <ul className="select-bags">
+                  <img src="" alt="Bag Icon" />
+                  <li>Carry-on bag</li>
+                </ul>
+                <input type="text" placeholder="Select bags (0)" />
+                <ul className="checked-bag">
+                  <img src="" alt="Case Icon" />
+                  <li>Checked bag</li>
+                </ul>
+                <input type="text" placeholder="Select bags (0)" />
               </div>
-              <div className="duration-range">
-                <span>7 Hours</span>
-                <span>30 Hours</span>
-              </div>
-              <input type="range" />
             </div>
-            <div className="price">
-              <div className="duration-dropup">
-                <span>Price</span>
-                <img src="" alt="dropup Icon" />
+          </aside>
+          <div className="flight-container">
+            <div className="flight-details">
+              <ul className="airlines-company">
+                <img src="" alt="Airlines Company Logo" />
+                <li>Georgian Airlines</li>
+              </ul>
+              <div className="flight-take-off">
+                <ul className="take-off-landing">
+                  <li>Take off</li>
+                  <li>Landing</li>
+                </ul>
+                <ul className="take-off-time">
+                  <li>12:00</li>
+                  <li>19:00</li>
+                </ul>
+                <img src="" alt="Landing Image" />
               </div>
-              <div className="duration-range">
-                <span>700$</span>
-                <span>3000$</span>
+              <p>7 Hours</p>
+              <div className="flight-deal">
+                <ul className="flight-price">
+                  <li>Price</li>
+                  <li>600$</li>
+                </ul>
+                <button className="view-deal-button">View Deal</button>
               </div>
-              <input type="range" />
-            </div>
-            <div className="price-calculator">
-              <label className="payment-method">
-                <img src="" alt="Card Logo" />
-                <span>Payment method</span>
-              </label>
-              <input type="text" placeholder="Choose payment method" />
-              <label className="select-bags">
-                <img src="" alt="Bag Icon" />
-                <span>Carry-on bag</span>
-              </label>
-              <input type="text" placeholder="Select bags (0)" />
-              <label className="checked-bag">
-                <img src="" alt="Case Icon" />
-                <span>Checked bag</span>
-              </label>
-              <input type="text" placeholder="Select bags (0)" />
-            </div>
-          </div>
-        </aside>
-        <div className="flight-container">
-          <div className="flight-details">
-            <div className="airlines-company">
-              <img src="" alt="Airlines Company Logo" />
-              <h4>Georgian Airlines</h4>
-            </div>
-            <div className="flight-take-off">
-              <div className="take-off-landing">
-                <span>Take off</span>
-                <span>Landing</span>
-              </div>
-              <div className="take-off-time">
-                <span>12:00</span>
-                <span>19:00</span>
-              </div>
-              <img src="" alt="Landing Image" />
-            </div>
-            <p>7 Hours</p>
-            <div className="flight-deal">
-              <span className="flight-price">
-                <p>Price</p>
-                <p>600$</p>
-              </span>
-              <button className="view-deal-button">View Deal</button>
             </div>
           </div>
         </div>
