@@ -5,6 +5,7 @@ import { PublicLayout } from "./layouts/PublicLayout";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const SignInPage = lazy(() => import("./pages/SignInPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const BookFlightPage = lazy(() => import("./pages/BookFlightPage"));
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/:id" element={<HomePage />} />
             <Route path="/signin" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/bookflight" element={<BookFlightPage />} />
           </Route>
         </Routes>
       </Suspense>

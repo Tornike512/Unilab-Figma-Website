@@ -54,6 +54,7 @@
     .upload-image:hover {
       background-color: #d4d8eb;
     }
+
     .register-button {
       @include primary-button-mixin;
       width: 100%;
@@ -61,6 +62,10 @@
       margin-bottom: 20px;
       border-radius: $border-radius-10px;
       font-size: $font-size-20px;
+    }
+
+    .register-button:hover {
+      background-color: $primary-button-hover-color;
     }
 
     .continue-with-text {
