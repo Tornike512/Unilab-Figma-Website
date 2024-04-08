@@ -7,6 +7,7 @@
   justify-content: center;
 
   .book-flight {
+    width: 1920px;
     max-width: 1920px;
     padding: 60px 170px;
 
@@ -137,16 +138,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         input {
           margin: 0 10px;
           font-size: $font-size-24px;
           border: none;
           cursor: pointer;
-        }
-
-        input::-webkit-calendar-picker-indicator {
-          display: none;
         }
       }
     }

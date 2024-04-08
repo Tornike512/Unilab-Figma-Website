@@ -54,7 +54,6 @@ export function BookFlightPage() {
           </ul>
           <ul className="filter-by-calendar">
             <li className="calendar-wrapper">
-              <img src={calendarIcon} alt="Calendar Icon" />
               <input type="date" />
             </li>
             <img src={plusIcon} alt="Plus Icon" />
