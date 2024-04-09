@@ -18,8 +18,8 @@ import "./BookFlightPage.scss";
 export function BookFlightPage() {
   const [showMore, setShowMore] = useState(10);
   const [hideShowMore, setHideShowMore] = useState(false);
-  const [flightDuration, setFlightDuration] = useState(7);
-  const [flightPrice, setFlightPrice] = useState(700);
+  const [flightDuration, setFlightDuration] = useState();
+  const [flightPrice, setFlightPrice] = useState();
   const [stopCount, setStopCount] = useState();
 
   const handleLanding = (landing) => {
@@ -32,14 +32,56 @@ export function BookFlightPage() {
     }
   };
 
+  const flightArray = Object.values(flights.flight);
+
+  const filterFlights = flightArray.filter((filter) => {
+    return (
+      filter.landing === stopCount ||
+      filter.price === flightPrice ||
+      filter.duration === flightDuration
+    );
+  });
+
   const showMoreFlights = () => {
     setShowMore(showMore + 10);
-    if (showMore >= 20) {
+    if (filterFlights.length >= 10 && showMore >= filterFlights.length - 11) {
       setHideShowMore(true);
+    } else if (filterFlights.length <= 10) {
+      setHideShowMore(true);
+      setShowMore(showMore + 10);
     }
   };
 
-  console.log(stopCount);
+  const handleDirectInput = () => {
+    if (stopCount === 0) {
+      setStopCount();
+    } else {
+      setStopCount(parseInt(0));
+      setShowMore(10);
+      setHideShowMore(false);
+    }
+  };
+
+  const handleOneStopInput = () => {
+    if (stopCount === 1) {
+      setStopCount();
+    } else {
+      setStopCount(parseInt(1));
+      setShowMore(10);
+      setHideShowMore(false);
+    }
+  };
+
+  const handleTwoStopInput = () => {
+    if (stopCount === 2) {
+      setStopCount();
+    } else {
+      setStopCount(parseInt(2));
+      setShowMore(10);
+      setHideShowMore(false);
+    }
+  };
+
   return (
     <section className="book-flight-page">
       <div className="book-flight">
@@ -109,9 +151,7 @@ export function BookFlightPage() {
               <ul className="direct">
                 <input
                   checked={stopCount === 0}
-                  onChange={() => {
-                    setStopCount(0);
-                  }}
+                  onChange={handleDirectInput}
                   type="checkbox"
                 />
                 <li>Direct</li>
@@ -119,9 +159,7 @@ export function BookFlightPage() {
               <ul className="one-stop">
                 <input
                   checked={stopCount === 1}
-                  onChange={() => {
-                    setStopCount(1);
-                  }}
+                  onChange={handleOneStopInput}
                   type="checkbox"
                 />
                 <li>One stop</li>
@@ -129,9 +167,7 @@ export function BookFlightPage() {
               <ul className="two-stops">
                 <input
                   checked={stopCount === 2}
-                  onChange={() => {
-                    setStopCount(2);
-                  }}
+                  onChange={handleTwoStopInput}
                   type="checkbox"
                 />
                 <li>Two stops</li>
@@ -178,7 +214,7 @@ export function BookFlightPage() {
                   max={30}
                   step={1}
                   onChange={(e) => {
-                    setFlightDuration(e.target.value);
+                    setFlightDuration(parseInt(e.target.value));
                   }}
                   type="range"
                 />
@@ -197,7 +233,7 @@ export function BookFlightPage() {
                   max={3000}
                   step={100}
                   onChange={(e) => {
-                    setFlightPrice(e.target.value);
+                    setFlightPrice(parseInt(e.target.value));
                   }}
                   type="range"
                 />
@@ -226,7 +262,7 @@ export function BookFlightPage() {
             </div>
           </aside>
           <div className="flight-container">
-            {flights.flight.slice(1, showMore).map((flight) => {
+            {filterFlights.slice(0, showMore).map((flight) => {
               return (
                 <div key={flight.id} className="flight-details">
                   <ul className="airlines-company">
