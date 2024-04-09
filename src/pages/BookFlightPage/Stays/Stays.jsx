@@ -122,7 +122,41 @@ export default function Stays() {
             </nav>
           </ul>
         </aside>
-        <div className="properties"></div>
+        <div className="properties">
+          <h2 className="found-properties">
+            Auckland, New Zealand: 2000 properties found
+          </h2>
+          <select className="sort-properties">
+            <option value="popular">Popular</option>
+            <option value="lowest-price">Lowest price</option>
+            <option value="highest-price">Highest price</option>
+            <option value="top-rated">Top rated</option>
+          </select>
+          <div className="property-container">
+            <img src="" alt="Property Image" />
+            <div className="property-info">
+              <h2>New Zealand Resort</h2>
+              <div className="location-details">
+                <ul className="property-location">
+                  <li>New Zealand, Auckland</li>
+                  <li>1 km away from center</li>
+                  <li>
+                    Near beach, with private beach area and private pool.
+                    Property has terrace, kitchen, 2 bathrooms
+                  </li>
+                </ul>
+                <ul className="property-details">
+                  <li>Rating:</li>
+                  <img src="" alt="Property Rating By Stars" />
+                  <li>Price:</li>
+                  <li>400$</li>
+                </ul>
+              </div>
+              <button className="show-details-button">Show details</button>
+            </div>
+          </div>
+          <button className="show-more-results">Show more results</button>
+        </div>
       </div>
     </section>
   );
