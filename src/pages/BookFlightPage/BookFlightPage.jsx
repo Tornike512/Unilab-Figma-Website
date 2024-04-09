@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
@@ -21,6 +21,11 @@ export function BookFlightPage() {
   const [flightDuration, setFlightDuration] = useState();
   const [flightPrice, setFlightPrice] = useState();
   const [stopCount, setStopCount] = useState();
+  const [loadAllFlights, setLoadAllFlights] = useState(false);
+
+  useEffect(() => {
+    setLoadAllFlights(true);
+  }, []);
 
   const handleLanding = (landing) => {
     if (landing === 0) {
@@ -35,16 +40,20 @@ export function BookFlightPage() {
   const flightArray = Object.values(flights.flight);
 
   const filterFlights = flightArray.filter((filter) => {
-    return (
-      filter.landing === stopCount ||
-      filter.price === flightPrice ||
-      filter.duration === flightDuration
-    );
+    if (loadAllFlights) {
+      return filter;
+    } else {
+      return (
+        filter.landing === stopCount ||
+        filter.price === flightPrice ||
+        filter.duration === flightDuration
+      );
+    }
   });
 
   const showMoreFlights = () => {
     setShowMore(showMore + 10);
-    if (filterFlights.length >= 10 && showMore >= filterFlights.length - 11) {
+    if (filterFlights.length <= 10 && showMore >= filterFlights.length - 11) {
       setHideShowMore(true);
     } else if (filterFlights.length <= 10) {
       setHideShowMore(true);
@@ -56,6 +65,7 @@ export function BookFlightPage() {
     if (stopCount === 0) {
       setStopCount();
     } else {
+      setLoadAllFlights(false);
       setStopCount(parseInt(0));
       setShowMore(10);
       setHideShowMore(false);
@@ -66,6 +76,7 @@ export function BookFlightPage() {
     if (stopCount === 1) {
       setStopCount();
     } else {
+      setLoadAllFlights(false);
       setStopCount(parseInt(1));
       setShowMore(10);
       setHideShowMore(false);
@@ -76,10 +87,21 @@ export function BookFlightPage() {
     if (stopCount === 2) {
       setStopCount();
     } else {
+      setLoadAllFlights(false);
       setStopCount(parseInt(2));
       setShowMore(10);
       setHideShowMore(false);
     }
+  };
+
+  const handleFlightDuration = (e) => {
+    setFlightDuration(parseInt(e.target.value));
+    setLoadAllFlights(false);
+  };
+
+  const handleFlightPrice = (e) => {
+    setFlightPrice(parseInt(e.target.value));
+    setLoadAllFlights(false);
   };
 
   return (
@@ -213,9 +235,7 @@ export function BookFlightPage() {
                   min={7}
                   max={30}
                   step={1}
-                  onChange={(e) => {
-                    setFlightDuration(parseInt(e.target.value));
-                  }}
+                  onChange={handleFlightDuration}
                   type="range"
                 />
               </div>
@@ -232,9 +252,7 @@ export function BookFlightPage() {
                   min={700}
                   max={3000}
                   step={100}
-                  onChange={(e) => {
-                    setFlightPrice(parseInt(e.target.value));
-                  }}
+                  onChange={handleFlightPrice}
                   type="range"
                 />
               </div>
