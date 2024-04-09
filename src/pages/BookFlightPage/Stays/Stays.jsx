@@ -1,3 +1,6 @@
+import dropDownIcon from "/src/assets/dropdown-icon.png";
+import plusIcon from "/src/assets/plus-icon.png";
+
 import "./Stays.scss";
 
 export default function Stays() {
@@ -5,21 +8,38 @@ export default function Stays() {
     <section className="stays-section">
       <ul className="stays-main-filter-grid">
         <li>
-          <img src="" alt="Dropdown Icon" />
-          <img src="" alt="Plus Icon" />
+          <span>
+            Choose city
+            <img
+              className="dropdown-icon"
+              src={dropDownIcon}
+              alt="Dropdown Icon"
+            />
+          </span>
+          <img src={plusIcon} alt="Plus Icon" />
+        </li>
+        <li className="stays-calendar">
+          <div className="calendar-wrapper">
+            <input type="date" />
+          </div>
+          <img src={plusIcon} alt="Plus Icon" />
         </li>
         <li>
-          <input type="date" />
+          <span>
+            2 Adults
+            <img
+              className="dropdown-icon"
+              src={dropDownIcon}
+              alt="Dropdown Icon"
+            />
+          </span>
+          <img src={plusIcon} alt="Plus Icon" />
         </li>
-        <li>
-          <img src="" alt="Dropdown Icon" />
-          <img src="" alt="Plus Icon" />
-        </li>
-        <button>Search</button>
+        <button className="search-button">Search</button>
       </ul>
       <div className="stays-grid">
         <aside className="stays-filter-container">
-          <p>Filter by:</p>
+          <p className="filter-by-text">Filter by:</p>
           <ul className="property-type">
             <h3>Propety type</h3>
             <li>
