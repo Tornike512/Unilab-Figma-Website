@@ -1,3 +1,5 @@
+import properties from "./property.json";
+
 import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
 import propertyImage from "/src/assets/property-image.png";
@@ -154,33 +156,34 @@ export default function Stays() {
             <option value="highest-price">Sort by: highest price</option>
             <option value="top-rated">Sort by: top rated</option>
           </select>
-          <div className="property-container">
-            <img
-              className="property-image"
-              src={propertyImage}
-              alt="Property Image"
-            />
-            <div className="property-info">
-              <div className="location-details">
-                <ul className="property-location">
-                  <h2>New Zealand Resort</h2>
-                  <li>New Zealand, Auckland</li>
-                  <li>1 km away from center</li>
-                  <li>
-                    Near beach, with private beach area and private pool.
-                    Property has terrace, kitchen, 2 bathrooms
-                  </li>
-                </ul>
-                <ul className="property-details">
-                  <li>Rating:</li>
-                  <img src={fiveStars} alt="Property Rating By Stars" />
-                  <li>Price:</li>
-                  <li className="price">400$</li>
-                </ul>
+          {properties.map((property) => {
+            return (
+              <div className="property-container">
+                <img
+                  className="property-image"
+                  src={property.image}
+                  alt="Property Image"
+                />
+                <div className="property-info">
+                  <div className="location-details">
+                    <ul className="property-location">
+                      <h2>{property.title}</h2>
+                      <li>{property.location}</li>
+                      <li>{property.from_center}</li>
+                      <li>{property.description}</li>
+                    </ul>
+                    <ul className="property-details">
+                      <li>Rating:</li>
+                      <img src={fiveStars} alt="Property Rating By Stars" />
+                      <li>Price:</li>
+                      <li className="price">{`${property.price}$`}</li>
+                    </ul>
+                  </div>
+                  <button className="show-details-button">Show details</button>
+                </div>
               </div>
-              <button className="show-details-button">Show details</button>
-            </div>
-          </div>
+            );
+          })}
           <button className="show-more-results">Show more results</button>
         </div>
       </div>
