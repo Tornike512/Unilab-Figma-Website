@@ -1,5 +1,7 @@
 import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
+import propertyImage from "/src/assets/property-image.png";
+import fiveStars from "/src/assets/five-stars.png";
 
 import "./Stays.scss";
 
@@ -147,17 +149,21 @@ export default function Stays() {
             Auckland, New Zealand: 2000 properties found
           </h2>
           <select className="sort-properties">
-            <option value="popular">Popular</option>
-            <option value="lowest-price">Lowest price</option>
-            <option value="highest-price">Highest price</option>
-            <option value="top-rated">Top rated</option>
+            <option value="popular">Sort by: popular</option>
+            <option value="lowest-price">Sort by: lowest price</option>
+            <option value="highest-price">Sort by: highest price</option>
+            <option value="top-rated">Sort by: top rated</option>
           </select>
           <div className="property-container">
-            <img src="" alt="Property Image" />
+            <img
+              className="property-image"
+              src={propertyImage}
+              alt="Property Image"
+            />
             <div className="property-info">
-              <h2>New Zealand Resort</h2>
               <div className="location-details">
                 <ul className="property-location">
+                  <h2>New Zealand Resort</h2>
                   <li>New Zealand, Auckland</li>
                   <li>1 km away from center</li>
                   <li>
@@ -167,9 +173,9 @@ export default function Stays() {
                 </ul>
                 <ul className="property-details">
                   <li>Rating:</li>
-                  <img src="" alt="Property Rating By Stars" />
+                  <img src={fiveStars} alt="Property Rating By Stars" />
                   <li>Price:</li>
-                  <li>400$</li>
+                  <li className="price">400$</li>
                 </ul>
               </div>
               <button className="show-details-button">Show details</button>

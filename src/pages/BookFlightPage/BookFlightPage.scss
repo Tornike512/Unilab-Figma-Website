@@ -423,6 +423,7 @@
         .more-results-button {
           @include primary-button-mixin;
           width: 100%;
+          margin-bottom: 20px;
           padding: 22px 50px;
           font-size: $font-size-32px;
           font-weight: bold;

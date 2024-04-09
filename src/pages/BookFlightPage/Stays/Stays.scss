@@ -131,5 +131,94 @@
         }
       }
     }
+
+    .properties {
+      .found-properties {
+        font-size: $font-size-28px;
+        margin-bottom: 20px;
+      }
+
+      .sort-properties {
+        padding: 10px 20px;
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        border: 2px solid #ff6700;
+        border-radius: $border-radius-20px;
+        font-size: $font-size-24px;
+      }
+
+      .property-container {
+        display: flex;
+        padding: 40px 30px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border-radius: $border-radius-20px;
+
+        .property-image {
+          margin-right: 20px;
+        }
+
+        .property-info {
+          .location-details {
+            display: flex;
+
+            .property-location {
+              padding-right: 50px;
+
+              h2 {
+                font-size: $font-size-32px;
+                margin-bottom: 15px;
+              }
+
+              li {
+                margin-bottom: 20px;
+                font-size: $font-size-22px;
+                color: #424244;
+                opacity: 0.8;
+              }
+            }
+
+            .property-details {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              justify-content: space-around;
+
+              li {
+                margin-bottom: 10px;
+                font-size: $font-size-24px;
+              }
+
+              .price {
+                font-weight: bold;
+              }
+            }
+          }
+
+          .show-details-button {
+            @include primary-button-mixin;
+            width: 100%;
+            padding: 10px;
+            font-size: $font-size-24px;
+          }
+          .show-details-button:hover {
+            background-color: $primary-button-hover-color;
+          }
+        }
+      }
+
+      .show-more-results {
+        @include primary-button-mixin;
+        width: 100%;
+        padding: 22px 50px;
+        margin-bottom: 20px;
+        font-size: $font-size-32px;
+        font-weight: bold;
+      }
+
+      .show-more-results:hover {
+        background-color: $primary-button-hover-color;
+      }
+    }
   }
 }
