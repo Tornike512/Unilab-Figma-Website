@@ -22,6 +22,8 @@ export function BookFlightPage() {
   const [flightPrice, setFlightPrice] = useState();
   const [stopCount, setStopCount] = useState();
   const [loadAllFlights, setLoadAllFlights] = useState(false);
+  const [currentFilter, setCurrentFilter] = useState("flights");
+  const [showCards, setShowCards] = useState(false);
 
   useEffect(() => {
     setLoadAllFlights(true);
@@ -109,8 +111,17 @@ export function BookFlightPage() {
       <div className="book-flight">
         <div className="book-flight-container">
           <ul className="main-filter">
-            <button>Flights</button>
-            <li>Stays</li>
+            {currentFilter === "flights" ? (
+              <button className="current-filter">Flights</button>
+            ) : (
+              <li onClick={() => setCurrentFilter("flights")}>Flights</li>
+            )}
+            {currentFilter === "stays" ? (
+              <button className="current-filter">Stays</button>
+            ) : (
+              <li onClick={() => setCurrentFilter("stays")}>Stays</li>
+            )}
+
             <li>Car rentals</li>
             <li>Cruises</li>
             <li>Attractions</li>
@@ -130,7 +141,10 @@ export function BookFlightPage() {
             <img src={dropDownIcon} alt="Dropdown Icon" />
           </ul>
         </div>
-        <form className="filter-by-location-grid">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="filter-by-location-grid"
+        >
           <ul className="filter-by-start">
             <span className="start-city">
               <li>from</li>
@@ -156,172 +170,184 @@ export function BookFlightPage() {
             </li>
             <img src={plusIcon} alt="Plus Icon" />
           </ul>
-          <button className="search-button">Search</button>
+          <button
+            onClick={() => {
+              setShowCards(true);
+            }}
+            className="search-button"
+          >
+            Search
+          </button>
         </form>
-        <div className="flights">
-          <aside className="filter-flights">
-            <ul className="filter-by-rating">
-              <li>Cheapest</li>
-              <li>Quickest</li>
-              <li>Best</li>
-            </ul>
-            <div className="detailed-filter">
-              <ul className="stops-filter">
-                <li>Stops</li>
-                <img src={dropUp} alt="Dropup ICON" />
+        {showCards && (
+          <div className="flights">
+            <aside className="filter-flights">
+              <ul className="filter-by-rating">
+                <li>Cheapest</li>
+                <li>Quickest</li>
+                <li>Best</li>
               </ul>
-              <ul className="direct">
-                <input
-                  checked={stopCount === 0}
-                  onChange={handleDirectInput}
-                  type="checkbox"
-                />
-                <li>Direct</li>
-              </ul>
-              <ul className="one-stop">
-                <input
-                  checked={stopCount === 1}
-                  onChange={handleOneStopInput}
-                  type="checkbox"
-                />
-                <li>One stop</li>
-              </ul>
-              <ul className="two-stops">
-                <input
-                  checked={stopCount === 2}
-                  onChange={handleTwoStopInput}
-                  type="checkbox"
-                />
-                <li>Two stops</li>
-              </ul>
-              <ul className="filter-by-times">
-                <li>Times</li>
-                <img src={dropUp} alt="Dropup icon" />
-              </ul>
-              <ul className="take-off-start">
-                <li>Take off - Tbilisi</li>
-                <div className="take-off-time">
-                  <li>12:00</li>
-                  <li>24:00</li>
-                </div>
-                <input type="range" />
-              </ul>
-              <ul className="take-off-finish">
-                <li>Take off - Paris</li>
-                <div className="take-off-time">
-                  <li>12:00</li>
-                  <li>24:00</li>
-                </div>
-                <input type="range" />
-              </ul>
-              <ul className="airlines">
-                <li>Airlines</li>
-                <img src={dropDownIcon} alt="dropdown Icon" />
-              </ul>
-              <ul className="airports">
-                <li>Airports</li>
-                <img src={dropDownIcon} alt="dropdown Icon" />
-              </ul>
-              <div className="duration">
-                <ul className="duration-dropup">
-                  <li>Duration</li>
-                  <img src={dropUp} alt="dropup Icon" />
+              <div className="detailed-filter">
+                <ul className="stops-filter">
+                  <li>Stops</li>
+                  <img src={dropUp} alt="Dropup ICON" />
                 </ul>
-                <ul className="duration-range">
-                  <li>7 Hours</li>
-                  <li>30 Hours</li>
+                <ul className="direct">
+                  <input
+                    checked={stopCount === 0}
+                    onChange={handleDirectInput}
+                    type="checkbox"
+                  />
+                  <li>Direct</li>
                 </ul>
-                <input
-                  min={7}
-                  max={30}
-                  step={1}
-                  onChange={handleFlightDuration}
-                  type="range"
-                />
-              </div>
-              <div className="price">
-                <ul className="duration-dropup">
-                  <li>Price</li>
-                  <img src={dropUp} alt="dropup Icon" />
+                <ul className="one-stop">
+                  <input
+                    checked={stopCount === 1}
+                    onChange={handleOneStopInput}
+                    type="checkbox"
+                  />
+                  <li>One stop</li>
                 </ul>
-                <ul className="duration-range">
-                  <li>700$</li>
-                  <li>3000$</li>
+                <ul className="two-stops">
+                  <input
+                    checked={stopCount === 2}
+                    onChange={handleTwoStopInput}
+                    type="checkbox"
+                  />
+                  <li>Two stops</li>
                 </ul>
-                <input
-                  min={700}
-                  max={3000}
-                  step={100}
-                  onChange={handleFlightPrice}
-                  type="range"
-                />
-              </div>
-              <div className="price-calculator">
-                <ul className="price-calculator-wrapper">
-                  <li>Price calculator</li>
-                  <img src={dropUp} alt="Dropup Icon" />
+                <ul className="filter-by-times">
+                  <li>Times</li>
+                  <img src={dropUp} alt="Dropup icon" />
                 </ul>
-                <ul className="payment-method">
-                  <img src={cardIcon} alt="Card Logo" />
-                  <li>Payment method</li>
+                <ul className="take-off-start">
+                  <li>Take off - Tbilisi</li>
+                  <div className="take-off-time">
+                    <li>12:00</li>
+                    <li>24:00</li>
+                  </div>
+                  <input type="range" />
                 </ul>
-                <input type="text" placeholder="Choose payment method" />
-                <ul className="select-bags">
-                  <img src={bagIcon} alt="Bag Icon" />
-                  <li>Carry-on bag</li>
+                <ul className="take-off-finish">
+                  <li>Take off - Paris</li>
+                  <div className="take-off-time">
+                    <li>12:00</li>
+                    <li>24:00</li>
+                  </div>
+                  <input type="range" />
                 </ul>
-                <input type="text" placeholder="Select bags (0)" />
-                <ul className="checked-bag">
-                  <img src={caseIcon} alt="Case Icon" />
-                  <li>Checked bag</li>
+                <ul className="airlines">
+                  <li>Airlines</li>
+                  <img src={dropDownIcon} alt="dropdown Icon" />
                 </ul>
-                <input type="text" placeholder="Select bags (0)" />
-              </div>
-            </div>
-          </aside>
-          <div className="flight-container">
-            {filterFlights.slice(0, showMore).map((flight) => {
-              return (
-                <div key={flight.id} className="flight-details">
-                  <ul className="airlines-company">
-                    <img
-                      src={georgianAirlinesLogo}
-                      alt="Airlines Company Logo"
-                    />
-                    <li>Georgian Airlines</li>
+                <ul className="airports">
+                  <li>Airports</li>
+                  <img src={dropDownIcon} alt="dropdown Icon" />
+                </ul>
+                <div className="duration">
+                  <ul className="duration-dropup">
+                    <li>Duration</li>
+                    <img src={dropUp} alt="dropup Icon" />
                   </ul>
-                  <div className="flight-take-off">
-                    <ul className="take-off-landing">
-                      <li>Take off</li>
-                      <li>Landing</li>
-                    </ul>
-                    <ul className="take-off-time">
-                      <li>12:00</li>
-                      <li>19:00</li>
-                    </ul>
-                    <img
-                      src={handleLanding(flight.landing)}
-                      alt="Landing Image"
-                    />
-                  </div>
-                  <p className="flight-duration">{flight.duration} hours</p>
-                  <div className="flight-deal">
-                    <ul className="flight-price">
-                      <li>Price</li>
-                      <li>{`${flight.price}$`}</li>
-                    </ul>
-                    <button className="view-deal-button">View Deal</button>
-                  </div>
+                  <ul className="duration-range">
+                    <li>7 Hours</li>
+                    <li>30 Hours</li>
+                  </ul>
+                  <input
+                    min={7}
+                    max={30}
+                    step={1}
+                    onChange={handleFlightDuration}
+                    type="range"
+                  />
                 </div>
-              );
-            })}
-            {!hideShowMore && (
-              <button onClick={showMoreFlights} className="more-results-button">
-                Show more results
-              </button>
-            )}
+                <div className="price">
+                  <ul className="duration-dropup">
+                    <li>Price</li>
+                    <img src={dropUp} alt="dropup Icon" />
+                  </ul>
+                  <ul className="duration-range">
+                    <li>700$</li>
+                    <li>3000$</li>
+                  </ul>
+                  <input
+                    min={700}
+                    max={3000}
+                    step={100}
+                    onChange={handleFlightPrice}
+                    type="range"
+                  />
+                </div>
+                <div className="price-calculator">
+                  <ul className="price-calculator-wrapper">
+                    <li>Price calculator</li>
+                    <img src={dropUp} alt="Dropup Icon" />
+                  </ul>
+                  <ul className="payment-method">
+                    <img src={cardIcon} alt="Card Logo" />
+                    <li>Payment method</li>
+                  </ul>
+                  <input type="text" placeholder="Choose payment method" />
+                  <ul className="select-bags">
+                    <img src={bagIcon} alt="Bag Icon" />
+                    <li>Carry-on bag</li>
+                  </ul>
+                  <input type="text" placeholder="Select bags (0)" />
+                  <ul className="checked-bag">
+                    <img src={caseIcon} alt="Case Icon" />
+                    <li>Checked bag</li>
+                  </ul>
+                  <input type="text" placeholder="Select bags (0)" />
+                </div>
+              </div>
+            </aside>
+            <div className="flight-container">
+              {filterFlights.slice(0, showMore).map((flight) => {
+                return (
+                  <div key={flight.id} className="flight-details">
+                    <ul className="airlines-company">
+                      <img
+                        src={georgianAirlinesLogo}
+                        alt="Airlines Company Logo"
+                      />
+                      <li>Georgian Airlines</li>
+                    </ul>
+                    <div className="flight-take-off">
+                      <ul className="take-off-landing">
+                        <li>Take off</li>
+                        <li>Landing</li>
+                      </ul>
+                      <ul className="take-off-time">
+                        <li>12:00</li>
+                        <li>19:00</li>
+                      </ul>
+                      <img
+                        src={handleLanding(flight.landing)}
+                        alt="Landing Image"
+                      />
+                    </div>
+                    <p className="flight-duration">{flight.duration} hours</p>
+                    <div className="flight-deal">
+                      <ul className="flight-price">
+                        <li>Price</li>
+                        <li>{`${flight.price}$`}</li>
+                      </ul>
+                      <button className="view-deal-button">View Deal</button>
+                    </div>
+                  </div>
+                );
+              })}
+              {!hideShowMore && (
+                <button
+                  onClick={showMoreFlights}
+                  className="more-results-button"
+                >
+                  Show more results
+                </button>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

@@ -17,23 +17,25 @@
 
     .book-flight-container {
       .main-filter {
-        max-width: 950px;
+        max-width: 953px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         margin-bottom: 60px;
 
-        button {
+        .current-filter {
           @include primary-button-mixin;
           padding: 15px 30px;
+          margin-right: 40px;
           font-size: $font-size-24px;
         }
 
-        button:hover {
+        .current-filter:hover {
           background-color: $primary-button-hover-color;
         }
 
         li {
+          padding: 15px 30px;
+          margin-right: 40px;
           font-size: $font-size-24px;
           color: #424244;
           cursor: pointer;
