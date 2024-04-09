@@ -18,6 +18,9 @@ import "./BookFlightPage.scss";
 export function BookFlightPage() {
   const [showMore, setShowMore] = useState(10);
   const [hideShowMore, setHideShowMore] = useState(false);
+  const [flightDuration, setFlightDuration] = useState(7);
+  const [flightPrice, setFlightPrice] = useState(700);
+  const [stopCount, setStopCount] = useState();
 
   const handleLanding = (landing) => {
     if (landing === 0) {
@@ -29,7 +32,14 @@ export function BookFlightPage() {
     }
   };
 
-  console.log(showMore);
+  const showMoreFlights = () => {
+    setShowMore(showMore + 10);
+    if (showMore >= 20) {
+      setHideShowMore(true);
+    }
+  };
+
+  console.log(stopCount);
   return (
     <section className="book-flight-page">
       <div className="book-flight">
@@ -97,15 +107,33 @@ export function BookFlightPage() {
                 <img src={dropUp} alt="Dropup ICON" />
               </ul>
               <ul className="direct">
-                <input type="checkbox" />
+                <input
+                  checked={stopCount === 0}
+                  onChange={() => {
+                    setStopCount(0);
+                  }}
+                  type="checkbox"
+                />
                 <li>Direct</li>
               </ul>
               <ul className="one-stop">
-                <input type="checkbox" />
+                <input
+                  checked={stopCount === 1}
+                  onChange={() => {
+                    setStopCount(1);
+                  }}
+                  type="checkbox"
+                />
                 <li>One stop</li>
               </ul>
               <ul className="two-stops">
-                <input type="checkbox" />
+                <input
+                  checked={stopCount === 2}
+                  onChange={() => {
+                    setStopCount(2);
+                  }}
+                  type="checkbox"
+                />
                 <li>Two stops</li>
               </ul>
               <ul className="filter-by-times">
@@ -145,7 +173,15 @@ export function BookFlightPage() {
                   <li>7 Hours</li>
                   <li>30 Hours</li>
                 </ul>
-                <input type="range" />
+                <input
+                  min={7}
+                  max={30}
+                  step={1}
+                  onChange={(e) => {
+                    setFlightDuration(e.target.value);
+                  }}
+                  type="range"
+                />
               </div>
               <div className="price">
                 <ul className="duration-dropup">
@@ -156,7 +192,15 @@ export function BookFlightPage() {
                   <li>700$</li>
                   <li>3000$</li>
                 </ul>
-                <input type="range" />
+                <input
+                  min={700}
+                  max={3000}
+                  step={100}
+                  onChange={(e) => {
+                    setFlightPrice(e.target.value);
+                  }}
+                  type="range"
+                />
               </div>
               <div className="price-calculator">
                 <ul className="price-calculator-wrapper">
@@ -218,15 +262,7 @@ export function BookFlightPage() {
               );
             })}
             {!hideShowMore && (
-              <button
-                onClick={() => {
-                  setShowMore(showMore + 10);
-                  if (showMore >= 20) {
-                    setHideShowMore(true);
-                  }
-                }}
-                className="more-results-button"
-              >
+              <button onClick={showMoreFlights} className="more-results-button">
                 Show more results
               </button>
             )}
