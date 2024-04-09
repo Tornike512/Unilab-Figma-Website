@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
 import closeIcon from "/src/assets/close-icon.png";
@@ -14,6 +16,9 @@ import flights from "./flight.json";
 import "./BookFlightPage.scss";
 
 export function BookFlightPage() {
+  const [showMore, setShowMore] = useState(10);
+  const [hideShowMore, setHideShowMore] = useState(false);
+
   const handleLanding = (landing) => {
     if (landing === 0) {
       return noLanding;
@@ -24,6 +29,7 @@ export function BookFlightPage() {
     }
   };
 
+  console.log(showMore);
   return (
     <section className="book-flight-page">
       <div className="book-flight">
@@ -176,7 +182,7 @@ export function BookFlightPage() {
             </div>
           </aside>
           <div className="flight-container">
-            {flights.flight.map((flight) => {
+            {flights.flight.slice(1, showMore).map((flight) => {
               return (
                 <div key={flight.id} className="flight-details">
                   <ul className="airlines-company">
@@ -211,7 +217,19 @@ export function BookFlightPage() {
                 </div>
               );
             })}
-            <button className="more-results-button">Show more results</button>
+            {!hideShowMore && (
+              <button
+                onClick={() => {
+                  setShowMore(showMore + 10);
+                  if (showMore >= 20) {
+                    setHideShowMore(true);
+                  }
+                }}
+                className="more-results-button"
+              >
+                Show more results
+              </button>
+            )}
           </div>
         </div>
       </div>
