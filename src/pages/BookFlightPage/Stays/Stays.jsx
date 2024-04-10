@@ -15,6 +15,8 @@ import "./Stays.scss";
 export default function Stays() {
   const [starsCount, setStarsCount] = useState([]);
   const [loadAllStays, setLoadAllStays] = useState(false);
+  const [loadMoreStays, setLoadMoreStays] = useState(5);
+  const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
 
   useEffect(() => {
     setLoadAllStays(true);
@@ -56,6 +58,10 @@ export default function Stays() {
       );
       setLoadAllStays(false);
     }
+    setLoadMoreStays(5);
+    if (filterByStars.length > 5) {
+      setShowLoadMoreButton(true);
+    }
   };
 
   const removeFourStarsRating = () => {
@@ -71,6 +77,10 @@ export default function Stays() {
         })
       );
       setLoadAllStays(false);
+    }
+    setLoadMoreStays(5);
+    if (filterByStars.length > 5) {
+      setShowLoadMoreButton(true);
     }
   };
 
@@ -88,6 +98,10 @@ export default function Stays() {
       );
       setLoadAllStays(false);
     }
+    setLoadMoreStays(5);
+    if (filterByStars.length > 5) {
+      setShowLoadMoreButton(true);
+    }
   };
 
   const removeTwoStarsRating = () => {
@@ -104,6 +118,10 @@ export default function Stays() {
       );
       setLoadAllStays(false);
     }
+    setLoadMoreStays(5);
+    if (filterByStars.length > 5) {
+      setShowLoadMoreButton(true);
+    }
   };
   const removeOneStarRating = () => {
     if (!starsCount.includes(1)) {
@@ -119,8 +137,16 @@ export default function Stays() {
       );
       setLoadAllStays(false);
     }
+    setLoadMoreStays(5);
+    if (filterByStars.length > 5) {
+      setShowLoadMoreButton(true);
+    } else {
+      setShowLoadMoreButton(false);
+    }
   };
 
+  console.log(loadMoreStays, "loadmorestays");
+  console.log(filterByStars.length, "filterbystars");
   return (
     <section className="stays-section">
       <ul className="stays-main-filter-grid">
@@ -269,7 +295,7 @@ export default function Stays() {
             <option value="highest-price">Sort by: highest price</option>
             <option value="top-rated">Sort by: top rated</option>
           </select>
-          {filterByStars.map((property) => {
+          {filterByStars.slice(0, loadMoreStays).map((property) => {
             return (
               <div key={property.title} className="property-container">
                 <img
@@ -300,7 +326,19 @@ export default function Stays() {
               </div>
             );
           })}
-          <button className="show-more-results">Show more results</button>
+          {showLoadMoreButton && (
+            <button
+              onClick={() => {
+                setLoadMoreStays(loadMoreStays + 5);
+                if (loadMoreStays > filterByStars.length - 5) {
+                  setShowLoadMoreButton(false);
+                }
+              }}
+              className="show-more-results"
+            >
+              Show more results
+            </button>
+          )}
         </div>
       </div>
     </section>
