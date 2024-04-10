@@ -364,7 +364,7 @@ export function BookFlightPage() {
             )}
           </>
         )}
-        <Stays />
+        {currentFilter === "stays" && <Stays />}
       </div>
     </section>
   );
