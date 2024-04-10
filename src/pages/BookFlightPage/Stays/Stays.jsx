@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import properties from "./property.json";
 
 import dropDownIcon from "/src/assets/dropdown-icon.png";
@@ -13,8 +13,12 @@ import oneStar from "/src/assets/one-star.png";
 import "./Stays.scss";
 
 export default function Stays() {
-  const [stars, setStars] = useState();
   const [starsCount, setStarsCount] = useState([]);
+  const [loadAllStays, setLoadAllStays] = useState(false);
+
+  useEffect(() => {
+    setLoadAllStays(true);
+  }, []);
 
   const handleRatingStars = (stars) => {
     if (stars === 5) {
@@ -31,7 +35,11 @@ export default function Stays() {
   };
 
   const filterByStars = properties.filter((property) => {
-    return starsCount.includes(property.rating);
+    if (loadAllStays || starsCount.length === 0) {
+      return property.rating;
+    } else {
+      return starsCount.includes(property.rating);
+    }
   });
 
   const removeFiveStarsRating = () => {
@@ -39,12 +47,14 @@ export default function Stays() {
       setStarsCount((prev) => {
         return [...prev, 5];
       });
+      setLoadAllStays(false);
     } else {
       setStarsCount(
         starsCount.filter((stars) => {
           return stars !== 5;
         })
       );
+      setLoadAllStays(false);
     }
   };
 
@@ -53,38 +63,46 @@ export default function Stays() {
       setStarsCount((prev) => {
         return [...prev, 4];
       });
+      setLoadAllStays(false);
     } else {
       setStarsCount(
         starsCount.filter((stars) => {
           return stars !== 4;
         })
       );
+      setLoadAllStays(false);
     }
   };
+
   const removeThreeStarsRating = () => {
     if (!starsCount.includes(3)) {
       setStarsCount((prev) => {
         return [...prev, 3];
       });
+      setLoadAllStays(false);
     } else {
       setStarsCount(
         starsCount.filter((stars) => {
           return stars !== 3;
         })
       );
+      setLoadAllStays(false);
     }
   };
+
   const removeTwoStarsRating = () => {
     if (!starsCount.includes(2)) {
       setStarsCount((prev) => {
         return [...prev, 2];
       });
+      setLoadAllStays(false);
     } else {
       setStarsCount(
         starsCount.filter((stars) => {
           return stars !== 2;
         })
       );
+      setLoadAllStays(false);
     }
   };
   const removeOneStarRating = () => {
@@ -92,16 +110,17 @@ export default function Stays() {
       setStarsCount((prev) => {
         return [...prev, 1];
       });
+      setLoadAllStays(false);
     } else {
       setStarsCount(
         starsCount.filter((stars) => {
           return stars !== 1;
         })
       );
+      setLoadAllStays(false);
     }
   };
 
-  console.log(starsCount);
   return (
     <section className="stays-section">
       <ul className="stays-main-filter-grid">
