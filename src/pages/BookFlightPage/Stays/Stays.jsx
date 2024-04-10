@@ -1,3 +1,4 @@
+import { useState } from "react";
 import properties from "./property.json";
 
 import dropDownIcon from "/src/assets/dropdown-icon.png";
@@ -12,6 +13,9 @@ import oneStar from "/src/assets/one-star.png";
 import "./Stays.scss";
 
 export default function Stays() {
+  const [stars, setStars] = useState();
+  const [starsCount, setStarsCount] = useState([]);
+
   const handleRatingStars = (stars) => {
     if (stars === 5) {
       return fiveStars;
@@ -26,6 +30,78 @@ export default function Stays() {
     }
   };
 
+  const filterByStars = properties.filter((property) => {
+    return starsCount.includes(property.rating);
+  });
+
+  const removeFiveStarsRating = () => {
+    if (!starsCount.includes(5)) {
+      setStarsCount((prev) => {
+        return [...prev, 5];
+      });
+    } else {
+      setStarsCount(
+        starsCount.filter((stars) => {
+          return stars !== 5;
+        })
+      );
+    }
+  };
+
+  const removeFourStarsRating = () => {
+    if (!starsCount.includes(4)) {
+      setStarsCount((prev) => {
+        return [...prev, 4];
+      });
+    } else {
+      setStarsCount(
+        starsCount.filter((stars) => {
+          return stars !== 4;
+        })
+      );
+    }
+  };
+  const removeThreeStarsRating = () => {
+    if (!starsCount.includes(3)) {
+      setStarsCount((prev) => {
+        return [...prev, 3];
+      });
+    } else {
+      setStarsCount(
+        starsCount.filter((stars) => {
+          return stars !== 3;
+        })
+      );
+    }
+  };
+  const removeTwoStarsRating = () => {
+    if (!starsCount.includes(2)) {
+      setStarsCount((prev) => {
+        return [...prev, 2];
+      });
+    } else {
+      setStarsCount(
+        starsCount.filter((stars) => {
+          return stars !== 2;
+        })
+      );
+    }
+  };
+  const removeOneStarRating = () => {
+    if (!starsCount.includes(1)) {
+      setStarsCount((prev) => {
+        return [...prev, 1];
+      });
+    } else {
+      setStarsCount(
+        starsCount.filter((stars) => {
+          return stars !== 1;
+        })
+      );
+    }
+  };
+
+  console.log(starsCount);
   return (
     <section className="stays-section">
       <ul className="stays-main-filter-grid">
@@ -91,24 +167,24 @@ export default function Stays() {
           <ul className="propety-rating">
             <h3>Property rating</h3>
             <li>
-              <input type="checkbox" />
+              <input onChange={removeFiveStarsRating} type="checkbox" />
               <p>5 Stars</p>
             </li>
             <li>
-              <input type="checkbox" />
+              <input onChange={removeFourStarsRating} type="checkbox" />
               <p>4 Stars</p>
             </li>
             <li>
-              <input type="checkbox" />
+              <input onChange={removeThreeStarsRating} type="checkbox" />
               <p>3 Stars</p>
             </li>
             <li>
-              <input type="checkbox" />
+              <input onChange={removeTwoStarsRating} type="checkbox" />
               <p>2 Stars</p>
             </li>
             <li>
-              <input type="checkbox" />
-              <p>Unrated</p>
+              <input onChange={removeOneStarRating} type="checkbox" />
+              <p>1 Star</p>
             </li>
           </ul>
           <ul className="facilities">
@@ -174,9 +250,9 @@ export default function Stays() {
             <option value="highest-price">Sort by: highest price</option>
             <option value="top-rated">Sort by: top rated</option>
           </select>
-          {properties.map((property) => {
+          {filterByStars.map((property) => {
             return (
-              <div className="property-container">
+              <div key={property.title} className="property-container">
                 <img
                   className="property-image"
                   src={property.image}
