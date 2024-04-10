@@ -1,11 +1,15 @@
-import "./Footer.scss";
+import { useNavigate } from "react-router-dom";
 
 import instagramLogo from "/src/assets/instagram-logo.png";
 import facebookLogo from "/src/assets/facebook-logo.png";
 import linkedinLogo from "/src/assets/linkedin-logo.png";
 import paperPlaneIcon from "/src/assets/paper-plane-icon.png";
 
+import "./Footer.scss";
+
 export function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-wrapper">
@@ -21,7 +25,9 @@ export function Footer() {
         </div>
         <nav className="links">
           <span>Links</span>
-          <a href="#">Home</a>
+          <a onClick={() => navigate("/home")} href="#">
+            Home
+          </a>
           <a href="#">About us</a>
           <a href="#">Blogs</a>
           <a href="#">Our services</a>

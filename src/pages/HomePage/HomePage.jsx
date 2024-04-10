@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import homePageImage from "/src/assets/homepage.png";
 import airPlanePhoto from "/src/assets/airplane-image.png";
@@ -21,6 +22,8 @@ import "./HomePage.scss";
 
 export function HomePage() {
   const [startVideo, setStartVideo] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleVideoStart = () => {
     if (startVideo) {
@@ -175,18 +178,36 @@ export function HomePage() {
           <div className="select-grid">
             <select name="location">
               <option value="">Your starting location</option>
+              <option value="">Tbilisi, Georgia</option>
+              <option value="">Karlstad, Sweden</option>
+              <option value="">Auckland, New Zealand</option>
             </select>
             <select name="tour-offer">
               <option value="">Choose a tour offer</option>
+              <option value="">London, 15 days</option>
+              <option value="">Chicago, 21 days</option>
+              <option value="">Tokyo, 9 days</option>
             </select>
             <select name="choose-date">
               <option value="">Choose date</option>
+              <option value="">10 August - 25 August</option>
+              <option value="">5 December - 26 December</option>
+              <option value="">3 Febuary - 12 Febuary</option>
             </select>
             <select name="persons">
               <option value="">Persons</option>
+              <option value="">1 Person</option>
+              <option value="">2 Persons</option>
+              <option value="">3 Persons</option>
+              <option value="">4 Persons</option>
             </select>
           </div>
-          <button className="book-now-button">Book Now</button>
+          <button
+            onClick={() => navigate("/bookflight")}
+            className="book-now-button"
+          >
+            Book Now
+          </button>
         </div>
       </article>
     </section>

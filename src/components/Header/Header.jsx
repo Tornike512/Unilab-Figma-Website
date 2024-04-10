@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 import headerNavigation from "./Header.json";
 
@@ -7,6 +8,7 @@ import userLogoWhite from "/src/assets/user-logo-white.png";
 import "./Header.scss";
 
 export function Header() {
+  const [showSignInModal, setShowSignInModal] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -26,7 +28,12 @@ export function Header() {
 
           <>
             <img
-              onClick={() => navigate("/signin")}
+              onMouseOver={() => {
+                setShowSignInModal(true);
+              }}
+              onMouseLeave={() => {
+                setShowSignInModal(false);
+              }}
               className="user-logo-white"
               src={userLogoWhite}
               alt="User Logo White"
@@ -34,6 +41,17 @@ export function Header() {
           </>
         </nav>
       </div>
+      {showSignInModal && (
+        <nav
+          onMouseOver={() => setShowSignInModal(true)}
+          onMouseLeave={() => setShowSignInModal(false)}
+          className="sign-in-modal"
+        >
+          <a onClick={() => navigate("/signin")}>Sign in</a>
+          <a onClick={() => navigate("/register")}>Sign up</a>
+          <a>Sign out</a>
+        </nav>
+      )}
     </header>
   );
 }

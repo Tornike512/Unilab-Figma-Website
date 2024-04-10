@@ -6,6 +6,7 @@
   max-width: 1924px;
   display: flex;
   justify-content: center;
+  position: relative;
   margin: 0 auto;
 
   .header-wrapper {
@@ -50,6 +51,30 @@
         width: 26px;
         cursor: pointer;
       }
+    }
+  }
+
+  .sign-in-modal {
+    width: 267px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: $border-radius-10px;
+    font-size: $font-size-24px;
+    position: absolute;
+    top: 66px;
+    right: 100px;
+
+    a {
+      padding: 10px 20px;
+      border-bottom: 1px solid #ff6700;
+      cursor: pointer;
+    }
+
+    a:hover {
+      background-color: #f6f6f6;
     }
   }
 }
