@@ -4,10 +4,28 @@ import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
 import propertyImage from "/src/assets/property-image.png";
 import fiveStars from "/src/assets/five-stars.png";
+import fourStars from "/src/assets/four-stars.png";
+import threeStars from "/src/assets/three-stars.png";
+import twoStars from "/src/assets/two-stars.png";
+import oneStar from "/src/assets/one-star.png";
 
 import "./Stays.scss";
 
 export default function Stays() {
+  const handleRatingStars = (stars) => {
+    if (stars === 5) {
+      return fiveStars;
+    } else if (stars === 4) {
+      return fourStars;
+    } else if (stars === 3) {
+      return threeStars;
+    } else if (stars === 2) {
+      return twoStars;
+    } else if (stars === 1) {
+      return oneStar;
+    }
+  };
+
   return (
     <section className="stays-section">
       <ul className="stays-main-filter-grid">
@@ -174,7 +192,10 @@ export default function Stays() {
                     </ul>
                     <ul className="property-details">
                       <li>Rating:</li>
-                      <img src={fiveStars} alt="Property Rating By Stars" />
+                      <img
+                        src={handleRatingStars(property.rating)}
+                        alt="Property Rating By Stars"
+                      />
                       <li>Price:</li>
                       <li className="price">{`${property.price}$`}</li>
                     </ul>
