@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import coloredFacebook from "/src/assets/colored-facebook.png";
@@ -11,6 +11,10 @@ import "./SignInPage.scss";
 export function SignInPage() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
+  const [authorized, setAuthorized] = useState(() => {
+    const storedAuthorize = localStorage.getItem("signed in");
+    return storedAuthorize ? JSON.parse(storedAuthorize) : false;
+  });
 
   const [emailWarning, setEmailWarning] = useState(false);
   const [passwordWarning, setPasswordWarning] = useState(false);
@@ -33,6 +37,7 @@ export function SignInPage() {
   const handleSignInButton = () => {
     if (emailInput === storedEmail && passwordInput === storedPassword) {
       navigate("/bookflight");
+      localStorage.setItem("signed in", JSON.stringify(true));
     }
 
     if (emailInput !== storedEmail) {

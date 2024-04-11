@@ -9,7 +9,18 @@ import "./Header.scss";
 
 export function Header() {
   const [showSignInModal, setShowSignInModal] = useState(false);
+
+  const storedAuthorized = JSON.parse(localStorage.getItem("signed in"));
+
+  console.log(storedAuthorized);
+
   const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("signed in");
+    navigate("register");
+    setShowSignInModal(false);
+  };
 
   return (
     <header className="header">
@@ -49,9 +60,27 @@ export function Header() {
           onMouseLeave={() => setShowSignInModal(false)}
           className="sign-in-modal"
         >
-          <a onClick={() => navigate("/signin")}>Sign in</a>
-          <a onClick={() => navigate("/register")}>Sign up</a>
-          <a>Sign out</a>
+          {!storedAuthorized && (
+            <a
+              onClick={() => {
+                setShowSignInModal(false);
+                navigate("/signin");
+              }}
+            >
+              Sign in
+            </a>
+          )}
+          {!storedAuthorized && (
+            <a
+              onClick={() => {
+                setShowSignInModal(false);
+                navigate("/register");
+              }}
+            >
+              Sign up
+            </a>
+          )}
+          <a onClick={handleSignOut}>Sign out</a>
         </nav>
       )}
     </header>

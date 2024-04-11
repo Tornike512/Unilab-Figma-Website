@@ -7,6 +7,8 @@ import { Footer } from "../components/Footer";
 export function PublicLayout() {
   const { id } = useParams();
 
+  console.log(id);
+
   return (
     <>
       {id === "home" ? <SecondaryHeader /> : <Header />}
