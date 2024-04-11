@@ -23,7 +23,11 @@ export function RegisterPage() {
   const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
   const [storeInfo, setStoreInfo] = useState(false);
 
-  console.log(firstNameInput);
+  const [firstNameWarning, setFirstNameWarning] = useState(false);
+  const [lastNameWarning, setLastNameWarning] = useState(false);
+  const [emailWarning, setEmailWarning] = useState(false);
+  const [passwordWarning, setPasswordWarning] = useState(false);
+  const [confirmPasswordWarning, setConfirmPasswordWarning] = useState(false);
 
   const navigate = useNavigate();
 
@@ -31,6 +35,8 @@ export function RegisterPage() {
     if (storeInfo) {
       localStorage.setItem(JSON.stringify(emailInput), "email");
       localStorage.setItem(JSON.stringify(passwordInput), "password");
+
+      navigate("/signin");
     }
   }, [storeInfo]);
 
@@ -46,6 +52,23 @@ export function RegisterPage() {
     if (storeInfo) {
       navigate("/signin");
     }
+
+    if (passwordInput !== confirmPasswordInput) {
+      setPasswordWarning(true);
+      setConfirmPasswordWarning(true);
+    }
+
+    if (emailInput.trim() === "") {
+      setEmailWarning(true);
+    }
+
+    if (firstNameInput === "") {
+      setFirstNameWarning(true);
+    }
+
+    if (lastNameInput === "") {
+      setLastNameWarning(true);
+    }
   };
 
   return (
@@ -55,36 +78,78 @@ export function RegisterPage() {
           <div className="first-name-input">
             <label>First name</label>
             <input
+              style={
+                firstNameWarning
+                  ? {
+                      border: "1px solid red",
+                      boxShadow: "inset 0 0 2px red",
+                    }
+                  : {}
+              }
               onChange={(e) => {
                 setFirstNameInput(e.target.value);
+                setFirstNameWarning(false);
               }}
               type="text"
               placeholder="Enter your first name"
             />
+            {firstNameWarning && (
+              <span className="warning">First name is empty</span>
+            )}
           </div>
           <div className="last-name-input">
             <label>Last name</label>
             <input
+              style={
+                lastNameWarning
+                  ? {
+                      border: "1px solid red",
+                      boxShadow: "inset 0 0 2px red",
+                    }
+                  : {}
+              }
               onChange={(e) => {
                 setLastNameInput(e.target.value);
+                setLastNameWarning(false);
               }}
               type="text"
               placeholder="Enter your last name"
             />
+            {lastNameWarning && (
+              <span className="warning">Last name is empty</span>
+            )}
           </div>
           <div className="email-input">
             <label>Email</label>
             <input
+              style={
+                emailWarning
+                  ? {
+                      border: "1px solid red",
+                      boxShadow: "inset 0 0 2px red",
+                    }
+                  : {}
+              }
               onChange={(e) => {
                 setEmailInput(e.target.value);
+                setEmailWarning(false);
               }}
               type="email"
               placeholder="Enter your email address"
             />
+            {emailWarning && <span className="warning">Email is empty</span>}
           </div>
           <div className="password-input">
             <label>Password</label>
             <input
+              style={
+                passwordWarning
+                  ? {
+                      border: "1px solid red",
+                      boxShadow: "inset 0 0 2px red",
+                    }
+                  : {}
+              }
               onChange={(e) => {
                 setPasswordInput(e.target.value);
               }}
@@ -95,13 +160,23 @@ export function RegisterPage() {
           <div className="confirm-password-input">
             <label>Confirm the password</label>
             <input
+              style={
+                confirmPasswordWarning
+                  ? {
+                      border: "1px solid red",
+                      boxShadow: "inset 0 0 2px red",
+                    }
+                  : {}
+              }
               onChange={(e) => {
                 setConfirmPasswordInput(e.target.value);
               }}
               type="password"
               placeholder="Re-enter your password"
             />
-            <span className="password-warning">Passwords do not match</span>
+            {confirmPasswordWarning && (
+              <span className="warning">Passwords do not match</span>
+            )}
           </div>
           <button className="upload-image">
             <img src={cameraLogo} alt="Camera Image" />
