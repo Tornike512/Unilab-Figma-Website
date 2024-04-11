@@ -10,14 +10,8 @@ import coloredGoogle from "/src/assets/colored-google.png";
 import "./RegisterPage.scss";
 
 export function RegisterPage() {
-  const [firstNameInput, setFirstNameInput] = useState(() => {
-    const storedFirstName = localStorage.getItem("first name");
-    return storedFirstName ? JSON.parse(storedFirstName) : "";
-  });
-  const [lastNameInput, setLastNameInput] = useState(() => {
-    const storedLastName = localStorage.getItem("last name");
-    return storedLastName ? JSON.parse(storedLastName) : "";
-  });
+  const [firstNameInput, setFirstNameInput] = useState("");
+  const [lastNameInput, setLastNameInput] = useState("");
   const [emailInput, setEmailInput] = useState(() => {
     const storedEmail = localStorage.getItem("email");
     return storedEmail ? JSON.parse(storedEmail) : "";
@@ -35,17 +29,29 @@ export function RegisterPage() {
 
   useEffect(() => {
     if (storeInfo) {
-      localStorage.setItem(JSON.stringify(firstNameInput), "first name");
-      localStorage.setItem(JSON.stringify(lastNameInput), "last name");
       localStorage.setItem(JSON.stringify(emailInput), "email");
       localStorage.setItem(JSON.stringify(passwordInput), "password");
     }
   }, [storeInfo]);
 
+  const registerValidation = () => {
+    const checkEmailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (
+      passwordInput === confirmPasswordInput &&
+      checkEmailValidation.test(emailInput)
+    ) {
+      setStoreInfo(true);
+    }
+
+    if (storeInfo) {
+      navigate("/signin");
+    }
+  };
+
   return (
     <section className="register">
       <div className="register-container">
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className="first-name-input">
             <label>First name</label>
             <input
@@ -95,17 +101,12 @@ export function RegisterPage() {
               type="password"
               placeholder="Re-enter your password"
             />
+            <span className="password-warning">Passwords do not match</span>
           </div>
           <button className="upload-image">
             <img src={cameraLogo} alt="Camera Image" />
           </button>
-          <button
-            // onClick={() => navigate("/signin")}
-            onClick={() => {
-              setStoreInfo(true);
-            }}
-            className="register-button"
-          >
+          <button onClick={registerValidation} className="register-button">
             Continue
           </button>
         </form>
