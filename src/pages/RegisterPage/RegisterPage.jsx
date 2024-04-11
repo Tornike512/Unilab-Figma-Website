@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import cameraLogo from "/src/assets/camera-logo.png";
 import coloredFacebook from "/src/assets/colored-facebook.png";
 import coloredApple from "/src/assets/colored-apple.png";
@@ -7,34 +10,104 @@ import coloredGoogle from "/src/assets/colored-google.png";
 import "./RegisterPage.scss";
 
 export function RegisterPage() {
+  const [firstNameInput, setFirstNameInput] = useState(() => {
+    const storedFirstName = localStorage.getItem("first name");
+    return storedFirstName ? JSON.parse(storedFirstName) : "";
+  });
+  const [lastNameInput, setLastNameInput] = useState(() => {
+    const storedLastName = localStorage.getItem("last name");
+    return storedLastName ? JSON.parse(storedLastName) : "";
+  });
+  const [emailInput, setEmailInput] = useState(() => {
+    const storedEmail = localStorage.getItem("email");
+    return storedEmail ? JSON.parse(storedEmail) : "";
+  });
+  const [passwordInput, setPasswordInput] = useState(() => {
+    const storedPasswordInput = localStorage.getItem("password");
+    return storedPasswordInput ? JSON.parse(storedPasswordInput) : "";
+  });
+  const [confirmPasswordInput, setConfirmPasswordInput] = useState("");
+  const [storeInfo, setStoreInfo] = useState(false);
+
+  console.log(firstNameInput);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (storeInfo) {
+      localStorage.setItem(JSON.stringify(firstNameInput), "first name");
+      localStorage.setItem(JSON.stringify(lastNameInput), "last name");
+      localStorage.setItem(JSON.stringify(emailInput), "email");
+      localStorage.setItem(JSON.stringify(passwordInput), "password");
+    }
+  }, [storeInfo]);
+
   return (
     <section className="register">
       <div className="register-container">
         <form>
           <div className="first-name-input">
             <label>First name</label>
-            <input type="text" placeholder="Enter your first name" />
+            <input
+              onChange={(e) => {
+                setFirstNameInput(e.target.value);
+              }}
+              type="text"
+              placeholder="Enter your first name"
+            />
           </div>
           <div className="last-name-input">
             <label>Last name</label>
-            <input type="text" placeholder="Enter your last name" />
+            <input
+              onChange={(e) => {
+                setLastNameInput(e.target.value);
+              }}
+              type="text"
+              placeholder="Enter your last name"
+            />
           </div>
           <div className="email-input">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email address" />
+            <input
+              onChange={(e) => {
+                setEmailInput(e.target.value);
+              }}
+              type="email"
+              placeholder="Enter your email address"
+            />
           </div>
           <div className="password-input">
             <label>Password</label>
-            <input type="password" placeholder="Enter your password" />
+            <input
+              onChange={(e) => {
+                setPasswordInput(e.target.value);
+              }}
+              type="password"
+              placeholder="Enter your password"
+            />
           </div>
           <div className="confirm-password-input">
             <label>Confirm the password</label>
-            <input type="password" placeholder="Re-enter your password" />
+            <input
+              onChange={(e) => {
+                setConfirmPasswordInput(e.target.value);
+              }}
+              type="password"
+              placeholder="Re-enter your password"
+            />
           </div>
           <button className="upload-image">
             <img src={cameraLogo} alt="Camera Image" />
           </button>
-          <button className="register-button">Continue</button>
+          <button
+            // onClick={() => navigate("/signin")}
+            onClick={() => {
+              setStoreInfo(true);
+            }}
+            className="register-button"
+          >
+            Continue
+          </button>
         </form>
         <span className="continue-with-text">Or continue with</span>
         <div className="upper-divider"></div>

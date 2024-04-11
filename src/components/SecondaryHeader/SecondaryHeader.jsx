@@ -10,9 +10,9 @@ export function SecondaryHeader() {
   return (
     <header className="secondary-header">
       <div className="secondary-header-wrapper">
-        <h1 onClick={() => navigate("/home")}>ExploreEra</h1>
+        <h1 onClick={() => navigate("/")}>ExploreEra</h1>
         <img
-          onClick={() => navigate("/home")}
+          onClick={() => navigate("/")}
           src={blackUserLogo}
           alt="Black User Icon"
         />

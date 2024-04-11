@@ -13,7 +13,7 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path="/" element={<PublicLayout />}>
-            <Route path="/:id" element={<HomePage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/signin" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/bookflight" element={<BookFlightPage />} />

@@ -9,7 +9,7 @@ export function PublicLayout() {
 
   return (
     <>
-      {id !== "home" ? <SecondaryHeader /> : <Header />}
+      {id === "home" ? <SecondaryHeader /> : <Header />}
       <main style={{ position: "relative" }}>
         <Outlet />
       </main>
