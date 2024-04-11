@@ -33,8 +33,8 @@ export function RegisterPage() {
 
   useEffect(() => {
     if (storeInfo) {
-      localStorage.setItem(JSON.stringify(emailInput), "email");
-      localStorage.setItem(JSON.stringify(passwordInput), "password");
+      localStorage.setItem("email", JSON.stringify(emailInput));
+      localStorage.setItem("password", JSON.stringify(passwordInput));
 
       navigate("/signin");
     }

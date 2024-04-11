@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import coloredFacebook from "/src/assets/colored-facebook.png";
 import coloredApple from "/src/assets/colored-apple.png";
 import coloredGmail from "/src/assets/colored-gmail.png";
@@ -6,6 +9,15 @@ import coloredGoogle from "/src/assets/colored-google.png";
 import "./SignInPage.scss";
 
 export function SignInPage() {
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+
+  const storedEmail = localStorage.getItem("email");
+  const storedPassword = localStorage.getItem("password");
+
+  console.log(storedEmail);
+  console.log(storedPassword);
+
   return (
     <section className="sign-in-page">
       <div className="sign-in-container">
