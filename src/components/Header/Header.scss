@@ -46,12 +46,20 @@
           color: $tertiary-text-color;
           transition: $primary-transition;
         }
+
+        @include sm {
+          display: none;
+        }
       }
 
       .user-logo-white {
         width: 26px;
         cursor: pointer;
       }
+    }
+
+    @include sm {
+      padding: 20px 20px;
     }
   }
 
