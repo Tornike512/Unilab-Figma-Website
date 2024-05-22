@@ -47,7 +47,7 @@
           transition: $primary-transition;
         }
 
-        @include sm {
+        @include md {
           display: none;
         }
       }
@@ -55,7 +55,7 @@
       .menu-icon {
         display: none;
 
-        @include sm {
+        @include md {
           display: block;
           width: 30px;
           cursor: pointer;
@@ -66,13 +66,13 @@
         width: 30px;
         cursor: pointer;
 
-        @include sm {
+        @include md {
           display: none;
         }
       }
     }
 
-    @include sm {
+    @include md {
       padding: 20px 20px;
     }
   }
