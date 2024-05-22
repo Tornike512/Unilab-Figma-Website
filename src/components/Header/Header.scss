@@ -52,9 +52,23 @@
         }
       }
 
+      .menu-icon {
+        display: none;
+
+        @include sm {
+          display: block;
+          width: 30px;
+          cursor: pointer;
+        }
+      }
+
       .user-logo-white {
-        width: 26px;
+        width: 30px;
         cursor: pointer;
+
+        @include sm {
+          display: none;
+        }
       }
     }
 

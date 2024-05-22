@@ -4,6 +4,7 @@ import { useState } from "react";
 import headerNavigation from "./Header.json";
 
 import userLogoWhite from "/src/assets/user-logo-white.png";
+import menuIcon from "/src/assets/menu-icon.png";
 
 import "./Header.scss";
 
@@ -51,6 +52,7 @@ export function Header() {
               src={userLogoWhite}
               alt="User Logo White"
             />
+            <img className="menu-icon" src={menuIcon} alt="Menu Icon" />
           </>
         </nav>
       </div>
