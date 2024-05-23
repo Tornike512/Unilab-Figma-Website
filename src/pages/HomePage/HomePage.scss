@@ -252,6 +252,12 @@
     h2 {
       margin-bottom: 60px;
       font-size: $font-size-40px;
+
+      @include md {
+        margin-bottom: 15px;
+        padding: 0 45px;
+        font-size: $font-size-22px;
+      }
     }
 
     .slider-buttons {
@@ -259,6 +265,10 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
+
+      @include md {
+        display: none;
+      }
 
       .slide-left-button {
         background-color: transparent;
@@ -296,8 +306,22 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
       column-gap: 20px;
 
+      @include md {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 45px;
+      }
+
+      @include sm {
+        grid-template-columns: 1fr;
+      }
+
       .slider-item {
         height: 600px;
+
+        @include md {
+          height: auto;
+          margin-bottom: 35px;
+        }
 
         img {
           width: 380px;
@@ -305,20 +329,37 @@
           margin-bottom: 10px;
           border-radius: $border-radius-20px;
           cursor: pointer;
+
+          @include md {
+            width: 100%;
+            height: auto;
+          }
         }
 
         h4 {
           margin-bottom: 10px;
           font-size: $font-size-32px;
+
+          @include md {
+            font-size: $font-size-20px;
+          }
         }
 
         p {
           margin-bottom: 10px;
           font-size: $font-size-24px;
+
+          @include md {
+            font-size: $font-size-18px;
+          }
         }
 
         span {
           font-size: $font-size-24px;
+
+          @include md {
+            font-size: $font-size-18px;
+          }
         }
       }
     }

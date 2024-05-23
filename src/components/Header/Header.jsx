@@ -52,7 +52,12 @@ export function Header() {
               src={userLogoWhite}
               alt="User Logo White"
             />
-            <img className="menu-icon" src={menuIcon} alt="Menu Icon" />
+            <img
+              className="menu-icon"
+              onClick={() => navigate("/signin")}
+              src={menuIcon}
+              alt="Menu Icon"
+            />
           </>
         </nav>
       </div>
