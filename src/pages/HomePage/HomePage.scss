@@ -211,6 +211,12 @@
     h2 {
       margin-bottom: 40px;
       font-size: $font-size-40px;
+
+      @include md {
+        padding: 0 45px;
+        margin-bottom: 15px;
+        font-size: $font-size-22px;
+      }
     }
 
     .video-settings {
@@ -219,6 +225,11 @@
       video {
         width: 1580px;
         border-radius: $border-radius-20px;
+
+        @include md {
+          width: 100%;
+          padding: 0 45px;
+        }
       }
 
       .start-video-button {
@@ -226,6 +237,10 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        @include md {
+          width: 5%;
+        }
       }
     }
   }
