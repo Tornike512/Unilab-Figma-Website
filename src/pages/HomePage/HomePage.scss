@@ -427,7 +427,7 @@
   }
 
   .book-a-trip {
-    width: 1920px;
+    width: 100%;
     max-width: 1920px;
     display: flex;
     justify-content: center;
@@ -437,12 +437,17 @@
     background-color: #e0e0e0;
 
     .book-a-trip-wrapper {
-      width: 1520px;
+      width: 100%;
       margin-bottom: 40px;
+      padding: 0 45px;
 
       h2 {
         margin: 50px 0 40px;
         font-size: $font-size-40px;
+
+        @include md {
+          font-size: $font-size-22px;
+        }
       }
 
       .select-grid {
@@ -452,12 +457,20 @@
         row-gap: 40px;
         margin-bottom: 40px;
 
+        @include md {
+          grid-template-columns: 1fr;
+        }
+
         select {
           padding: 30px 50px;
           font-size: $font-size-28px;
           border-radius: $border-radius-20px;
           border: none;
           cursor: pointer;
+
+          @include md {
+            font-size: $font-size-20px;
+          }
         }
       }
 
@@ -465,6 +478,10 @@
         @include primary-button-mixin;
         width: 100%;
         font-size: $font-size-32px;
+
+        @include md {
+          font-size: $font-size-22px;
+        }
       }
 
       .book-now-button:hover {
