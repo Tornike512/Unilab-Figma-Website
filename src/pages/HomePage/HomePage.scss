@@ -223,11 +223,10 @@
       position: relative;
 
       video {
-        width: 1580px;
+        width: 100%;
         border-radius: $border-radius-20px;
 
         @include md {
-          width: 100%;
           padding: 0 45px;
         }
       }
