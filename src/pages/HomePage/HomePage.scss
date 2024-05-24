@@ -368,9 +368,18 @@
   .blogs {
     width: 1580px;
 
+    @include md {
+      width: auto;
+      padding: 0 45px;
+    }
+
     h2 {
       margin-bottom: 30px;
       font-size: $font-size-40px;
+
+      @include md {
+        font-size: $font-size-22px;
+      }
     }
 
     .blog-grid {
@@ -379,18 +388,40 @@
       column-gap: 20px;
       margin-bottom: 40px;
 
+      @include md {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include sm {
+        grid-template-columns: 1fr;
+      }
+
       .blog-item {
         height: 390px;
+
+        @include md {
+          height: auto;
+          margin-bottom: 20px;
+        }
 
         img {
           width: 512px;
           height: 340px;
           margin-bottom: 10px;
           border-radius: $border-radius-20px;
+
+          @include md {
+            width: 100%;
+            height: auto;
+          }
         }
 
         p {
           font-size: 32px;
+
+          @include md {
+            font-size: $font-size-20px;
+          }
         }
       }
     }
