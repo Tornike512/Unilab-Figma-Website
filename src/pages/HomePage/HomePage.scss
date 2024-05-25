@@ -248,6 +248,8 @@
 
   .tour-offer-slider {
     max-width: 1580px;
+    width: 100%;
+    padding: 0 45px;
     margin-bottom: 60px;
 
     h2 {
@@ -325,8 +327,8 @@
         }
 
         img {
-          width: 380px;
-          height: 475px;
+          width: 100%;
+          height: auto;
           margin-bottom: 10px;
           border-radius: $border-radius-20px;
           cursor: pointer;
