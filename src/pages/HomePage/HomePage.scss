@@ -369,7 +369,8 @@
   }
 
   .blogs {
-    width: 1580px;
+    width: 100%;
+    padding: 0 45px;
 
     @include md {
       width: auto;
@@ -387,7 +388,7 @@
 
     .blog-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       column-gap: 20px;
       margin-bottom: 40px;
 
@@ -408,8 +409,8 @@
         }
 
         img {
-          width: 512px;
-          height: 340px;
+          width: 100%;
+          height: auto;
           margin-bottom: 10px;
           border-radius: $border-radius-20px;
 
