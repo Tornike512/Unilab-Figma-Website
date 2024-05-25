@@ -1,17 +1,29 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+@import "/src/sass/BreakPoints.scss";
 
 .footer {
   max-width: 1924px;
+  width: 100%;
   margin: 0 auto;
-  padding: 40px 170px 10px 170px;
+  padding: 0 45px;
   background-color: #eae9e9;
   color: #424244;
 
   .footer-wrapper {
-    display: flex;
+    display: grid;
     justify-content: space-between;
+    grid-template-columns: 250px 250px 250px;
+
+    @include md {
+      grid-template-columns: 250px 157px;
+    }
+
+    @include sm {
+      grid-template-columns: 250px;
+      justify-content: center;
+    }
 
     .socials {
       width: 282px;
@@ -72,6 +84,10 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
+
+      @include md {
+        margin-top: 20px;
+      }
 
       h3 {
         font-size: $font-size-32px;
