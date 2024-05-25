@@ -19,6 +19,7 @@
 
     img {
       max-width: 1924px;
+      width: 100%;
       position: absolute;
       top: 6%;
       transform: translate(-50%, -66%);
@@ -369,6 +370,7 @@
   }
 
   .blogs {
+    max-width: 1580px;
     width: 100%;
     padding: 0 45px;
 
