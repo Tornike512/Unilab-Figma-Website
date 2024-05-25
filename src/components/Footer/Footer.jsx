@@ -48,7 +48,12 @@ export function Footer() {
           </form>
         </div>
       </div>
-      <span className="copyright">Copyright 2024</span>
+      <a
+        href="https://github.com/Tornike512/Unilab-Figma-Website"
+        className="copyright"
+      >
+        @Tornike Tsagareishvili
+      </a>
     </footer>
   );
 }

@@ -34,14 +34,26 @@
 
       h2 {
         font-size: $font-size-48px;
+
+        @include sm {
+          font-size: $font-size-28px;
+        }
       }
 
       p {
         font-size: $font-size-24px;
+
+        @include sm {
+          font-size: $font-size-24px;
+        }
       }
 
       span {
         font-size: $font-size-32px;
+
+        @include sm {
+          font-size: $font-size-28px;
+        }
       }
 
       .socials-image {
@@ -50,6 +62,12 @@
           height: 50px;
           margin-right: 20px;
           cursor: pointer;
+
+          @include sm {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 20px;
+          }
         }
 
         img:last-child {
@@ -65,6 +83,10 @@
 
       span {
         font-size: $font-size-32px;
+
+        @include sm {
+          font-size: $font-size-28px;
+        }
       }
 
       a {
@@ -72,6 +94,10 @@
         text-decoration: none;
         color: $primary-text-color;
         cursor: pointer;
+
+        @include sm {
+          font-size: $font-size-20px;
+        }
       }
 
       a:hover {
@@ -91,15 +117,35 @@
 
       h3 {
         font-size: $font-size-32px;
+
+        @include sm {
+          font-size: $font-size-28px;
+        }
       }
+
       .email {
         font-size: $font-size-24px;
+
+        @include sm {
+          font-size: $font-size-20px;
+        }
       }
+
       .phone-number {
         font-size: $font-size-24px;
+
+        @include sm {
+          font-size: $font-size-20px;
+        }
       }
+
       .subscribe {
         font-size: $font-size-32px;
+
+        @include sm {
+          margin-bottom: 15px;
+          font-size: $font-size-28px;
+        }
       }
 
       form {
@@ -125,9 +171,17 @@
   }
 
   .copyright {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     margin-top: 40px;
+    margin-left: 40%;
     font-size: $font-size-24px;
+    color: #424244;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .copyright:hover {
+    color: $primary-button-hover-color;
   }
 }
