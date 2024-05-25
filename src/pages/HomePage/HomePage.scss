@@ -17,6 +17,10 @@
       height: 250px;
     }
 
+    @include sm {
+      height: 125px;
+    }
+
     img {
       max-width: 1924px;
       width: 100%;
@@ -27,7 +31,11 @@
 
       @include md {
         max-width: 720px;
-        top: 114px;
+        top: 109px;
+      }
+
+      @include sm {
+        top: 36px;
       }
     }
   }
@@ -42,6 +50,10 @@
 
     @include md {
       top: 2%;
+    }
+
+    @include sm {
+      top: 50px;
     }
 
     span {
@@ -153,8 +165,8 @@
           cursor: pointer;
 
           @include md {
-            width: 300px;
-            height: 200px;
+            width: 100%;
+            height: auto;
           }
 
           @include sm {
@@ -216,7 +228,6 @@
       font-size: $font-size-40px;
 
       @include md {
-        padding: 0 45px;
         margin-bottom: 15px;
         font-size: $font-size-22px;
       }
@@ -228,10 +239,6 @@
       video {
         width: 100%;
         border-radius: $border-radius-20px;
-
-        @include md {
-          padding: 0 45px;
-        }
       }
 
       .start-video-button {
@@ -259,7 +266,6 @@
 
       @include md {
         margin-bottom: 15px;
-        padding: 0 45px;
         font-size: $font-size-22px;
       }
     }
@@ -312,7 +318,6 @@
 
       @include md {
         grid-template-columns: 1fr 1fr;
-        padding: 0 45px;
       }
 
       @include sm {
