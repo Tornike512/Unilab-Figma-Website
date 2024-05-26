@@ -55,7 +55,7 @@
           transition: $primary-transition;
         }
 
-        @include md {
+        @include xl {
           display: none;
         }
       }
