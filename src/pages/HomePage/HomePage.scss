@@ -567,7 +567,7 @@
         row-gap: 40px;
         margin-bottom: 40px;
 
-        @include md {
+        @include xl {
           grid-template-columns: 1fr;
         }
 
@@ -580,6 +580,10 @@
 
           @include md {
             font-size: $font-size-20px;
+          }
+
+          @include sm {
+            width: 100%;
           }
         }
       }
