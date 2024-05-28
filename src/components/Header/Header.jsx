@@ -87,7 +87,7 @@ export function Header() {
               Sign up
             </a>
           )}
-          <a onClick={handleSignOut}>Sign out</a>
+          {storedAuthorized && <a onClick={handleSignOut}>Sign out</a>}
         </nav>
       )}
     </header>
