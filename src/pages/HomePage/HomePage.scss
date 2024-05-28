@@ -96,6 +96,9 @@
 
     @media (max-width: 1004px) {
       img {
+        max-width: 1000px;
+        object-fit: none;
+        height: 757px;
         transform: translate(-50%, -24%);
       }
     }
@@ -114,13 +117,18 @@
 
     @media (max-width: 890px) {
       img {
+        max-width: 1000px;
+        height: 800px;
+        object-fit: none;
         transform: translate(-50%, -29%);
       }
     }
 
     @media (max-width: 794px) {
       img {
-        width: 1920px;
+        max-width: 1000px;
+        object-fit: none;
+        height: 900px;
         transform: translate(-50%, -61%);
       }
     }
@@ -256,8 +264,8 @@
         height: 370px;
 
         img {
-          width: 380px;
-          height: 248px;
+          width: 100%;
+          height: auto;
           margin-bottom: 10px;
           border-radius: $border-radius-20px;
           cursor: pointer;
