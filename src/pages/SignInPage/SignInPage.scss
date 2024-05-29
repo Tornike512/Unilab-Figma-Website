@@ -8,6 +8,10 @@
   justify-content: center;
   padding: 126px 40px 156px 40px;
 
+  @include md {
+    padding: 48px 40px 48px 40px;
+  }
+
   .sign-in-container {
     width: 540px;
     padding: 50px 70px;
@@ -75,6 +79,11 @@
       left: 29%;
       display: flex;
       justify-content: center;
+
+      @include md {
+        width: 100%;
+        left: 0;
+      }
     }
 
     .upper-divider {
@@ -86,6 +95,10 @@
       opacity: 0.7;
       z-index: 0;
       background-color: #424244;
+
+      @include md {
+        display: none;
+      }
     }
 
     .sign-in-socials-grid {
@@ -93,6 +106,12 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
       column-gap: 40px;
       margin-bottom: 20px;
+
+      @include md {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 15px;
+        row-gap: 15px;
+      }
 
       .home-page-socials {
         display: flex;
