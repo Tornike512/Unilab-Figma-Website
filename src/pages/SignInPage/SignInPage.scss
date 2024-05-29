@@ -1,11 +1,12 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+@import "/src/sass/BreakPoints.scss";
 
 .sign-in-page {
   display: flex;
   justify-content: center;
-  padding: 126px 0 156px;
+  padding: 126px 40px 156px 40px;
 
   .sign-in-container {
     width: 540px;
@@ -13,6 +14,11 @@
     position: relative;
     background-color: #ffffff;
     border-radius: $border-radius-10px;
+
+    @include md {
+      width: 100%;
+      padding: 24px 30px;
+    }
 
     .email-input,
     .password-input {
@@ -32,6 +38,10 @@
         border: 1px solid #ff6700;
         border-radius: $border-radius-10px;
         font-size: $font-size-20px;
+
+        @include md {
+          padding: 15px 10px 15px 20px;
+        }
       }
 
       .warning {
@@ -48,6 +58,10 @@
       margin-bottom: 20px;
       border-radius: $border-radius-10px;
       font-size: $font-size-20px;
+
+      @include md {
+        padding: 20px;
+      }
     }
 
     .divider-text {
