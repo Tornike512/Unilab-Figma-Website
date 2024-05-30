@@ -1,6 +1,7 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+@import "/src/sass/BreakPoints.scss";
 
 .secondary-header {
   width: 100%;
@@ -10,17 +11,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 170px;
+    padding: 20px 100px;
 
     h1 {
       font-size: $font-size-48px;
       cursor: pointer;
     }
 
-    img {
+    .black-user-icon {
       width: 25px;
       height: 32px;
       cursor: pointer;
+
+      @include md {
+        display: none;
+      }
+    }
+
+    .black-nav-icon {
+      display: none;
+      width: 29px;
+      height: 25px;
+      cursor: pointer;
+
+      @include md {
+        display: block;
+      }
     }
   }
 }

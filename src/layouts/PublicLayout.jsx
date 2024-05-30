@@ -6,8 +6,6 @@ import { Footer } from "../components/Footer";
 export function PublicLayout() {
   const location = useLocation();
 
-  console.log(location.pathname);
-
   return (
     <>
       {location.pathname === "/signin" ||
