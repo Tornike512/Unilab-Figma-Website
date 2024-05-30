@@ -41,7 +41,12 @@ export function HomePage() {
       <div className="home-page-main-text">
         <span>Visit Mountains In</span>
         <h1 className="home-page-country">ITALY</h1>
-        <button className="see-offer-button">See offer</button>
+        <button
+          onClick={() => navigate("/signin")}
+          className="see-offer-button"
+        >
+          See offer
+        </button>
       </div>
       <article className="services">
         <h2>Discover Our Services</h2>

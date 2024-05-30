@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { PublicLayout } from "./layouts/PublicLayout";
 
@@ -14,9 +19,9 @@ function App() {
         <Routes>
           <Route element={<PublicLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/:id" element={<SignInPage />} />
-            <Route path="/:id" element={<RegisterPage />} />
-            <Route path="/:id" element={<BookFlightPage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/bookflight" element={<BookFlightPage />} />
           </Route>
         </Routes>
       </Suspense>

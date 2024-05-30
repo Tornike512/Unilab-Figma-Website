@@ -1,17 +1,22 @@
-import { Outlet } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../components/Header";
 import { SecondaryHeader } from "../components/SecondaryHeader";
 import { Footer } from "../components/Footer";
 
 export function PublicLayout() {
-  const { id } = useParams();
+  const location = useLocation();
 
-  console.log(id, "idi");
+  console.log(location.pathname);
 
   return (
     <>
-      {id !== undefined ? <SecondaryHeader /> : <Header />}
+      {location.pathname === "/signin" ||
+      location.pathname === "/register" ||
+      location.pathname === "/bookflight" ? (
+        <SecondaryHeader />
+      ) : (
+        <Header />
+      )}
       <main style={{ position: "relative" }}>
         <Outlet />
       </main>
