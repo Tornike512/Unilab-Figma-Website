@@ -153,8 +153,6 @@ export default function Stays() {
     }
   };
 
-  console.log(loadMoreStays, "loadmorestays");
-  console.log(filterByStars.length, "filterbystars");
   return (
     <section className="stays-section">
       <ul className="stays-main-filter-grid">

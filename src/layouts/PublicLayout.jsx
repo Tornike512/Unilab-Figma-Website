@@ -7,11 +7,11 @@ import { Footer } from "../components/Footer";
 export function PublicLayout() {
   const { id } = useParams();
 
-  console.log(id);
+  console.log(id, "idi");
 
   return (
     <>
-      {id === "home" ? <SecondaryHeader /> : <Header />}
+      {id !== undefined ? <SecondaryHeader /> : <Header />}
       <main style={{ position: "relative" }}>
         <Outlet />
       </main>

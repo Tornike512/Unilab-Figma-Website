@@ -12,11 +12,11 @@ function App() {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<PublicLayout />}>
+          <Route element={<PublicLayout />}>
             <Route path="/" element={<HomePage />} />
-            <Route path="/signin" element={<SignInPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/bookflight" element={<BookFlightPage />} />
+            <Route path="/:id" element={<SignInPage />} />
+            <Route path="/:id" element={<RegisterPage />} />
+            <Route path="/:id" element={<BookFlightPage />} />
           </Route>
         </Routes>
       </Suspense>

@@ -25,7 +25,7 @@ export function Footer() {
         </div>
         <nav className="links">
           <span>Links</span>
-          <a onClick={() => navigate("/")} href="#">
+          <a onClick={() => navigate(`/`)} href="#">
             Home
           </a>
           <a href="#">About us</a>

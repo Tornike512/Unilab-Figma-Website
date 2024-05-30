@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 import headerNavigation from "./Header.json";
@@ -13,20 +13,18 @@ export function Header() {
 
   const storedAuthorized = JSON.parse(localStorage.getItem("signed in"));
 
-  console.log(storedAuthorized);
-
   const navigate = useNavigate();
 
   const handleSignOut = () => {
     localStorage.removeItem("signed in");
-    navigate("register");
+    navigate("/register");
     setShowSignInModal(false);
   };
 
   return (
     <header className="header">
       <div className="header-wrapper">
-        <h1 onClick={() => navigate("/")} className="website-name">
+        <h1 onClick={() => navigate(`/`)} className="website-name">
           ExploreEra
         </h1>
         <nav className="navigation">
@@ -54,7 +52,7 @@ export function Header() {
             />
             <img
               className="menu-icon"
-              onClick={() => navigate("/signin")}
+              onClick={() => navigate(`/`)}
               src={menuIcon}
               alt="Menu Icon"
             />
