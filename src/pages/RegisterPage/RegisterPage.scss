@@ -1,11 +1,16 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+@import "/src/sass/BreakPoints.scss";
 
 .register {
   display: flex;
   justify-content: center;
   padding: 31px 0;
+
+  @include md {
+    padding: 48px 40px 48px 40px;
+  }
 
   .register-container {
     width: 540px;
@@ -13,6 +18,11 @@
     position: relative;
     background-color: #ffffff;
     border-radius: $border-radius-10px;
+
+    @include md {
+      width: 100%;
+      padding: 24px 30px;
+    }
 
     .first-name-input,
     .last-name-input,
@@ -35,6 +45,10 @@
         border: 1px solid #ff6700;
         border-radius: $border-radius-10px;
         font-size: $font-size-20px;
+
+        @include md {
+          padding: 15px 10px 15px 20px;
+        }
       }
 
       .warning {
@@ -68,6 +82,10 @@
       margin-bottom: 20px;
       border-radius: $border-radius-10px;
       font-size: $font-size-20px;
+
+      @include md {
+        padding: 20px;
+      }
     }
 
     .register-button:hover {
@@ -85,6 +103,11 @@
       left: 29%;
       display: flex;
       justify-content: center;
+
+      @include md {
+        width: 100%;
+        left: 0;
+      }
     }
 
     .upper-divider {
@@ -96,6 +119,10 @@
       opacity: 0.7;
       z-index: 0;
       background-color: #424244;
+
+      @include md {
+        display: none;
+      }
     }
 
     .register-socials-grid {
@@ -103,6 +130,12 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
       column-gap: 40px;
       margin-bottom: 20px;
+
+      @include md {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 15px;
+        row-gap: 15px;
+      }
 
       .register-socials-item {
         display: flex;
