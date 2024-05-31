@@ -1,15 +1,20 @@
 @import "/src/sass/Colors.scss";
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
+@import "/src/sass/BreakPoints.scss";
 
 .book-flight-page {
   display: flex;
   justify-content: center;
 
   .book-flight {
-    width: 1920px;
+    width: 100%;
     max-width: 1920px;
     padding: 60px 170px;
+
+    @include lg {
+      padding: 30px 40px;
+    }
 
     ul {
       list-style-type: none;
@@ -18,15 +23,25 @@
     .book-flight-container {
       .main-filter {
         max-width: 953px;
+        width: 100%;
         display: flex;
         align-items: center;
         margin-bottom: 60px;
+
+        @include lg {
+          overflow-x: scroll;
+          justify-content: space-between;
+        }
 
         .current-filter {
           @include primary-button-mixin;
           padding: 15px 30px;
           margin-right: 40px;
           font-size: $font-size-24px;
+
+          @include lg {
+            margin-right: 20px;
+          }
         }
 
         .current-filter:hover {
@@ -39,6 +54,13 @@
           font-size: $font-size-24px;
           color: #424244;
           cursor: pointer;
+
+          @include lg {
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            margin-right: 20px;
+          }
         }
 
         li:hover {

@@ -130,7 +130,7 @@ export function BookFlightPage() {
               </li>
             )}
 
-            <li>Car rentals</li>
+            <li>Car&nbsp;rentals</li>
             <li>Cruises</li>
             <li>Attractions</li>
           </ul>
