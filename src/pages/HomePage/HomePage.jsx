@@ -42,7 +42,7 @@ export function HomePage() {
         <span>Visit Mountains In</span>
         <h1 className="home-page-country">ITALY</h1>
         <button
-          onClick={() => navigate("/signin")}
+          onClick={() => navigate("/bookflight")}
           className="see-offer-button"
         >
           See offer

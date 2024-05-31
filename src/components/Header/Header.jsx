@@ -52,7 +52,7 @@ export function Header() {
             />
             <img
               className="menu-icon"
-              onClick={() => navigate(`/`)}
+              onClick={() => navigate(`/signin`)}
               src={menuIcon}
               alt="Menu Icon"
             />

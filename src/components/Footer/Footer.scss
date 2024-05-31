@@ -175,10 +175,10 @@
   }
 
   .copyright {
+    width: 100%;
     display: inline-flex;
     justify-content: center;
-    margin-top: 40px;
-    margin-left: 40%;
+    margin: 40px auto 0 auto;
     font-size: $font-size-24px;
     color: #424244;
     text-decoration: none;
