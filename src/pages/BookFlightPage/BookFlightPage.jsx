@@ -13,6 +13,7 @@ import oneLanding from "/src/assets/one-landing.png";
 import twoLanding from "/src/assets/two-landing.png";
 import noLanding from "/src/assets/no-landing.png";
 import flights from "./flight.json";
+import editIcon from "/src/assets/edit-icon.png";
 
 import "./BookFlightPage.scss";
 
@@ -151,6 +152,13 @@ export function BookFlightPage() {
                 <img src={dropDownIcon} alt="Dropdown Icon" />
               </ul>
             </div>
+            <ul className="submitted-filter">
+              <li className="city-flight">
+                <p>Tbilisi-Paris</p>
+                <img src={editIcon} alt="Edit Icon" />
+              </li>
+              <p>One-Way, 1 adult</p>
+            </ul>
             <form
               onSubmit={(e) => e.preventDefault()}
               className="filter-by-location-grid"
