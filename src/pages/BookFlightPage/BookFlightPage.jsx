@@ -143,7 +143,7 @@ export function BookFlightPage() {
                 <img src={dropDownIcon} alt="Dropdown Icon" />
               </ul>
               <ul className="additional-filter-item">
-                <li>1 Adult</li>
+                <li>1&nbsp;Adult</li>
                 <img src={dropDownIcon} alt="Dropdown Icon" />
               </ul>
               <ul className="additional-filter-item">
@@ -314,41 +314,49 @@ export function BookFlightPage() {
                 <div className="flight-container">
                   {filterFlights.slice(0, showMore).map((flight) => {
                     return (
-                      <div key={flight.id} className="flight-details">
-                        <ul className="airlines-company">
-                          <img
-                            src={georgianAirlinesLogo}
-                            alt="Airlines Company Logo"
-                          />
-                          <li>Georgian Airlines</li>
-                        </ul>
-                        <div className="flight-take-off">
-                          <ul className="take-off-landing">
-                            <li>Take off</li>
-                            <li>Landing</li>
+                      <>
+                        <div key={flight.id} className="flight-details">
+                          <div className="flight-details-spacing">
+                            <ul className="airlines-company">
+                              <img
+                                src={georgianAirlinesLogo}
+                                alt="Airlines Company Logo"
+                              />
+                              <li>Georgian Airlines</li>
+                            </ul>
+                            <div className="flight-take-off">
+                              <ul className="take-off-landing">
+                                <li>Take off</li>
+                                <li>Landing</li>
+                              </ul>
+                              <ul className="take-off-time">
+                                <li>12:00</li>
+                                <li>19:00</li>
+                              </ul>
+                              <img
+                                src={handleLanding(flight.landing)}
+                                alt="Landing Image"
+                              />
+                            </div>
+                            <p className="flight-duration">
+                              {flight.duration}&nbsp;hours
+                            </p>
+                            <div className="flight-deal">
+                              <ul className="flight-price">
+                                <li>Price</li>
+                                <li>{`${flight.price}$`}</li>
+                              </ul>
+                              <button className="view-deal-button">
+                                View Deal
+                              </button>
+                            </div>
+                          </div>
+                          <ul className="flight-details-small-screens">
+                            <li>Price:{`${flight.price}$`}</li>
+                            <button>View Deal</button>
                           </ul>
-                          <ul className="take-off-time">
-                            <li>12:00</li>
-                            <li>19:00</li>
-                          </ul>
-                          <img
-                            src={handleLanding(flight.landing)}
-                            alt="Landing Image"
-                          />
                         </div>
-                        <p className="flight-duration">
-                          {flight.duration} hours
-                        </p>
-                        <div className="flight-deal">
-                          <ul className="flight-price">
-                            <li>Price</li>
-                            <li>{`${flight.price}$`}</li>
-                          </ul>
-                          <button className="view-deal-button">
-                            View Deal
-                          </button>
-                        </div>
-                      </div>
+                      </>
                     );
                   })}
                   {!hideShowMore && (

@@ -8,9 +8,13 @@
   justify-content: center;
 
   .book-flight {
-    width: 100%;
     max-width: 1920px;
     padding: 60px 170px;
+
+    @include xxxl {
+      width: 100%;
+      padding: 60px 40px;
+    }
 
     @include lg {
       padding: 30px 40px;
@@ -74,6 +78,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       margin-bottom: 20px;
+
+      @include sm {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+      }
 
       .additional-filter-item {
         max-width: 126px;
@@ -197,7 +206,19 @@
       grid-template-columns: 1fr 3fr;
       column-gap: 20px;
 
+      @include xxxl {
+        grid-template-columns: 25% 75%;
+      }
+
+      @include xxl {
+        grid-template-columns: 100%;
+      }
+
       .filter-flights {
+        @include xxl {
+          display: none;
+        }
+
         .filter-by-rating {
           padding: 20px 30px;
           background-color: #ffffff;
@@ -355,86 +376,183 @@
       .flight-container {
         .flight-details {
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: center;
           padding: 40px 131px;
           margin-bottom: 20px;
           background-color: #ffffff;
           border-radius: $border-radius-20px;
 
-          .airlines-company {
+          @include lg {
+            display: block;
+            padding: 30px 60px;
+          }
+
+          @include sm {
+            padding: 10px 30px;
+          }
+
+          .flight-details-spacing {
             display: flex;
             justify-content: center;
-            align-items: center;
-            flex-direction: column;
 
-            img {
-              margin-bottom: 10px;
-            }
-
-            li {
-              font-size: $font-size-20px;
-            }
-          }
-
-          .flight-take-off {
-            width: 400px;
-            max-width: 477px;
-            position: relative;
-
-            .take-off-landing {
+            .airlines-company {
               display: flex;
-              justify-content: space-between;
+              justify-content: center;
               align-items: center;
-              margin-bottom: 20px;
-              font-size: $font-size-24px;
-            }
+              flex-direction: column;
+              margin-right: 20px;
 
-            .take-off-time {
-              display: flex;
-              justify-content: space-between;
-              font-size: $font-size-24px;
-            }
+              img {
+                margin-bottom: 10px;
 
-            img {
-              width: 233px;
-              position: absolute;
-              top: 54px;
-              left: 22%;
-            }
-          }
+                @include md {
+                  width: 60px;
+                }
 
-          .flight-duration {
-            width: 120px;
-            height: 100px;
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            font-size: $font-size-24px;
-            color: #424244;
-            opacity: 0.6;
-          }
+                @include sm {
+                  width: 24px;
+                }
+              }
 
-          .flight-deal {
-            width: 173px;
-            max-width: 173px;
+              li {
+                font-size: $font-size-20px;
+                text-align: center;
 
-            .flight-price {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding-bottom: 20px;
-              margin-bottom: 20px;
-              font-size: $font-size-24px;
-              border-bottom: 1px solid RGBA(66, 66, 68, 0.6);
-
-              li:last-child {
-                font-weight: bold;
+                @include sm {
+                  text-align: center;
+                  font-size: $font-size-12px;
+                }
               }
             }
 
-            .view-deal-button {
+            .flight-take-off {
+              width: 400px;
+              max-width: 477px;
+              position: relative;
+
+              .take-off-landing {
+                width: 428px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+                font-size: $font-size-24px;
+
+                @include md {
+                  width: 260px;
+                }
+
+                @include sm {
+                  width: 200px;
+                  font-size: $font-size-18px;
+                }
+              }
+
+              .take-off-time {
+                display: flex;
+                justify-content: space-between;
+                font-size: $font-size-24px;
+
+                @include sm {
+                  font-size: $font-size-16px;
+                }
+              }
+
+              img {
+                width: 233px;
+                position: absolute;
+                top: 54px;
+                left: 22%;
+
+                @include md {
+                  width: 120px;
+                  top: 65px;
+                  left: 27%;
+                }
+
+                @include sm {
+                  width: 101px;
+                  top: 53px;
+                  left: 25%;
+                }
+              }
+            }
+
+            .flight-duration {
+              height: 89px;
+              padding-bottom: 10px;
+              margin: 0 20px;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              font-size: $font-size-24px;
+              color: #424244;
+              opacity: 0.6;
+
+              @include sm {
+                height: 73px;
+                padding-left: 10px;
+                margin: 0;
+                font-size: $font-size-16px;
+              }
+            }
+
+            .flight-deal {
+              width: 173px;
+              max-width: 173px;
+
+              @include lg {
+                display: none;
+              }
+
+              .flight-price {
+                display: flex;
+                align-items: center;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                font-size: $font-size-24px;
+                border-bottom: 1px solid RGBA(66, 66, 68, 0.6);
+
+                li:last-child {
+                  font-weight: bold;
+                  margin-left: 50px;
+                }
+              }
+
+              .view-deal-button {
+                width: 100%;
+                @include primary-button-mixin;
+                padding: 10px 30px;
+                background-color: #ff8c3e;
+                border-radius: $border-radius-10px;
+                font-size: $font-size-20px;
+                color: #424244;
+                font-weight: bold;
+              }
+
+              .view-deal-button:hover {
+                background-color: #eb7e34;
+              }
+            }
+          }
+
+          .flight-details-small-screens {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+
+            @include lg {
+              display: flex;
+            }
+
+            li {
+              margin: 16px 0;
+              font-size: $font-size-16px;
+              color: #424244;
+            }
+
+            button {
               width: 100%;
               @include primary-button-mixin;
               padding: 10px 30px;
@@ -445,7 +563,7 @@
               font-weight: bold;
             }
 
-            .view-deal-button:hover {
+            button:hover {
               background-color: #eb7e34;
             }
           }
