@@ -26,6 +26,7 @@ export function BookFlightPage() {
   const [loadAllFlights, setLoadAllFlights] = useState(false);
   const [currentFilter, setCurrentFilter] = useState("flights");
   const [showCards, setShowCards] = useState(false);
+  const [submitFilter, setSubmitFilter] = useState(false);
 
   useEffect(() => {
     setLoadAllFlights(true);
@@ -152,51 +153,60 @@ export function BookFlightPage() {
                 <img src={dropDownIcon} alt="Dropdown Icon" />
               </ul>
             </div>
-            <ul className="submitted-filter">
-              <li className="city-flight">
-                <p>Tbilisi-Paris</p>
-                <img src={editIcon} alt="Edit Icon" />
-              </li>
-              <p>One-Way, 1 adult</p>
-            </ul>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="filter-by-location-grid"
-            >
-              <ul className="filter-by-start">
-                <span className="start-city">
-                  <li>from</li>
-                  <p>Tbilisi</p>
-                  <img src={closeIcon} alt="Close Button" />
-                </span>
-                <li className="add-city">
-                  <img src={plusIcon} alt="Plus Icon" />
+            {submitFilter && (
+              <ul className="submitted-filter">
+                <li className="city-flight">
+                  <p>Tbilisi-Paris</p>
+                  <img
+                    onClick={() => setSubmitFilter(false)}
+                    src={editIcon}
+                    alt="Edit Icon"
+                  />
                 </li>
+                <p>One-Way, 1 adult</p>
               </ul>
-              <ul className="filter-by-finish">
-                <span className="finish-city">
-                  <li>to</li>
-                  <p>Paris</p>
-                </span>
-                <li className="add-finish-city">
-                  <img src={dropDownIcon} alt="Dropdown Icon" />
-                </li>
-              </ul>
-              <ul className="filter-by-calendar">
-                <li className="calendar-wrapper">
-                  <input type="date" />
-                </li>
-                <img src={plusIcon} alt="Plus Icon" />
-              </ul>
-              <button
-                onClick={() => {
-                  setShowCards(true);
-                }}
-                className="search-button"
+            )}
+            {!submitFilter && (
+              <form
+                onSubmit={(e) => e.preventDefault()}
+                className="filter-by-location-grid"
               >
-                Search
-              </button>
-            </form>
+                <ul className="filter-by-start">
+                  <span className="start-city">
+                    <li>from</li>
+                    <p>Tbilisi</p>
+                    <img src={closeIcon} alt="Close Button" />
+                  </span>
+                  <li className="add-city">
+                    <img src={plusIcon} alt="Plus Icon" />
+                  </li>
+                </ul>
+                <ul className="filter-by-finish">
+                  <span className="finish-city">
+                    <li>to</li>
+                    <p>Paris</p>
+                  </span>
+                  <li className="add-finish-city">
+                    <img src={dropDownIcon} alt="Dropdown Icon" />
+                  </li>
+                </ul>
+                <ul className="filter-by-calendar">
+                  <li className="calendar-wrapper">
+                    <input type="date" />
+                  </li>
+                  <img src={plusIcon} alt="Plus Icon" />
+                </ul>
+                <button
+                  onClick={() => {
+                    setShowCards(true);
+                    setSubmitFilter(true);
+                  }}
+                  className="search-button"
+                >
+                  Search
+                </button>
+              </form>
+            )}
             {showCards && (
               <div className="flights">
                 <aside className="filter-flights">
