@@ -166,6 +166,14 @@ export function BookFlightPage() {
                 <p>One-Way, 1 adult</p>
               </ul>
             )}
+            {submitFilter && (
+              <button
+                onClick={() => setSubmitFilter(false)}
+                className="enable-filter"
+              >
+                Filter
+              </button>
+            )}
             {!submitFilter && (
               <form
                 onSubmit={(e) => e.preventDefault()}
