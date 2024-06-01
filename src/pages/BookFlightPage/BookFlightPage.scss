@@ -20,6 +20,10 @@
       padding: 30px 40px;
     }
 
+    @include sm {
+      padding: 10px 20px;
+    }
+
     ul {
       list-style-type: none;
     }
@@ -80,8 +84,7 @@
       margin-bottom: 20px;
 
       @include sm {
-        grid-template-columns: 1fr;
-        row-gap: 10px;
+        display: none;
       }
 
       .additional-filter-item {
@@ -158,6 +161,12 @@
         .add-city,
         .add-finish-city {
           cursor: pointer;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .filter-by-finish {
+          padding: 26px 20px;
         }
       }
     }
