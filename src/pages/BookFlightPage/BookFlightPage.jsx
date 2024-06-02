@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 import Stays from "./Stays/Stays";
 
 import dropDownIcon from "/src/assets/dropdown-icon.png";
@@ -27,10 +28,21 @@ export function BookFlightPage() {
   const [currentFilter, setCurrentFilter] = useState("flights");
   const [showCards, setShowCards] = useState(false);
   const [submitFilter, setSubmitFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     setLoadAllFlights(true);
   }, []);
+
+  useEffect(() => {
+    if (width > 1349) {
+      setSubmitFilter(false);
+    } else {
+      setSubmitFilter(true);
+    }
+  }, [width]);
 
   const handleLanding = (landing) => {
     if (landing === 0) {
@@ -173,7 +185,7 @@ export function BookFlightPage() {
                 onClick={() => setSubmitFilter(false)}
                 className="enable-filter"
               >
-                Filter
+                Filters
               </button>
             )}
             {!submitFilter && (
