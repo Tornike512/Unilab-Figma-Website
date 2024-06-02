@@ -263,10 +263,6 @@
       }
 
       .filter-flights {
-        @include xxl {
-          display: none;
-        }
-
         .filter-by-rating {
           padding: 20px 30px;
           background-color: #ffffff;
