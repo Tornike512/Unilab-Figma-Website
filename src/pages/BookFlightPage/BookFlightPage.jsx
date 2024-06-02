@@ -139,20 +139,22 @@ export function BookFlightPage() {
         </div>
         {currentFilter === "flights" && (
           <>
-            <div className="additional-filter-grid">
-              <ul className="additional-filter-item">
-                <li>One-way</li>
-                <img src={dropDownIcon} alt="Dropdown Icon" />
-              </ul>
-              <ul className="additional-filter-item">
-                <li>1&nbsp;Adult</li>
-                <img src={dropDownIcon} alt="Dropdown Icon" />
-              </ul>
-              <ul className="additional-filter-item">
-                <li>Economy</li>
-                <img src={dropDownIcon} alt="Dropdown Icon" />
-              </ul>
-            </div>
+            {!submitFilter && (
+              <div className="additional-filter-grid">
+                <ul className="additional-filter-item">
+                  <li>One-way</li>
+                  <img src={dropDownIcon} alt="Dropdown Icon" />
+                </ul>
+                <ul className="additional-filter-item">
+                  <li>1&nbsp;Adult</li>
+                  <img src={dropDownIcon} alt="Dropdown Icon" />
+                </ul>
+                <ul className="additional-filter-item">
+                  <li>Economy</li>
+                  <img src={dropDownIcon} alt="Dropdown Icon" />
+                </ul>
+              </div>
+            )}
             {submitFilter && (
               <ul className="submitted-filter">
                 <li className="city-flight">

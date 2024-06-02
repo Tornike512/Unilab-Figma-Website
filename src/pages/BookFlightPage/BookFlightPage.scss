@@ -203,7 +203,7 @@
         }
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 720px) {
         .filter-by-finish {
           padding: 26px 20px;
         }
@@ -624,6 +624,11 @@
           padding: 22px 50px;
           font-size: $font-size-32px;
           font-weight: bold;
+
+          @include lg {
+            padding: 20px 40px;
+            font-size: $font-size-24px;
+          }
         }
 
         .more-results-button:hover {
