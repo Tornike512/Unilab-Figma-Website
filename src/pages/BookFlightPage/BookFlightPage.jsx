@@ -15,6 +15,7 @@ import twoLanding from "/src/assets/two-landing.png";
 import noLanding from "/src/assets/no-landing.png";
 import flights from "./flight.json";
 import editIcon from "/src/assets/edit-icon.png";
+import whiteLeftArrow from "/src/assets/white-left-arrow.png";
 
 import "./BookFlightPage.scss";
 
@@ -238,6 +239,10 @@ export function BookFlightPage() {
                 </button>
               </form>
             )}
+            <button className="quit-filter">
+              <img src={whiteLeftArrow} alt="White Left Arrow" />
+              Filters
+            </button>
             {showCards && (
               <div className="flights">
                 {showFilter && (
