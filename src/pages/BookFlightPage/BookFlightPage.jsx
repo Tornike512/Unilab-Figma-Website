@@ -31,6 +31,7 @@ export function BookFlightPage() {
   const [submitFilter, setSubmitFilter] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const [HideFlights, setHideFlights] = useState(false);
+  const [showQuitFilter, setShowQuitFilter] = useState(false);
 
   const { width } = useWindowSize();
 
@@ -47,6 +48,10 @@ export function BookFlightPage() {
       setHideFlights(false);
     }
   }, [width]);
+
+  useEffect(() => {
+    setShowQuitFilter(false);
+  }, []);
 
   const handleLanding = (landing) => {
     if (landing === 0) {
@@ -190,6 +195,7 @@ export function BookFlightPage() {
                   setSubmitFilter(false);
                   setShowFilter(true);
                   setHideFlights(true);
+                  setShowQuitFilter(true);
                 }}
                 className="enable-filter"
               >
@@ -232,6 +238,12 @@ export function BookFlightPage() {
                     if (width <= 1349) {
                       setSubmitFilter(true);
                     }
+                    if (showQuitFilter) {
+                      setSubmitFilter(true);
+                      setHideFlights(false);
+                      setShowQuitFilter(false);
+                      setShowFilter(false);
+                    }
                   }}
                   className="search-button"
                 >
@@ -239,10 +251,22 @@ export function BookFlightPage() {
                 </button>
               </form>
             )}
-            <button className="quit-filter">
-              <img src={whiteLeftArrow} alt="White Left Arrow" />
-              Filters
-            </button>
+            {showQuitFilter && (
+              <button
+                onClick={() => {
+                  setShowFilter(false);
+                  setHideFlights(false);
+                  setShowQuitFilter(false);
+                  if (showQuitFilter) {
+                    setSubmitFilter(true);
+                  }
+                }}
+                className="quit-filter"
+              >
+                <img src={whiteLeftArrow} alt="White Left Arrow" />
+                Filters
+              </button>
+            )}
             {showCards && (
               <div className="flights">
                 {showFilter && (
