@@ -9,6 +9,7 @@ import fourStars from "/src/assets/four-stars.png";
 import threeStars from "/src/assets/three-stars.png";
 import twoStars from "/src/assets/two-stars.png";
 import oneStar from "/src/assets/one-star.png";
+import whiteLeftArrow from "/src/assets/white-left-arrow.png";
 
 import "./Stays.scss";
 
@@ -19,11 +20,25 @@ export default function Stays() {
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
   const [loadStays, setLoadStays] = useState(false);
   const [hideSearchGrid, setHideSearchGrid] = useState(false);
-  const [showFilterButton, setShowFilterButton] = useState(false);
+  const [showFilterButton, setShowFilterButton] = useState("none");
+  const [showFilter, setShowFilter] = useState("block");
+  const [showStays, setShowStays] = useState("none");
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     setLoadAllStays(true);
   }, []);
+
+  useEffect(() => {
+    if (width >= 1200) {
+      setShowFilter("block");
+      setShowStays("block");
+    } else {
+      setShowFilter("none");
+      setShowStays("block");
+    }
+  }, [width]);
 
   const handleRatingStars = (stars) => {
     if (stars === 5) {
@@ -156,209 +171,236 @@ export default function Stays() {
   };
 
   return (
-    <section className="stays-section">
-      {!hideSearchGrid && (
-        <ul className="stays-main-filter-grid">
-          <li>
-            <span>
-              Choose city
-              <img
-                className="dropdown-icon"
-                src={dropDownIcon}
-                alt="Dropdown Icon"
-              />
-            </span>
-            <img src={plusIcon} alt="Plus Icon" />
-          </li>
-          <li className="stays-calendar">
-            <div className="calendar-wrapper">
-              <input type="date" />
-            </div>
-            <img src={plusIcon} alt="Plus Icon" />
-          </li>
-          <li>
-            <span>
-              2 Adults
-              <img
-                className="dropdown-icon"
-                src={dropDownIcon}
-                alt="Dropdown Icon"
-              />
-            </span>
-            <img src={plusIcon} alt="Plus Icon" />
-          </li>
-          <button
-            onClick={() => {
-              setLoadStays(true);
-              setHideSearchGrid(true);
-            }}
-            className="search-button"
-          >
-            Search
-          </button>
-        </ul>
-      )}
-      {loadStays && (
-        <div className="stays-grid">
-          <aside className="stays-filter-container">
-            <p className="filter-by-text">Filter by:</p>
-            <ul className="property-type">
-              <h3>Propety type</h3>
-              <li>
-                <input type="checkbox" />
-                <p>Hotel</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Apartment</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Villa</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Guest house</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Resort</p>
-              </li>
-              <nav>
-                <a href="#">Show all 15</a>
-              </nav>
-            </ul>
-            <ul className="propety-rating">
-              <h3>Property rating</h3>
-              <li>
-                <input onChange={removeFiveStarsRating} type="checkbox" />
-                <p>5 Stars</p>
-              </li>
-              <li>
-                <input onChange={removeFourStarsRating} type="checkbox" />
-                <p>4 Stars</p>
-              </li>
-              <li>
-                <input onChange={removeThreeStarsRating} type="checkbox" />
-                <p>3 Stars</p>
-              </li>
-              <li>
-                <input onChange={removeTwoStarsRating} type="checkbox" />
-                <p>2 Stars</p>
-              </li>
-              <li>
-                <input onChange={removeOneStarRating} type="checkbox" />
-                <p>1 Star</p>
-              </li>
-            </ul>
-            <ul className="facilities">
-              <h3>Facilities</h3>
-              <li>
-                <input type="checkbox" />
-                <p>Wifi</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Parking</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Pets allowed</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Fitness center</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Swimming pool</p>
-              </li>
-              <nav>
-                <a href="#">Show all 15</a>
-              </nav>
-            </ul>
-            <ul className="room-facilities">
-              <h3>Room facilities</h3>
-              <li>
-                <input type="checkbox" />
-                <p>Balcony</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>TV</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Kitchen</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Air conditioning</p>
-              </li>
-              <li>
-                <input type="checkbox" />
-                <p>Washing machine</p>
-              </li>
-              <nav>
-                <a href="#">Show all 15</a>
-              </nav>
-            </ul>
-          </aside>
-          <div className="properties">
-            <h2 className="found-properties">
-              Auckland, New Zealand: 2000 properties found
-            </h2>
-            <select className="sort-properties">
-              <option value="popular">Sort by: popular</option>
-              <option value="lowest-price">Sort by: lowest price</option>
-              <option value="highest-price">Sort by: highest price</option>
-              <option value="top-rated">Sort by: top rated</option>
-            </select>
-            <button className="filter-for-small-screens">Filters</button>
-            {filterByStars.slice(0, loadMoreStays).map((property) => {
-              return (
-                <div key={property.title} className="property-container">
-                  <img
-                    className="property-image"
-                    src={property.image}
-                    alt="Property Image"
-                  />
-                  <div className="property-info">
-                    <div className="location-details">
-                      <ul className="property-location">
-                        <h2>{property.title}</h2>
-                        <li>{property.location}</li>
-                        <li>{property.from_center}</li>
-                        <li>{property.description}</li>
-                      </ul>
-                      <ul className="property-details">
-                        <li>Rating:</li>
-                        <img
-                          src={handleRatingStars(property.rating)}
-                          alt="Property Rating By Stars"
-                        />
-                        <li>Price:</li>
-                        <li className="price">{`${property.price}$`}</li>
-                      </ul>
-                    </div>
-                    <button className="show-details-button">
-                      Show details
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-            {showLoadMoreButton && (
+    <>
+      <button
+        style={{ display: `${showFilterButton}` }}
+        className="quit-filter"
+        onClick={() => {
+          setShowFilter("none");
+          setShowStays("block");
+          setShowFilterButton("none");
+        }}
+      >
+        Filters
+        <img src={whiteLeftArrow} alt="White Left Arrow" />
+      </button>
+      <section className="stays-section">
+        {!hideSearchGrid && (
+          <ul className="stays-main-filter-grid">
+            <li>
+              <span>
+                Choose city
+                <img
+                  className="dropdown-icon"
+                  src={dropDownIcon}
+                  alt="Dropdown Icon"
+                />
+              </span>
+              <img src={plusIcon} alt="Plus Icon" />
+            </li>
+            <li className="stays-calendar">
+              <div className="calendar-wrapper">
+                <input type="date" />
+              </div>
+              <img src={plusIcon} alt="Plus Icon" />
+            </li>
+            <li>
+              <span>
+                2 Adults
+                <img
+                  className="dropdown-icon"
+                  src={dropDownIcon}
+                  alt="Dropdown Icon"
+                />
+              </span>
+              <img src={plusIcon} alt="Plus Icon" />
+            </li>
+            <button
+              onClick={() => {
+                setLoadStays(true);
+                setHideSearchGrid(true);
+              }}
+              className="search-button"
+            >
+              Search
+            </button>
+          </ul>
+        )}
+
+        {loadStays && (
+          <div className="stays-grid">
+            <aside
+              style={{ display: `${showFilter}` }}
+              className="stays-filter-container"
+            >
+              <p className="filter-by-text">Filter by:</p>
+              <ul className="property-type">
+                <h3>Propety type</h3>
+                <li>
+                  <input type="checkbox" />
+                  <p>Hotel</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Apartment</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Villa</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Guest house</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Resort</p>
+                </li>
+                <nav>
+                  <a href="#">Show all 15</a>
+                </nav>
+              </ul>
+              <ul className="propety-rating">
+                <h3>Property rating</h3>
+                <li>
+                  <input onChange={removeFiveStarsRating} type="checkbox" />
+                  <p>5 Stars</p>
+                </li>
+                <li>
+                  <input onChange={removeFourStarsRating} type="checkbox" />
+                  <p>4 Stars</p>
+                </li>
+                <li>
+                  <input onChange={removeThreeStarsRating} type="checkbox" />
+                  <p>3 Stars</p>
+                </li>
+                <li>
+                  <input onChange={removeTwoStarsRating} type="checkbox" />
+                  <p>2 Stars</p>
+                </li>
+                <li>
+                  <input onChange={removeOneStarRating} type="checkbox" />
+                  <p>1 Star</p>
+                </li>
+              </ul>
+              <ul className="facilities">
+                <h3>Facilities</h3>
+                <li>
+                  <input type="checkbox" />
+                  <p>Wifi</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Parking</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Pets allowed</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Fitness center</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Swimming pool</p>
+                </li>
+                <nav>
+                  <a href="#">Show all 15</a>
+                </nav>
+              </ul>
+              <ul className="room-facilities">
+                <h3>Room facilities</h3>
+                <li>
+                  <input type="checkbox" />
+                  <p>Balcony</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>TV</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Kitchen</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Air conditioning</p>
+                </li>
+                <li>
+                  <input type="checkbox" />
+                  <p>Washing machine</p>
+                </li>
+                <nav>
+                  <a href="#">Show all 15</a>
+                </nav>
+              </ul>
+            </aside>
+            <div style={{ display: `${showStays}` }} className="properties">
+              <h2 className="found-properties">
+                Auckland, New Zealand: 2000 properties found
+              </h2>
+              <select className="sort-properties">
+                <option value="popular">Sort by: popular</option>
+                <option value="lowest-price">Sort by: lowest price</option>
+                <option value="highest-price">Sort by: highest price</option>
+                <option value="top-rated">Sort by: top rated</option>
+              </select>
               <button
-                onClick={handleShowLoadMoreButton}
-                className="show-more-results"
+                onClick={() => {
+                  setShowFilter("block");
+                  setShowStays("none");
+                  setShowFilterButton("block");
+                }}
+                className="filter-for-small-screens"
               >
-                Show more results
+                Filters
               </button>
-            )}
+              {filterByStars.slice(0, loadMoreStays).map((property) => {
+                return (
+                  <div key={property.title} className="property-container">
+                    <img
+                      className="property-image"
+                      src={property.image}
+                      alt="Property Image"
+                    />
+                    <div className="property-info">
+                      <div className="location-details">
+                        <ul className="property-location">
+                          <h2>{property.title}</h2>
+                          <li>{property.location}</li>
+                          <li>{property.from_center}</li>
+                          <li>{property.description}</li>
+                        </ul>
+                        <ul className="property-details">
+                          <li>Rating:</li>
+                          <img
+                            src={handleRatingStars(property.rating)}
+                            alt="Property Rating By Stars"
+                          />
+                          <li>Price:</li>
+                          <li className="price">{`${property.price}$`}</li>
+                        </ul>
+                      </div>
+                      <button className="show-details-button">
+                        Show details
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+              {showLoadMoreButton && (
+                <button
+                  onClick={handleShowLoadMoreButton}
+                  className="show-more-results"
+                >
+                  Show more results
+                </button>
+              )}
+            </div>
           </div>
-        </div>
-      )}
-    </section>
+        )}
+      </section>
+    </>
   );
 }

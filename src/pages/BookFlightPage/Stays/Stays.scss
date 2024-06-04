@@ -59,6 +59,10 @@
       border-radius: 20px;
       font-size: 24px;
 
+      @include md {
+        padding: 20px 20px;
+      }
+
       .calendar-wrapper {
         display: flex;
         align-items: center;
@@ -85,6 +89,21 @@
     }
   }
 
+  .quit-filter {
+    @include primary-button-mixin;
+    width: 100%;
+    position: relative;
+    padding: 12px 40px;
+    margin-bottom: 20px;
+    font-size: $font-size-28px;
+
+    img {
+      position: absolute;
+      top: 15px;
+      left: 22px;
+    }
+  }
+
   .stays-grid {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -99,10 +118,6 @@
       padding: 20px 30px;
       background-color: #ffffff;
       border-radius: $border-radius-20px;
-
-      @include xl {
-        display: none;
-      }
 
       .filter-by-text {
         width: 116px;
@@ -260,6 +275,7 @@
               img {
                 @include md {
                   width: 120px;
+                  max-width: min-content;
                 }
               }
 
@@ -297,6 +313,11 @@
         margin-bottom: 20px;
         font-size: $font-size-32px;
         font-weight: bold;
+
+        @include lg {
+          padding: 12px 40px;
+          font-size: $font-size-28px;
+        }
       }
 
       .show-more-results:hover {
