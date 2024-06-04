@@ -190,6 +190,10 @@
         background-color: #ffffff;
         border-radius: $border-radius-20px;
 
+        @include md {
+          padding: 12px 20px;
+        }
+
         .property-image {
           margin-right: 20px;
           border-radius: $border-radius-20px;
@@ -204,9 +208,22 @@
             .property-location {
               padding-right: 50px;
 
+              @include md {
+                padding-right: 0;
+              }
+
               h2 {
                 font-size: $font-size-32px;
                 margin-bottom: 15px;
+
+                @include lg {
+                  white-space: nowrap;
+                }
+
+                @include md {
+                  font-size: $font-size-24px;
+                  white-space: pre-wrap;
+                }
               }
 
               li {
@@ -214,6 +231,10 @@
                 font-size: $font-size-22px;
                 color: #424244;
                 opacity: 0.8;
+
+                @include md {
+                  font-size: $font-size-16px;
+                }
               }
             }
 
@@ -223,9 +244,19 @@
               align-items: flex-end;
               justify-content: space-around;
 
+              img {
+                @include md {
+                  width: 120px;
+                }
+              }
+
               li {
                 margin-bottom: 10px;
                 font-size: $font-size-24px;
+
+                @include md {
+                  font-size: $font-size-18px;
+                }
               }
 
               .price {
