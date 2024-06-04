@@ -15,6 +15,10 @@
       row-gap: 20px;
     }
 
+    @include md {
+      grid-template-columns: 1fr;
+    }
+
     li {
       display: flex;
       justify-content: space-between;
@@ -181,6 +185,10 @@
         @include xl {
           padding-right: 40%;
         }
+
+        @include md {
+          width: 100%;
+        }
       }
 
       .property-container {
@@ -199,6 +207,11 @@
           border-radius: $border-radius-20px;
           object-fit: contain;
           cursor: pointer;
+
+          @include md {
+            width: 33%;
+            object-fit: cover;
+          }
         }
 
         .property-info {
