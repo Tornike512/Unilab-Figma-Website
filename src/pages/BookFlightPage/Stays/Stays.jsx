@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 import properties from "./property.json";
 
 import dropDownIcon from "/src/assets/dropdown-icon.png";
 import plusIcon from "/src/assets/plus-icon.png";
-import propertyImage from "/src/assets/property-image.png";
 import fiveStars from "/src/assets/five-stars.png";
 import fourStars from "/src/assets/four-stars.png";
 import threeStars from "/src/assets/three-stars.png";
@@ -18,6 +18,8 @@ export default function Stays() {
   const [loadMoreStays, setLoadMoreStays] = useState(5);
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
   const [loadStays, setLoadStays] = useState(false);
+  const [hideSearchGrid, setHideSearchGrid] = useState(false);
+  const [showFilterButton, setShowFilterButton] = useState(false);
 
   useEffect(() => {
     setLoadAllStays(true);
@@ -155,44 +157,47 @@ export default function Stays() {
 
   return (
     <section className="stays-section">
-      <ul className="stays-main-filter-grid">
-        <li>
-          <span>
-            Choose city
-            <img
-              className="dropdown-icon"
-              src={dropDownIcon}
-              alt="Dropdown Icon"
-            />
-          </span>
-          <img src={plusIcon} alt="Plus Icon" />
-        </li>
-        <li className="stays-calendar">
-          <div className="calendar-wrapper">
-            <input type="date" />
-          </div>
-          <img src={plusIcon} alt="Plus Icon" />
-        </li>
-        <li>
-          <span>
-            2 Adults
-            <img
-              className="dropdown-icon"
-              src={dropDownIcon}
-              alt="Dropdown Icon"
-            />
-          </span>
-          <img src={plusIcon} alt="Plus Icon" />
-        </li>
-        <button
-          onClick={() => {
-            setLoadStays(true);
-          }}
-          className="search-button"
-        >
-          Search
-        </button>
-      </ul>
+      {!hideSearchGrid && (
+        <ul className="stays-main-filter-grid">
+          <li>
+            <span>
+              Choose city
+              <img
+                className="dropdown-icon"
+                src={dropDownIcon}
+                alt="Dropdown Icon"
+              />
+            </span>
+            <img src={plusIcon} alt="Plus Icon" />
+          </li>
+          <li className="stays-calendar">
+            <div className="calendar-wrapper">
+              <input type="date" />
+            </div>
+            <img src={plusIcon} alt="Plus Icon" />
+          </li>
+          <li>
+            <span>
+              2 Adults
+              <img
+                className="dropdown-icon"
+                src={dropDownIcon}
+                alt="Dropdown Icon"
+              />
+            </span>
+            <img src={plusIcon} alt="Plus Icon" />
+          </li>
+          <button
+            onClick={() => {
+              setLoadStays(true);
+              setHideSearchGrid(true);
+            }}
+            className="search-button"
+          >
+            Search
+          </button>
+        </ul>
+      )}
       {loadStays && (
         <div className="stays-grid">
           <aside className="stays-filter-container">
@@ -309,6 +314,7 @@ export default function Stays() {
               <option value="highest-price">Sort by: highest price</option>
               <option value="top-rated">Sort by: top rated</option>
             </select>
+            <button className="filter-for-small-screens">Filters</button>
             {filterByStars.slice(0, loadMoreStays).map((property) => {
               return (
                 <div key={property.title} className="property-container">
