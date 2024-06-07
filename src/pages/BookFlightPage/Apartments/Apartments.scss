@@ -2,3 +2,39 @@
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
 @import "/src/sass/BreakPoints.scss";
+
+.apartment-section {
+  display: flex;
+
+  .apartment-info {
+    width: 50%;
+    margin-right: 20px;
+
+    .checkout-info {
+      padding: 20px 30px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      list-style-type: none;
+
+      h2 {
+        margin-bottom: 20px;
+        font-size: $font-size-28px;
+        font-weight: normal;
+      }
+
+      li {
+        label {
+          font-size: $font-size-16px;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 5px;
+          border: 1px solid #ff6700;
+        }
+      }
+    }
+  }
+}
