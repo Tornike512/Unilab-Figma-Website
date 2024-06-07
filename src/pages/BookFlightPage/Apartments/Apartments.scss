@@ -164,9 +164,10 @@
 
     .book-now {
       display: grid;
+      justify-content: center;
       grid-template-columns: 1fr 1fr 2fr;
       column-gap: 20px;
-      justify-content: center;
+      margin-bottom: 40px;
 
       .price-button,
       .total-price-button {
@@ -196,6 +197,11 @@
       .book-now-button:hover {
         background-color: $primary-button-hover-color;
       }
+    }
+
+    .apartment-description {
+      font-size: $font-size-18px;
+      color: rgba(66, 66, 68, 1);
     }
   }
 }
