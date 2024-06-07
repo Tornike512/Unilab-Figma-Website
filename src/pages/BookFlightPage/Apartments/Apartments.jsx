@@ -1,4 +1,5 @@
-import React from "react";
+import mapImage from "/src/assets/map-image.png";
+
 import "./Apartments.scss";
 
 export default function Apartments() {
@@ -25,7 +26,7 @@ export default function Apartments() {
             <label>Total 8 days</label>
           </li>
         </ul>
-        <img src="" alt="Apartment On Map" />
+        <img src={mapImage} alt="Apartment On Map" />
         <ul className="facilities">
           <h4>All the facilities:</h4>
           <li>Private pool</li>
