@@ -71,7 +71,7 @@ export default function Apartments() {
           <img src={hotelImage} alt="Apartment Photo" />
           <img src={hotelImage} alt="Apartment Photo" />
           <img src={hotelImage} alt="Apartment Photo" />
-          <div>
+          <div className="plus-15-images">
             <img src={hotelImage} alt="Plus 15 Apartment Photos" />
             <p>+ 15 Photos</p>
           </div>
