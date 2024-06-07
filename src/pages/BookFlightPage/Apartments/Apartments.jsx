@@ -1,4 +1,9 @@
 import mapImage from "/src/assets/map-image.png";
+import locationIcon from "/src/assets/location-logo.png";
+import fiveStars from "/src/assets/five-stars.png";
+import shareIcon from "/src/assets/share-icon.png";
+import heartIcon from "/src/assets/heart-icon.png";
+import hotelImage from "/src/assets/hotel-image.png";
 
 import "./Apartments.scss";
 
@@ -46,26 +51,28 @@ export default function Apartments() {
         </div>
         <ul className="apartment-address">
           <li className="address">
-            <img src="" alt="Location Icon" />
+            <img src={locationIcon} alt="Location Icon" />
             54 Street, Auckland, New Zealand
           </li>
           <li className="rating">
-            <img src="" alt="Heart Icon" />
-            <img src="" alt="Share Icon" />
-            <img src="" alt="Rating Stars" />
+            <img src={heartIcon} alt="Heart Icon" />
+            <img src={shareIcon} alt="Share Icon" />
+            <img src={fiveStars} alt="Rating Stars" />
           </li>
         </ul>
         <div className="apartment-grid">
-          <img src="" alt="Apartment Photo" />
-          <img src="" alt="Apartment Photo" />
-          <img src="" alt="Apartment Photo" />
+          <img src={hotelImage} alt="Apartment Photo" />
+          <div className="apartment-wrapper">
+            <img src={hotelImage} alt="Apartment Photo" />
+            <img src={hotelImage} alt="Apartment Photo" />
+          </div>
         </div>
         <div className="apartment-more-images-grid">
-          <img src="" alt="" />
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <img src={hotelImage} alt="Apartment Photo" />
+          <img src={hotelImage} alt="Apartment Photo" />
+          <img src={hotelImage} alt="Apartment Photo" />
           <div>
-            <img src="" alt="" />
+            <img src={hotelImage} alt="Plus 15 Apartment Photos" />
             <p>+ 15 Photos</p>
           </div>
         </div>
