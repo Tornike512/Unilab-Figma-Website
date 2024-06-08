@@ -1,3 +1,6 @@
 import { createContext } from "react";
 
-export const globalContext = createContext({});
+export const globalContext = createContext({
+  apartmentId: "",
+  setApartmentId: () => {},
+});

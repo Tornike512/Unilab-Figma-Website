@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { globalContext } from "/src/providers/globalProvider/globalContext.js";
+
 import mapImage from "/src/assets/map-image.png";
 import locationIcon from "/src/assets/location-logo.png";
 import fiveStars from "/src/assets/five-stars.png";
@@ -8,6 +11,8 @@ import hotelImage from "/src/assets/hotel-image.png";
 import "./Apartments.scss";
 
 export default function Apartments() {
+  const { ApartmentId } = useContext(globalContext);
+
   return (
     <section className="apartment-section">
       <aside className="apartment-info">
