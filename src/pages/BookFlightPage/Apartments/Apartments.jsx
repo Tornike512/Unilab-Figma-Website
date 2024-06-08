@@ -1,13 +1,37 @@
+import properties from "/src/pages/BookFlightPage/Stays/property.json";
+
 import mapImage from "/src/assets/map-image.png";
 import locationIcon from "/src/assets/location-logo.png";
 import fiveStars from "/src/assets/five-stars.png";
+import fourStars from "/src/assets/four-stars.png";
+import threeStars from "/src/assets/three-stars.png";
+import twoStars from "/src/assets/two-stars.png";
+import oneStar from "/src/assets/one-star.png";
 import shareIcon from "/src/assets/share-icon.png";
 import heartIcon from "/src/assets/heart-icon.png";
 import hotelImage from "/src/assets/hotel-image.png";
 
 import "./Apartments.scss";
 
-export default function Apartments() {
+export default function Apartments({ title }) {
+  const filterByTitle = properties.filter((property) => {
+    return property.title === title;
+  });
+
+  const handleRatingStars = (property) => {
+    if (property === 5) {
+      return fiveStars;
+    } else if (property === 4) {
+      return fourStars;
+    } else if (property === 3) {
+      return threeStars;
+    } else if (property === 2) {
+      return twoStars;
+    } else if (property === 1) {
+      return oneStar;
+    }
+  };
+
   return (
     <section className="apartment-section">
       <aside className="apartment-info">
@@ -44,52 +68,55 @@ export default function Apartments() {
           <li>Private gym</li>
         </ul>
       </aside>
-      <div className="apartment">
-        <div className="apartment-title">
-          <h2>New Zealand Resort</h2>
-          <p>Rating:</p>
-        </div>
-        <ul className="apartment-address">
-          <li className="address">
-            <img src={locationIcon} alt="Location Icon" />
-            54 Street, Auckland, New Zealand
-          </li>
-          <li className="rating">
-            <img src={heartIcon} alt="Heart Icon" />
-            <img src={shareIcon} alt="Share Icon" />
-            <img src={fiveStars} alt="Rating Stars" />
-          </li>
-        </ul>
-        <div className="apartment-grid">
-          <img src={hotelImage} alt="Apartment Photo" />
-          <div className="apartment-wrapper">
-            <img src={hotelImage} alt="Apartment Photo" />
-            <img src={hotelImage} alt="Apartment Photo" />
+      {filterByTitle.map((property) => {
+        console.log(property.rating);
+        return (
+          <div key={property.title} className="apartment">
+            <div className="apartment-title">
+              <h2>{property.title}</h2>
+              <p>Rating:</p>
+            </div>
+            <ul className="apartment-address">
+              <li className="address">
+                <img src={locationIcon} alt="Location Icon" />
+                54 Street, Auckland, New Zealand
+              </li>
+              <li className="rating">
+                <img src={heartIcon} alt="Heart Icon" />
+                <img src={shareIcon} alt="Share Icon" />
+                <img
+                  src={handleRatingStars(property.rating)}
+                  alt="Rating Stars"
+                />
+              </li>
+            </ul>
+            <div className="apartment-grid">
+              <img src={property.image} alt="Apartment Photo" />
+              <div className="apartment-wrapper">
+                <img src={property.image} alt="Apartment Photo" />
+                <img src={property.image} alt="Apartment Photo" />
+              </div>
+            </div>
+            <div className="apartment-more-images-grid">
+              <img src={property.image} alt="Apartment Photo" />
+              <img src={property.image} alt="Apartment Photo" />
+              <img src={property.image} alt="Apartment Photo" />
+              <div className="plus-15-images">
+                <img src={property.image} alt="Plus 15 Apartment Photos" />
+                <p>+ 15 Photos</p>
+              </div>
+            </div>
+            <div className="book-now">
+              <button className="price-button">
+                Price: {property.price}${" "}
+              </button>
+              <button className="total-price-button">Total price: 3200$</button>
+              <button className="book-now-button">Book now</button>
+            </div>
+            <p className="apartment-description">{property.description}</p>
           </div>
-        </div>
-        <div className="apartment-more-images-grid">
-          <img src={hotelImage} alt="Apartment Photo" />
-          <img src={hotelImage} alt="Apartment Photo" />
-          <img src={hotelImage} alt="Apartment Photo" />
-          <div className="plus-15-images">
-            <img src={hotelImage} alt="Plus 15 Apartment Photos" />
-            <p>+ 15 Photos</p>
-          </div>
-        </div>
-        <div className="book-now">
-          <button className="price-button">Price: 400$ </button>
-          <button className="total-price-button">Total price: 3200$</button>
-          <button className="book-now-button">Book now</button>
-        </div>
-        <p className="apartment-description">
-          Near beach, with private beach area and private pool. Property has
-          terrace, kitchen, 1 master bedroom, 2 bathrooms, living room,
-          backyard, kids play space and private billiard room, where refined
-          leisure and competitive spirit converge seamlessly. Experience a
-          retreat like no other, where every corner exudes elegance, making your
-          stay a harmonious blend of indulgence and relaxation.
-        </p>
-      </div>
+        );
+      })}
     </section>
   );
 }

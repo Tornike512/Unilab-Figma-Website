@@ -25,6 +25,7 @@ export default function Stays() {
   const [showFilter, setShowFilter] = useState("block");
   const [showStays, setShowStays] = useState("none");
   const [showApartment, setShowApartment] = useState(false);
+  const [apartmentTitle, setApartmentTitle] = useState("");
 
   const { width } = useWindowSize();
 
@@ -364,7 +365,7 @@ export default function Stays() {
                     <div key={property.title} className="property-container">
                       <img
                         onClick={() => {
-                          setApartmentId(property.id);
+                          setApartmentTitle(property.title);
                           setShowApartment(true);
                         }}
                         className="property-image"
@@ -392,7 +393,7 @@ export default function Stays() {
                         <button
                           onClick={() => {
                             setShowApartment(true);
-                            setApartmentId(property.id);
+                            setApartmentTitle(property.title);
                           }}
                           className="show-details-button"
                         >
@@ -415,7 +416,7 @@ export default function Stays() {
           )}
         </section>
       ) : (
-        <Apartments />
+        <Apartments title={apartmentTitle} />
       )}
     </>
   );
