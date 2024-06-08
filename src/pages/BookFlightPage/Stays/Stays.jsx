@@ -363,6 +363,10 @@ export default function Stays() {
                   return (
                     <div key={property.title} className="property-container">
                       <img
+                        onClick={() => {
+                          setApartmentId(property.id);
+                          setShowApartment(true);
+                        }}
                         className="property-image"
                         src={property.image}
                         alt="Property Image"
@@ -388,6 +392,7 @@ export default function Stays() {
                         <button
                           onClick={() => {
                             setShowApartment(true);
+                            setApartmentId(property.id);
                           }}
                           className="show-details-button"
                         >
