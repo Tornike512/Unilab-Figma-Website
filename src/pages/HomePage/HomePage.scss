@@ -11,7 +11,11 @@
   color: $primary-text-color;
 
   .home-page-main-image {
-    height: 585px;
+    height: 800px;
+
+    @include xxl {
+      height: 585px;
+    }
 
     @include md {
       height: 250px;
@@ -150,7 +154,7 @@
 
   .home-page-main-text {
     position: absolute;
-    top: 5%;
+    top: 8%;
     left: 50%;
     transform: translate(-50%, -66%);
     color: $secondary-text-color;
