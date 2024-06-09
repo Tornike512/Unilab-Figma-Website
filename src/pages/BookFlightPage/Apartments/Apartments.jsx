@@ -114,6 +114,7 @@ export default function Apartments({ title }) {
               <button className="book-now-button">Book now</button>
             </div>
             <p className="apartment-description">{property.description}</p>
+            <a className="show-more">Show more</a>
           </div>
         );
       })}

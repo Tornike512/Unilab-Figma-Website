@@ -4,7 +4,9 @@
 @import "/src/sass/BreakPoints.scss";
 
 .apartment-section {
+  max-width: 1349px;
   display: flex;
+  margin: 0 auto;
 
   .apartment-info {
     width: 40%;
@@ -36,7 +38,6 @@
         }
       }
     }
-
     img {
       width: 100%;
       margin: 20px 0;
@@ -203,8 +204,19 @@
     }
 
     .apartment-description {
+      margin-bottom: 40px;
       font-size: $font-size-18px;
       color: rgba(66, 66, 68, 1);
+    }
+
+    .show-more {
+      font-size: $font-size-20px;
+      color: rgba(200, 81, 0, 1);
+      cursor: pointer;
+    }
+
+    .show-more:hover {
+      text-decoration: underline;
     }
   }
 }
