@@ -79,6 +79,17 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px;
+
+      @include md {
+        display: block;
+        font-size: $font-size-20px;
+      }
+
+      h2 {
+        @include md {
+          margin-bottom: 10px;
+        }
+      }
     }
 
     .apartment-address {
@@ -86,6 +97,11 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+
+      @include md {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
 
       .address {
         display: flex;
@@ -105,6 +121,10 @@
         img {
           margin-right: 20px;
           cursor: pointer;
+
+          @include md {
+            padding-bottom: 10px;
+          }
         }
 
         img:last-child {
