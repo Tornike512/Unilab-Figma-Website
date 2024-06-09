@@ -1,3 +1,4 @@
+import { useState } from "react";
 import properties from "/src/pages/BookFlightPage/Stays/property.json";
 
 import mapImage from "/src/assets/map-image.png";
@@ -9,11 +10,12 @@ import twoStars from "/src/assets/two-stars.png";
 import oneStar from "/src/assets/one-star.png";
 import shareIcon from "/src/assets/share-icon.png";
 import heartIcon from "/src/assets/heart-icon.png";
-import hotelImage from "/src/assets/hotel-image.png";
 
 import "./Apartments.scss";
 
 export default function Apartments({ title }) {
+  const [showMore, setShowMore] = useState();
+
   const filterByTitle = properties.filter((property) => {
     return property.title === title;
   });
@@ -32,9 +34,11 @@ export default function Apartments({ title }) {
     }
   };
 
+  console.log(showMore);
+
   return (
     <section className="apartment-section">
-      <aside className="apartment-info">
+      <aside style={{ display: `${showMore}` }} className="apartment-info">
         <ul className="checkout-info">
           <h2>Searched by:</h2>
           <li>
@@ -98,8 +102,16 @@ export default function Apartments({ title }) {
               </div>
             </div>
             <div className="apartment-more-images-grid">
-              <img src={property.image} alt="Apartment Photo" />
-              <img src={property.image} alt="Apartment Photo" />
+              <img
+                className="first-apartment"
+                src={property.image}
+                alt="Apartment Photo"
+              />
+              <img
+                className="second-apartment"
+                src={property.image}
+                alt="Apartment Photo"
+              />
               <img src={property.image} alt="Apartment Photo" />
               <div className="plus-15-images">
                 <img src={property.image} alt="Plus 15 Apartment Photos" />
@@ -114,7 +126,11 @@ export default function Apartments({ title }) {
               <button className="book-now-button">Book now</button>
             </div>
             <p className="apartment-description">{property.description}</p>
-            <a className="show-more">Show more</a>
+            {showMore === undefined && (
+              <p onClick={() => setShowMore("block")} className="show-more">
+                Show more
+              </p>
+            )}
           </div>
         );
       })}
