@@ -69,6 +69,19 @@
       border: none;
       border-radius: 50%;
       cursor: pointer;
+
+      input {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        position: absolute;
+        color: transparent;
+        cursor: pointer;
+      }
+
+      input::-webkit-file-upload-button {
+        display: none;
+      }
     }
 
     .upload-image:hover {

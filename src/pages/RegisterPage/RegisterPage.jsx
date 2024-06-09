@@ -28,7 +28,7 @@ export function RegisterPage() {
   const [emailWarning, setEmailWarning] = useState(false);
   const [passwordWarning, setPasswordWarning] = useState(false);
   const [confirmPasswordWarning, setConfirmPasswordWarning] = useState(false);
-
+  const [uploadImage, setUploadImage] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,6 +70,29 @@ export function RegisterPage() {
       setLastNameWarning(true);
     }
   };
+
+  const handleImage = (e) => {
+    setUploadImage(e.target.files[0]);
+  };
+
+  const handleUpload = () => {
+    const formData = new FormData();
+
+    formData.append("file", file);
+    fetch("url", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("success", result);
+      })
+      .catch((error) => {
+        console.error("error:", error);
+      });
+  };
+
+  console.log(uploadImage, "uploadimage");
 
   return (
     <section className="register">
@@ -178,9 +201,20 @@ export function RegisterPage() {
               <span className="warning">Passwords do not match</span>
             )}
           </div>
-          <button className="upload-image">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleUpload();
+            }}
+            className="upload-image"
+          >
+            <input
+              onChange={(e) => handleImage(e)}
+              type="file"
+              accept="image/png, image/jpeg"
+            />
             <img src={cameraLogo} alt="Camera Image" />
-          </button>
+          </form>
           <button onClick={registerValidation} className="register-button">
             Continue
           </button>
