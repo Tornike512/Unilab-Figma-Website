@@ -28,7 +28,8 @@ export function RegisterPage() {
   const [emailWarning, setEmailWarning] = useState(false);
   const [passwordWarning, setPasswordWarning] = useState(false);
   const [confirmPasswordWarning, setConfirmPasswordWarning] = useState(false);
-  const [uploadImage, setUploadImage] = useState(null);
+  const [uploadImage, setUploadImage] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,33 +72,30 @@ export function RegisterPage() {
     }
   };
 
-  const handleImage = (e) => {
-    setUploadImage(e.target.files[0]);
+  const handleSelectImage = (e) => {
+    const file = e.target.files?.[0];
+
+    if (!file) {
+      console.log("file doesn't exist");
+    }
+
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+      const imageUrl = reader.result?.toString() || "";
+      setUploadImage(imageUrl);
+    });
+    reader.readAsDataURL(file);
   };
-
-  const handleUpload = () => {
-    const formData = new FormData();
-
-    formData.append("file", file);
-    fetch("url", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("success", result);
-      })
-      .catch((error) => {
-        console.error("error:", error);
-      });
-  };
-
-  console.log(uploadImage, "uploadimage");
+  console.log("image url", uploadImage);
 
   return (
     <section className="register">
       <div className="register-container">
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <div className="first-name-input">
             <label>First name</label>
             <input
@@ -201,20 +199,17 @@ export function RegisterPage() {
               <span className="warning">Passwords do not match</span>
             )}
           </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleUpload();
-            }}
-            className="upload-image"
-          >
+          <div className="upload-image">
             <input
-              onChange={(e) => handleImage(e)}
+              onChange={handleSelectImage}
               type="file"
               accept="image/png, image/jpeg"
             />
-            <img src={cameraLogo} alt="Camera Image" />
-          </form>
+            {uploadImage === "" && <img src={cameraLogo} alt="Camera Image" />}
+            {uploadImage !== "" && (
+              <img className="uploaded-image" src={uploadImage} alt="" />
+            )}
+          </div>
           <button onClick={registerValidation} className="register-button">
             Continue
           </button>
