@@ -2,3 +2,48 @@
 @import "/src/sass/Mixins.scss";
 @import "/src/sass/Variables.scss";
 @import "/src/sass/BreakPoints.scss";
+
+.small-login-modal {
+  padding: 8px 46px;
+  position: absolute;
+  top: 40%;
+  right: 3%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  list-style-type: none;
+  z-index: 2;
+
+  .sign-in {
+    img {
+      position: absolute;
+      right: 10%;
+      top: 5%;
+      cursor: pointer;
+    }
+  }
+
+  .sign-in:hover {
+    p:hover {
+      color: $tertiary-text-color;
+    }
+  }
+  .sign-up {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(66, 66, 68, 1);
+  }
+
+  li {
+    display: table;
+    padding: 8px 0;
+    font-size: $font-size-18px;
+    cursor: pointer;
+  }
+
+  li:not(:first-child):hover {
+    color: $tertiary-text-color;
+  }
+
+  li:last-child {
+    margin: 0;
+  }
+}

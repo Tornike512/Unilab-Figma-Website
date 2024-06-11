@@ -6,7 +6,8 @@ export function SmallLoginModal() {
   return (
     <ul className="small-login-modal">
       <li className="sign-in">
-        Sign in <img src={blackCloseIcon} alt="Black Close Icon" />
+        <p>Sign in </p>
+        <img src={blackCloseIcon} alt="Black Close Icon" />
       </li>
       <li className="sign-up">Sign Up</li>
       <li>Home</li>
