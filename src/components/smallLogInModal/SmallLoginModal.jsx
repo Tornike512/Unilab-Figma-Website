@@ -1,8 +1,10 @@
+import { useState } from "react";
 import blackCloseIcon from "/src/assets/black-close-icon.png";
 
 import "./SmallLoginModal.scss";
 
-export function SmallLoginModal() {
+export function SmallLoginModal({ showModal }) {
+  const [closeModal, setCloseModal] = useState(false);
   return (
     <ul className="small-login-modal">
       <li className="sign-in">

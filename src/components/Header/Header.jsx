@@ -11,6 +11,7 @@ import "./Header.scss";
 
 export function Header() {
   const [showSignInModal, setShowSignInModal] = useState(false);
+  const [showSmallModal, setShowSmallModal] = useState(true);
 
   const storedAuthorized = JSON.parse(localStorage.getItem("signed in"));
 
@@ -28,7 +29,7 @@ export function Header() {
         <h1 onClick={() => navigate(`/`)} className="website-name">
           ExploreEra
         </h1>
-        <SmallLoginModal />
+        {showSmallModal && <SmallLoginModal showModal={showSmallModal} />}
         <nav className="navigation">
           <ul className="navigation-list">
             {headerNavigation.navigation.map((nav) => {
@@ -52,7 +53,12 @@ export function Header() {
               src={userLogoWhite}
               alt="User Logo White"
             />
-            <img className="menu-icon" src={menuIcon} alt="Menu Icon" />
+            <img
+              onClick={() => setShowSmallModal(true)}
+              className="menu-icon"
+              src={menuIcon}
+              alt="Menu Icon"
+            />
           </>
         </nav>
       </div>
