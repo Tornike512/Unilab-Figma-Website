@@ -1,1 +1,1 @@
-export { smallLoginModal } from "./smallLoginModal";
+export { SmallLoginModal } from "./SmallLoginModal";

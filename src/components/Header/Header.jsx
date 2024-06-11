@@ -1,5 +1,6 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { SmallLoginModal } from "/src/components/SmallLoginModal";
 
 import headerNavigation from "./Header.json";
 
@@ -27,6 +28,7 @@ export function Header() {
         <h1 onClick={() => navigate(`/`)} className="website-name">
           ExploreEra
         </h1>
+        <SmallLoginModal />
         <nav className="navigation">
           <ul className="navigation-list">
             {headerNavigation.navigation.map((nav) => {
@@ -50,12 +52,7 @@ export function Header() {
               src={userLogoWhite}
               alt="User Logo White"
             />
-            <img
-              className="menu-icon"
-              onClick={() => navigate(`/signin`)}
-              src={menuIcon}
-              alt="Menu Icon"
-            />
+            <img className="menu-icon" src={menuIcon} alt="Menu Icon" />
           </>
         </nav>
       </div>
