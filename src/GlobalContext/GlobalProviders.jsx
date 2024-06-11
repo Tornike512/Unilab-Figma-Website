@@ -3,8 +3,9 @@ import { GlobalContext } from "./GlobalContext";
 
 export function GlobalProvider({ children }) {
   const [showSmallModal, setShowSmallModal] = useState(true);
+
   return (
-    <GlobalContext.Provider value={(showSmallModal, setShowSmallModal)}>
+    <GlobalContext.Provider value={{ showSmallModal, setShowSmallModal }}>
       {children}
     </GlobalContext.Provider>
   );

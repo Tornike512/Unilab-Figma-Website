@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SmallLoginModal } from "/src/components/SmallLoginModal";
+import { GlobalContext } from "/src/GlobalContext";
 
 import headerNavigation from "./Header.json";
 
@@ -11,7 +12,8 @@ import "./Header.scss";
 
 export function Header() {
   const [showSignInModal, setShowSignInModal] = useState(false);
-  const [showSmallModal, setShowSmallModal] = useState(true);
+
+  const { showSmallModal, setShowSmallModal } = useContext(GlobalContext);
 
   const storedAuthorized = JSON.parse(localStorage.getItem("signed in"));
 
@@ -23,13 +25,14 @@ export function Header() {
     setShowSignInModal(false);
   };
 
+  console.log(showSmallModal, "header");
   return (
     <header className="header">
       <div className="header-wrapper">
         <h1 onClick={() => navigate(`/`)} className="website-name">
           ExploreEra
         </h1>
-        {showSmallModal && <SmallLoginModal showModal={showSmallModal} />}
+        {showSmallModal && <SmallLoginModal />}
         <nav className="navigation">
           <ul className="navigation-list">
             {headerNavigation.navigation.map((nav) => {
